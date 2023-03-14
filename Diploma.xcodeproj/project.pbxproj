@@ -14,6 +14,7 @@
 		9963A0F629C0ADDC00D0B255 /* DiplomaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9963A0F529C0ADDC00D0B255 /* DiplomaTests.swift */; };
 		9963A10029C0ADDC00D0B255 /* DiplomaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9963A0FF29C0ADDC00D0B255 /* DiplomaUITests.swift */; };
 		9963A10229C0ADDC00D0B255 /* DiplomaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9963A10129C0ADDC00D0B255 /* DiplomaUITestsLaunchTests.swift */; };
+		9963A10F29C0BE4D00D0B255 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9963A10E29C0BE4D00D0B255 /* MainView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		9963A0FB29C0ADDC00D0B255 /* DiplomaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DiplomaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9963A0FF29C0ADDC00D0B255 /* DiplomaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiplomaUITests.swift; sourceTree = "<group>"; };
 		9963A10129C0ADDC00D0B255 /* DiplomaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiplomaUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9963A10E29C0BE4D00D0B255 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				9963A0E629C0ADDA00D0B255 /* ContentView.swift */,
 				9963A0E829C0ADDC00D0B255 /* Assets.xcassets */,
 				9963A0EA29C0ADDC00D0B255 /* Preview Content */,
+				9963A10E29C0BE4D00D0B255 /* MainView.swift */,
 			);
 			path = Diploma;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9963A0E729C0ADDA00D0B255 /* ContentView.swift in Sources */,
+				9963A10F29C0BE4D00D0B255 /* MainView.swift in Sources */,
 				9963A0E529C0ADDA00D0B255 /* DiplomaApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
