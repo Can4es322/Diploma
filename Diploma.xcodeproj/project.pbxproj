@@ -7,14 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		996154A429C207C100A5095F /* ExtensionSizeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996154A329C207C100A5095F /* ExtensionSizeScreen.swift */; };
+		996154A729C2091200A5095F /* CustomBackgroundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996154A629C2091200A5095F /* CustomBackgroundButton.swift */; };
+		996154A929C20F0300A5095F /* CustomBorderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996154A829C20F0300A5095F /* CustomBorderButton.swift */; };
+		996154AB29C213CB00A5095F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996154AA29C213CB00A5095F /* LoginView.swift */; };
+		996154AD29C213D500A5095F /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996154AC29C213D500A5095F /* RegistrationView.swift */; };
+		996154AF29C2140F00A5095F /* DismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996154AE29C2140F00A5095F /* DismissButton.swift */; };
+		996154B129C2198D00A5095F /* CustomBackgroundTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996154B029C2198D00A5095F /* CustomBackgroundTextField.swift */; };
+		996154B329C219F300A5095F /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996154B229C219F300A5095F /* LoginViewModel.swift */; };
+		996154B529C21D0500A5095F /* CustomPasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996154B429C21D0500A5095F /* CustomPasswordTextField.swift */; };
+		996154B729C227FF00A5095F /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996154B629C227FF00A5095F /* RegistrationViewModel.swift */; };
 		9963A0E529C0ADDA00D0B255 /* DiplomaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9963A0E429C0ADDA00D0B255 /* DiplomaApp.swift */; };
-		9963A0E729C0ADDA00D0B255 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9963A0E629C0ADDA00D0B255 /* ContentView.swift */; };
+		9963A0E729C0ADDA00D0B255 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9963A0E629C0ADDA00D0B255 /* SplashScreen.swift */; };
 		9963A0E929C0ADDC00D0B255 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9963A0E829C0ADDC00D0B255 /* Assets.xcassets */; };
 		9963A0EC29C0ADDC00D0B255 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9963A0EB29C0ADDC00D0B255 /* Preview Assets.xcassets */; };
 		9963A0F629C0ADDC00D0B255 /* DiplomaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9963A0F529C0ADDC00D0B255 /* DiplomaTests.swift */; };
 		9963A10029C0ADDC00D0B255 /* DiplomaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9963A0FF29C0ADDC00D0B255 /* DiplomaUITests.swift */; };
 		9963A10229C0ADDC00D0B255 /* DiplomaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9963A10129C0ADDC00D0B255 /* DiplomaUITestsLaunchTests.swift */; };
 		9963A10F29C0BE4D00D0B255 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9963A10E29C0BE4D00D0B255 /* MainView.swift */; };
+		99B3C56729C30E6300FC581D /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B3C56629C30E6300FC581D /* BottomSheetView.swift */; };
+		99B3C56929C319E400FC581D /* CustomCommonTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B3C56829C319E400FC581D /* CustomCommonTextField.swift */; };
+		99B3C56B29C3240100FC581D /* CustomDropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B3C56A29C3240100FC581D /* CustomDropDown.swift */; };
+		99C625D729C0CEDA005C5801 /* AuthorizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C625D629C0CEDA005C5801 /* AuthorizationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,9 +49,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		996154A329C207C100A5095F /* ExtensionSizeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionSizeScreen.swift; sourceTree = "<group>"; };
+		996154A629C2091200A5095F /* CustomBackgroundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackgroundButton.swift; sourceTree = "<group>"; };
+		996154A829C20F0300A5095F /* CustomBorderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBorderButton.swift; sourceTree = "<group>"; };
+		996154AA29C213CB00A5095F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		996154AC29C213D500A5095F /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
+		996154AE29C2140F00A5095F /* DismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissButton.swift; sourceTree = "<group>"; };
+		996154B029C2198D00A5095F /* CustomBackgroundTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackgroundTextField.swift; sourceTree = "<group>"; };
+		996154B229C219F300A5095F /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		996154B429C21D0500A5095F /* CustomPasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPasswordTextField.swift; sourceTree = "<group>"; };
+		996154B629C227FF00A5095F /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 		9963A0E129C0ADDA00D0B255 /* Diploma.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diploma.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9963A0E429C0ADDA00D0B255 /* DiplomaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiplomaApp.swift; sourceTree = "<group>"; };
-		9963A0E629C0ADDA00D0B255 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		9963A0E629C0ADDA00D0B255 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		9963A0E829C0ADDC00D0B255 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9963A0EB29C0ADDC00D0B255 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9963A0F129C0ADDC00D0B255 /* DiplomaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DiplomaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,6 +70,11 @@
 		9963A0FF29C0ADDC00D0B255 /* DiplomaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiplomaUITests.swift; sourceTree = "<group>"; };
 		9963A10129C0ADDC00D0B255 /* DiplomaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiplomaUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		9963A10E29C0BE4D00D0B255 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		99B3C56629C30E6300FC581D /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
+		99B3C56829C319E400FC581D /* CustomCommonTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCommonTextField.swift; sourceTree = "<group>"; };
+		99B3C56A29C3240100FC581D /* CustomDropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDropDown.swift; sourceTree = "<group>"; };
+		99C625D029C0CDDF005C5801 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		99C625D629C0CEDA005C5801 /* AuthorizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +102,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		996154A229C207A800A5095F /* Heplers */ = {
+			isa = PBXGroup;
+			children = (
+				996154A329C207C100A5095F /* ExtensionSizeScreen.swift */,
+			);
+			path = Heplers;
+			sourceTree = "<group>";
+		};
+		996154A529C208F000A5095F /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				996154A629C2091200A5095F /* CustomBackgroundButton.swift */,
+				996154A829C20F0300A5095F /* CustomBorderButton.swift */,
+				996154AE29C2140F00A5095F /* DismissButton.swift */,
+				996154B029C2198D00A5095F /* CustomBackgroundTextField.swift */,
+				996154B429C21D0500A5095F /* CustomPasswordTextField.swift */,
+				99B3C56829C319E400FC581D /* CustomCommonTextField.swift */,
+				99B3C56A29C3240100FC581D /* CustomDropDown.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		9963A0D829C0ADDA00D0B255 = {
 			isa = PBXGroup;
 			children = (
@@ -96,11 +147,15 @@
 		9963A0E329C0ADDA00D0B255 /* Diploma */ = {
 			isa = PBXGroup;
 			children = (
+				99C625D029C0CDDF005C5801 /* Info.plist */,
+				996154A529C208F000A5095F /* Components */,
+				996154A229C207A800A5095F /* Heplers */,
+				99C625D229C0CEA1005C5801 /* Main */,
+				99C625D129C0CE99005C5801 /* Authorization */,
 				9963A0E429C0ADDA00D0B255 /* DiplomaApp.swift */,
-				9963A0E629C0ADDA00D0B255 /* ContentView.swift */,
+				9963A0E629C0ADDA00D0B255 /* SplashScreen.swift */,
 				9963A0E829C0ADDC00D0B255 /* Assets.xcassets */,
 				9963A0EA29C0ADDC00D0B255 /* Preview Content */,
-				9963A10E29C0BE4D00D0B255 /* MainView.swift */,
 			);
 			path = Diploma;
 			sourceTree = "<group>";
@@ -128,6 +183,75 @@
 				9963A10129C0ADDC00D0B255 /* DiplomaUITestsLaunchTests.swift */,
 			);
 			path = DiplomaUITests;
+			sourceTree = "<group>";
+		};
+		99C625D129C0CE99005C5801 /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				99C625D529C0CEC0005C5801 /* Model */,
+				99C625D429C0CEBA005C5801 /* ViewModel */,
+				99C625D329C0CEB4005C5801 /* View */,
+			);
+			path = Authorization;
+			sourceTree = "<group>";
+		};
+		99C625D229C0CEA1005C5801 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				99C625DA29C0CEF7005C5801 /* Model */,
+				99C625D929C0CEF1005C5801 /* ViewModel */,
+				99C625D829C0CEEC005C5801 /* View */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		99C625D329C0CEB4005C5801 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				99C625D629C0CEDA005C5801 /* AuthorizationView.swift */,
+				996154AA29C213CB00A5095F /* LoginView.swift */,
+				996154AC29C213D500A5095F /* RegistrationView.swift */,
+				99B3C56629C30E6300FC581D /* BottomSheetView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		99C625D429C0CEBA005C5801 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				996154B229C219F300A5095F /* LoginViewModel.swift */,
+				996154B629C227FF00A5095F /* RegistrationViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		99C625D529C0CEC0005C5801 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		99C625D829C0CEEC005C5801 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9963A10E29C0BE4D00D0B255 /* MainView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		99C625D929C0CEF1005C5801 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		99C625DA29C0CEF7005C5801 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,9 +384,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9963A0E729C0ADDA00D0B255 /* ContentView.swift in Sources */,
+				996154A929C20F0300A5095F /* CustomBorderButton.swift in Sources */,
+				996154B129C2198D00A5095F /* CustomBackgroundTextField.swift in Sources */,
+				996154B529C21D0500A5095F /* CustomPasswordTextField.swift in Sources */,
+				99B3C56929C319E400FC581D /* CustomCommonTextField.swift in Sources */,
+				996154B729C227FF00A5095F /* RegistrationViewModel.swift in Sources */,
+				99C625D729C0CEDA005C5801 /* AuthorizationView.swift in Sources */,
+				9963A0E729C0ADDA00D0B255 /* SplashScreen.swift in Sources */,
+				996154AD29C213D500A5095F /* RegistrationView.swift in Sources */,
+				99B3C56B29C3240100FC581D /* CustomDropDown.swift in Sources */,
+				996154A729C2091200A5095F /* CustomBackgroundButton.swift in Sources */,
 				9963A10F29C0BE4D00D0B255 /* MainView.swift in Sources */,
 				9963A0E529C0ADDA00D0B255 /* DiplomaApp.swift in Sources */,
+				996154B329C219F300A5095F /* LoginViewModel.swift in Sources */,
+				99B3C56729C30E6300FC581D /* BottomSheetView.swift in Sources */,
+				996154AB29C213CB00A5095F /* LoginView.swift in Sources */,
+				996154AF29C2140F00A5095F /* DismissButton.swift in Sources */,
+				996154A429C207C100A5095F /* ExtensionSizeScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,11 +562,11 @@
 				DEVELOPMENT_TEAM = 84UU59T6MY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = Diploma/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -453,11 +591,11 @@
 				DEVELOPMENT_TEAM = 84UU59T6MY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = Diploma/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
