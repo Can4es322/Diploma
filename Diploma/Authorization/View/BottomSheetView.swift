@@ -5,6 +5,7 @@ struct BottomSheetView: View {
     @State var lastOffset: CGFloat = 0
     @GestureState var gestureOffset: CGFloat = 0
     @EnvironmentObject var viewModel: RegistrationViewModel
+    @Binding var isAuthUser: Bool
     let minHeightBottomSheet: CGFloat = 40
     let defaultTransform: CGFloat = 20
     
@@ -49,10 +50,11 @@ struct BottomSheetView: View {
                         }
                         
                         Spacer()
-                        
+         
                         CustomBackgroundButton(text: "Продолжить") {
-                            
+                            isAuthUser = viewModel.registrationUser()
                         }
+                        
                         .padding(.bottom, 40)
                         .opacity(viewModel.checkIsEmptyPersonData() ? 0.5 : 1)
                         .disabled(viewModel.checkIsEmptyPersonData())

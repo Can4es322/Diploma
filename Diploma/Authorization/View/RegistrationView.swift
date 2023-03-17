@@ -1,8 +1,9 @@
 import SwiftUI
 
 struct RegistrationView: View {
-    @StateObject var viewModel = RegistrationViewModel()
+    @ObservedObject var viewModel = RegistrationViewModel()
     @Environment(\.mainWindowSize) var mainWindowSize
+    @Binding var isAuthUser: Bool
     
     var body: some View {
         ZStack {
@@ -69,7 +70,7 @@ struct RegistrationView: View {
                         Text("Уже имеете аккаунт? ")
                             .foregroundColor(Color("Gray"))
                         
-                        NavigationLink(destination: EmptyView(), label: {
+                        NavigationLink(destination: LoginView(isAuthUser: $isAuthUser), label: {
                             Text("Войти")
                                 .foregroundColor(Color("Blue"))
                                 .underline()
@@ -86,8 +87,9 @@ struct RegistrationView: View {
             }
             
             if viewModel.isBottomSheet {
-                BottomSheetView()
+                BottomSheetView(isAuthUser: $isAuthUser)
                     .environmentObject(viewModel)
+                    
             }
         }
     }

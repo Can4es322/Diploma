@@ -27,4 +27,8 @@ class RegistrationViewModel: ObservableObject {
     func checkIsEmptyPersonData() -> Bool {
         return namePerson.isEmpty || lastnamePerson.isEmpty || middlenamePerson.isEmpty
     }
+    
+    func registrationUser() -> Bool {
+        return true
+    }
 }

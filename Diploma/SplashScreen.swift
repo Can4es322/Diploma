@@ -7,7 +7,7 @@ struct SplashScreen: View {
     
     var body: some View {
         if nextView {
-            AuthorizationView()
+            StartView()
         } else {
             ZStack {
                 Color.white

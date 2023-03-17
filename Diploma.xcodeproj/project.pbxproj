@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		99487F2D29C3481E003ADBAA /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99487F2C29C3481E003ADBAA /* StartView.swift */; };
 		996154A429C207C100A5095F /* ExtensionSizeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996154A329C207C100A5095F /* ExtensionSizeScreen.swift */; };
 		996154A729C2091200A5095F /* CustomBackgroundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996154A629C2091200A5095F /* CustomBackgroundButton.swift */; };
 		996154A929C20F0300A5095F /* CustomBorderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996154A829C20F0300A5095F /* CustomBorderButton.swift */; };
@@ -25,6 +26,10 @@
 		9963A10029C0ADDC00D0B255 /* DiplomaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9963A0FF29C0ADDC00D0B255 /* DiplomaUITests.swift */; };
 		9963A10229C0ADDC00D0B255 /* DiplomaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9963A10129C0ADDC00D0B255 /* DiplomaUITestsLaunchTests.swift */; };
 		9963A10F29C0BE4D00D0B255 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9963A10E29C0BE4D00D0B255 /* MainView.swift */; };
+		99B1B3A929C35EB000C70FD1 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1B3A829C35EB000C70FD1 /* MainViewModel.swift */; };
+		99B1B3AB29C3613F00C70FD1 /* TagEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1B3AA29C3613F00C70FD1 /* TagEvent.swift */; };
+		99B1B3AD29C372F900C70FD1 /* CardEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1B3AC29C372F900C70FD1 /* CardEvent.swift */; };
+		99B1B3AF29C3739300C70FD1 /* CardEventInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1B3AE29C3739300C70FD1 /* CardEventInfo.swift */; };
 		99B3C56729C30E6300FC581D /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B3C56629C30E6300FC581D /* BottomSheetView.swift */; };
 		99B3C56929C319E400FC581D /* CustomCommonTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B3C56829C319E400FC581D /* CustomCommonTextField.swift */; };
 		99B3C56B29C3240100FC581D /* CustomDropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B3C56A29C3240100FC581D /* CustomDropDown.swift */; };
@@ -49,6 +54,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		99487F2C29C3481E003ADBAA /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		996154A329C207C100A5095F /* ExtensionSizeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionSizeScreen.swift; sourceTree = "<group>"; };
 		996154A629C2091200A5095F /* CustomBackgroundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackgroundButton.swift; sourceTree = "<group>"; };
 		996154A829C20F0300A5095F /* CustomBorderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBorderButton.swift; sourceTree = "<group>"; };
@@ -70,6 +76,10 @@
 		9963A0FF29C0ADDC00D0B255 /* DiplomaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiplomaUITests.swift; sourceTree = "<group>"; };
 		9963A10129C0ADDC00D0B255 /* DiplomaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiplomaUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		9963A10E29C0BE4D00D0B255 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		99B1B3A829C35EB000C70FD1 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		99B1B3AA29C3613F00C70FD1 /* TagEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagEvent.swift; sourceTree = "<group>"; };
+		99B1B3AC29C372F900C70FD1 /* CardEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardEvent.swift; sourceTree = "<group>"; };
+		99B1B3AE29C3739300C70FD1 /* CardEventInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardEventInfo.swift; sourceTree = "<group>"; };
 		99B3C56629C30E6300FC581D /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
 		99B3C56829C319E400FC581D /* CustomCommonTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCommonTextField.swift; sourceTree = "<group>"; };
 		99B3C56A29C3240100FC581D /* CustomDropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDropDown.swift; sourceTree = "<group>"; };
@@ -148,12 +158,12 @@
 			isa = PBXGroup;
 			children = (
 				99C625D029C0CDDF005C5801 /* Info.plist */,
-				996154A529C208F000A5095F /* Components */,
 				996154A229C207A800A5095F /* Heplers */,
 				99C625D229C0CEA1005C5801 /* Main */,
 				99C625D129C0CE99005C5801 /* Authorization */,
 				9963A0E429C0ADDA00D0B255 /* DiplomaApp.swift */,
 				9963A0E629C0ADDA00D0B255 /* SplashScreen.swift */,
+				99487F2C29C3481E003ADBAA /* StartView.swift */,
 				9963A0E829C0ADDC00D0B255 /* Assets.xcassets */,
 				9963A0EA29C0ADDC00D0B255 /* Preview Content */,
 			);
@@ -185,9 +195,19 @@
 			path = DiplomaUITests;
 			sourceTree = "<group>";
 		};
+		99B1B3A729C35E0600C70FD1 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				99B1B3AA29C3613F00C70FD1 /* TagEvent.swift */,
+				99B1B3AC29C372F900C70FD1 /* CardEvent.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		99C625D129C0CE99005C5801 /* Authorization */ = {
 			isa = PBXGroup;
 			children = (
+				996154A529C208F000A5095F /* Components */,
 				99C625D529C0CEC0005C5801 /* Model */,
 				99C625D429C0CEBA005C5801 /* ViewModel */,
 				99C625D329C0CEB4005C5801 /* View */,
@@ -198,6 +218,7 @@
 		99C625D229C0CEA1005C5801 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				99B1B3A729C35E0600C70FD1 /* Components */,
 				99C625DA29C0CEF7005C5801 /* Model */,
 				99C625D929C0CEF1005C5801 /* ViewModel */,
 				99C625D829C0CEEC005C5801 /* View */,
@@ -243,6 +264,7 @@
 		99C625D929C0CEF1005C5801 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				99B1B3A829C35EB000C70FD1 /* MainViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -250,6 +272,7 @@
 		99C625DA29C0CEF7005C5801 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				99B1B3AE29C3739300C70FD1 /* CardEventInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -384,18 +407,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99B1B3AD29C372F900C70FD1 /* CardEvent.swift in Sources */,
 				996154A929C20F0300A5095F /* CustomBorderButton.swift in Sources */,
+				99487F2D29C3481E003ADBAA /* StartView.swift in Sources */,
 				996154B129C2198D00A5095F /* CustomBackgroundTextField.swift in Sources */,
 				996154B529C21D0500A5095F /* CustomPasswordTextField.swift in Sources */,
 				99B3C56929C319E400FC581D /* CustomCommonTextField.swift in Sources */,
 				996154B729C227FF00A5095F /* RegistrationViewModel.swift in Sources */,
+				99B1B3AF29C3739300C70FD1 /* CardEventInfo.swift in Sources */,
 				99C625D729C0CEDA005C5801 /* AuthorizationView.swift in Sources */,
+				99B1B3AB29C3613F00C70FD1 /* TagEvent.swift in Sources */,
 				9963A0E729C0ADDA00D0B255 /* SplashScreen.swift in Sources */,
 				996154AD29C213D500A5095F /* RegistrationView.swift in Sources */,
 				99B3C56B29C3240100FC581D /* CustomDropDown.swift in Sources */,
 				996154A729C2091200A5095F /* CustomBackgroundButton.swift in Sources */,
 				9963A10F29C0BE4D00D0B255 /* MainView.swift in Sources */,
 				9963A0E529C0ADDA00D0B255 /* DiplomaApp.swift in Sources */,
+				99B1B3A929C35EB000C70FD1 /* MainViewModel.swift in Sources */,
 				996154B329C219F300A5095F /* LoginViewModel.swift in Sources */,
 				99B3C56729C30E6300FC581D /* BottomSheetView.swift in Sources */,
 				996154AB29C213CB00A5095F /* LoginView.swift in Sources */,

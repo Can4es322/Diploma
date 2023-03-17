@@ -1,8 +1,10 @@
 import SwiftUI
 
 struct LoginView: View {
-    @StateObject var viewModel = LoginViewModel()
+    @ObservedObject var viewModel = LoginViewModel()
     @Environment(\.mainWindowSize) var mainWindowSize
+    @Environment(\.presentationMode) var presentation
+    @Binding var isAuthUser: Bool
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
@@ -31,7 +33,9 @@ struct LoginView: View {
                     .padding(.top, 18)
                 
                 CustomBackgroundButton(text: "Войти") {
-                    viewModel.checkIsCorrectEmail()
+                    viewModel.registrationUser() {
+                        self.isAuthUser = self.viewModel.isErrorLogin ?? false
+                    }
                 }
                 .fixedSize(horizontal: false, vertical: true)
                 .padding(.top, mainWindowSize.height / 15)
@@ -42,11 +46,12 @@ struct LoginView: View {
                     Text("Еще не имеете аккаунт? ")
                         .foregroundColor(Color("Gray"))
                     
-                    NavigationLink(destination: EmptyView(), label: {
+                    NavigationLink(destination: RegistrationView(isAuthUser: $isAuthUser), label: {
                         Text("Регистрация")
                             .foregroundColor(Color("Blue"))
                             .underline()
                     })
+                    
                 }
                 .font(.system(size: 11, weight: .medium))
                 .padding(.bottom)
