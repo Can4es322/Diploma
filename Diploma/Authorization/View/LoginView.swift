@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct LoginView: View {
-    @ObservedObject var viewModel = LoginViewModel()
+    @StateObject var viewModel = LoginViewModel()
     @Environment(\.mainWindowSize) var mainWindowSize
     @Environment(\.presentationMode) var presentation
     @Binding var isAuthUser: Bool

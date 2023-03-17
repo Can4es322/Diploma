@@ -6,7 +6,7 @@ class LoginViewModel: ObservableObject {
     @Published var passwordText = "@"
     
     init() {
-        print("Login Create")
+        print("Login Create \(Unmanaged.passUnretained(self).toOpaque())")
     }
     
     func checkIsEmptyTextFields() -> Bool {
@@ -29,6 +29,6 @@ class LoginViewModel: ObservableObject {
         }
     }
     deinit {
-        print("Login is Dead")
+        print("Login is Dead \(Unmanaged.passUnretained(self).toOpaque())")
     }
 }

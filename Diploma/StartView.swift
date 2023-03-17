@@ -6,7 +6,7 @@ struct StartView: View {
     var body: some View {
         NavigationView{
             if isAuthUser {
-                MainView()
+                MainTabView()
             } else {
                 AuthorizationView(isAuthUser: $isAuthUser)
             }

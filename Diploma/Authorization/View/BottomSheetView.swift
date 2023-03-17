@@ -6,7 +6,7 @@ struct BottomSheetView: View {
     @GestureState var gestureOffset: CGFloat = 0
     @EnvironmentObject var viewModel: RegistrationViewModel
     @Binding var isAuthUser: Bool
-    let minHeightBottomSheet: CGFloat = 40
+    let minHeightBottomSheet: CGFloat = 100
     let defaultTransform: CGFloat = 20
     
     var body: some View {
@@ -48,6 +48,7 @@ struct BottomSheetView: View {
                             }
                             Spacer()
                         }
+                        .padding(.top, 30)
                         
                         Spacer()
          

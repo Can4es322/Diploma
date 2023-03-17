@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct RegistrationView: View {
-    @ObservedObject var viewModel = RegistrationViewModel()
+    @StateObject var viewModel = RegistrationViewModel()
     @Environment(\.mainWindowSize) var mainWindowSize
     @Binding var isAuthUser: Bool
     

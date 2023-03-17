@@ -1,6 +1,6 @@
 import Foundation
 
-struct CardEventInfo {
+struct CardEventInfo: Hashable, Identifiable {
     let id: Int
     let title: String
     let place: String

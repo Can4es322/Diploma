@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9946718229C4885800DD1D49 /* TabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9946718129C4885800DD1D49 /* TabButton.swift */; };
 		99487F2D29C3481E003ADBAA /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99487F2C29C3481E003ADBAA /* StartView.swift */; };
 		996154A429C207C100A5095F /* ExtensionSizeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996154A329C207C100A5095F /* ExtensionSizeScreen.swift */; };
 		996154A729C2091200A5095F /* CustomBackgroundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996154A629C2091200A5095F /* CustomBackgroundButton.swift */; };
@@ -25,15 +26,24 @@
 		9963A0F629C0ADDC00D0B255 /* DiplomaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9963A0F529C0ADDC00D0B255 /* DiplomaTests.swift */; };
 		9963A10029C0ADDC00D0B255 /* DiplomaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9963A0FF29C0ADDC00D0B255 /* DiplomaUITests.swift */; };
 		9963A10229C0ADDC00D0B255 /* DiplomaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9963A10129C0ADDC00D0B255 /* DiplomaUITestsLaunchTests.swift */; };
-		9963A10F29C0BE4D00D0B255 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9963A10E29C0BE4D00D0B255 /* MainView.swift */; };
+		9963A10F29C0BE4D00D0B255 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9963A10E29C0BE4D00D0B255 /* EventView.swift */; };
+		99A4B66C29C4B35D004F4BDB /* VisitedEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A4B66B29C4B35D004F4BDB /* VisitedEvents.swift */; };
 		99B1B3A929C35EB000C70FD1 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1B3A829C35EB000C70FD1 /* MainViewModel.swift */; };
 		99B1B3AB29C3613F00C70FD1 /* TagEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1B3AA29C3613F00C70FD1 /* TagEvent.swift */; };
 		99B1B3AD29C372F900C70FD1 /* CardEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1B3AC29C372F900C70FD1 /* CardEvent.swift */; };
 		99B1B3AF29C3739300C70FD1 /* CardEventInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1B3AE29C3739300C70FD1 /* CardEventInfo.swift */; };
+		99B1B3B429C4479000C70FD1 /* TagCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1B3B329C4479000C70FD1 /* TagCard.swift */; };
+		99B1B3B629C449CF00C70FD1 /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1B3B529C449CF00C70FD1 /* Mock.swift */; };
+		99B1B3B829C44C6100C70FD1 /* CustomAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1B3B729C44C6100C70FD1 /* CustomAsyncImage.swift */; };
+		99B1B3BB29C44CD100C70FD1 /* ImageLoaderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1B3BA29C44CD100C70FD1 /* ImageLoaderService.swift */; };
+		99B1B3BD29C46CB800C70FD1 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1B3BC29C46CB800C70FD1 /* MainTabView.swift */; };
 		99B3C56729C30E6300FC581D /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B3C56629C30E6300FC581D /* BottomSheetView.swift */; };
 		99B3C56929C319E400FC581D /* CustomCommonTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B3C56829C319E400FC581D /* CustomCommonTextField.swift */; };
 		99B3C56B29C3240100FC581D /* CustomDropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B3C56A29C3240100FC581D /* CustomDropDown.swift */; };
 		99C625D729C0CEDA005C5801 /* AuthorizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C625D629C0CEDA005C5801 /* AuthorizationView.swift */; };
+		99E2805E29C4A65600C85107 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E2805D29C4A65600C85107 /* ProfileView.swift */; };
+		99E2806029C4AC3C00C85107 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E2805F29C4AC3C00C85107 /* ProfileViewModel.swift */; };
+		99E2806329C4ACF000C85107 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E2806229C4ACF000C85107 /* UserInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +64,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9946718129C4885800DD1D49 /* TabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabButton.swift; sourceTree = "<group>"; };
 		99487F2C29C3481E003ADBAA /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		996154A329C207C100A5095F /* ExtensionSizeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionSizeScreen.swift; sourceTree = "<group>"; };
 		996154A629C2091200A5095F /* CustomBackgroundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackgroundButton.swift; sourceTree = "<group>"; };
@@ -75,16 +86,25 @@
 		9963A0FB29C0ADDC00D0B255 /* DiplomaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DiplomaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9963A0FF29C0ADDC00D0B255 /* DiplomaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiplomaUITests.swift; sourceTree = "<group>"; };
 		9963A10129C0ADDC00D0B255 /* DiplomaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiplomaUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		9963A10E29C0BE4D00D0B255 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		9963A10E29C0BE4D00D0B255 /* EventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
+		99A4B66B29C4B35D004F4BDB /* VisitedEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitedEvents.swift; sourceTree = "<group>"; };
 		99B1B3A829C35EB000C70FD1 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		99B1B3AA29C3613F00C70FD1 /* TagEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagEvent.swift; sourceTree = "<group>"; };
 		99B1B3AC29C372F900C70FD1 /* CardEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardEvent.swift; sourceTree = "<group>"; };
 		99B1B3AE29C3739300C70FD1 /* CardEventInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardEventInfo.swift; sourceTree = "<group>"; };
+		99B1B3B329C4479000C70FD1 /* TagCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCard.swift; sourceTree = "<group>"; };
+		99B1B3B529C449CF00C70FD1 /* Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mock.swift; sourceTree = "<group>"; };
+		99B1B3B729C44C6100C70FD1 /* CustomAsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAsyncImage.swift; sourceTree = "<group>"; };
+		99B1B3BA29C44CD100C70FD1 /* ImageLoaderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderService.swift; sourceTree = "<group>"; };
+		99B1B3BC29C46CB800C70FD1 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		99B3C56629C30E6300FC581D /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
 		99B3C56829C319E400FC581D /* CustomCommonTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCommonTextField.swift; sourceTree = "<group>"; };
 		99B3C56A29C3240100FC581D /* CustomDropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDropDown.swift; sourceTree = "<group>"; };
 		99C625D029C0CDDF005C5801 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		99C625D629C0CEDA005C5801 /* AuthorizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationView.swift; sourceTree = "<group>"; };
+		99E2805D29C4A65600C85107 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		99E2805F29C4AC3C00C85107 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		99E2806229C4ACF000C85107 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,8 +220,20 @@
 			children = (
 				99B1B3AA29C3613F00C70FD1 /* TagEvent.swift */,
 				99B1B3AC29C372F900C70FD1 /* CardEvent.swift */,
+				99B1B3B329C4479000C70FD1 /* TagCard.swift */,
+				99B1B3B729C44C6100C70FD1 /* CustomAsyncImage.swift */,
+				9946718129C4885800DD1D49 /* TabButton.swift */,
+				99A4B66B29C4B35D004F4BDB /* VisitedEvents.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		99B1B3B929C44CB600C70FD1 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				99B1B3BA29C44CD100C70FD1 /* ImageLoaderService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		99C625D129C0CE99005C5801 /* Authorization */ = {
@@ -249,6 +281,7 @@
 		99C625D529C0CEC0005C5801 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				99E2806229C4ACF000C85107 /* UserInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -256,7 +289,9 @@
 		99C625D829C0CEEC005C5801 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				9963A10E29C0BE4D00D0B255 /* MainView.swift */,
+				9963A10E29C0BE4D00D0B255 /* EventView.swift */,
+				99B1B3BC29C46CB800C70FD1 /* MainTabView.swift */,
+				99E2805D29C4A65600C85107 /* ProfileView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -265,6 +300,7 @@
 			isa = PBXGroup;
 			children = (
 				99B1B3A829C35EB000C70FD1 /* MainViewModel.swift */,
+				99E2805F29C4AC3C00C85107 /* ProfileViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -272,7 +308,9 @@
 		99C625DA29C0CEF7005C5801 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				99B1B3B929C44CB600C70FD1 /* Services */,
 				99B1B3AE29C3739300C70FD1 /* CardEventInfo.swift */,
+				99B1B3B529C449CF00C70FD1 /* Mock.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -409,26 +447,36 @@
 			files = (
 				99B1B3AD29C372F900C70FD1 /* CardEvent.swift in Sources */,
 				996154A929C20F0300A5095F /* CustomBorderButton.swift in Sources */,
+				99E2805E29C4A65600C85107 /* ProfileView.swift in Sources */,
+				99B1B3BD29C46CB800C70FD1 /* MainTabView.swift in Sources */,
 				99487F2D29C3481E003ADBAA /* StartView.swift in Sources */,
 				996154B129C2198D00A5095F /* CustomBackgroundTextField.swift in Sources */,
 				996154B529C21D0500A5095F /* CustomPasswordTextField.swift in Sources */,
+				99B1B3B429C4479000C70FD1 /* TagCard.swift in Sources */,
 				99B3C56929C319E400FC581D /* CustomCommonTextField.swift in Sources */,
 				996154B729C227FF00A5095F /* RegistrationViewModel.swift in Sources */,
 				99B1B3AF29C3739300C70FD1 /* CardEventInfo.swift in Sources */,
 				99C625D729C0CEDA005C5801 /* AuthorizationView.swift in Sources */,
+				99E2806329C4ACF000C85107 /* UserInfo.swift in Sources */,
+				99B1B3BB29C44CD100C70FD1 /* ImageLoaderService.swift in Sources */,
 				99B1B3AB29C3613F00C70FD1 /* TagEvent.swift in Sources */,
+				9946718229C4885800DD1D49 /* TabButton.swift in Sources */,
 				9963A0E729C0ADDA00D0B255 /* SplashScreen.swift in Sources */,
 				996154AD29C213D500A5095F /* RegistrationView.swift in Sources */,
 				99B3C56B29C3240100FC581D /* CustomDropDown.swift in Sources */,
 				996154A729C2091200A5095F /* CustomBackgroundButton.swift in Sources */,
-				9963A10F29C0BE4D00D0B255 /* MainView.swift in Sources */,
+				9963A10F29C0BE4D00D0B255 /* EventView.swift in Sources */,
 				9963A0E529C0ADDA00D0B255 /* DiplomaApp.swift in Sources */,
 				99B1B3A929C35EB000C70FD1 /* MainViewModel.swift in Sources */,
 				996154B329C219F300A5095F /* LoginViewModel.swift in Sources */,
 				99B3C56729C30E6300FC581D /* BottomSheetView.swift in Sources */,
+				99E2806029C4AC3C00C85107 /* ProfileViewModel.swift in Sources */,
 				996154AB29C213CB00A5095F /* LoginView.swift in Sources */,
+				99A4B66C29C4B35D004F4BDB /* VisitedEvents.swift in Sources */,
+				99B1B3B829C44C6100C70FD1 /* CustomAsyncImage.swift in Sources */,
 				996154AF29C2140F00A5095F /* DismissButton.swift in Sources */,
 				996154A429C207C100A5095F /* ExtensionSizeScreen.swift in Sources */,
+				99B1B3B629C449CF00C70FD1 /* Mock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
