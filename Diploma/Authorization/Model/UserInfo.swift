@@ -1,7 +1,8 @@
 struct UserInfo {
-    let name: String
-    let lastName: String
-    let middleName: String
-    let email: String
-    let photo: String?
+    var name: String
+    var lastName: String
+    var middleName: String
+    var email: String
+    var photo: String?
+    var department: String
 }

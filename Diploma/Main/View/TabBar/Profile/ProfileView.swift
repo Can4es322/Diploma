@@ -14,9 +14,7 @@ struct ProfileView: View {
                 Spacer()
                 
                 HStack(spacing: 16) {
-                    Button {
-                        
-                    } label: {
+                    NavigationLink (destination: ProfileEditView().environmentObject(viewModel)) {
                         Image(systemName: "pencil")
                             .foregroundColor(.black)
                     }
