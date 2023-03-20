@@ -63,7 +63,7 @@ struct BottomSheetView: View {
                     .padding(.horizontal, 30)
                     .frame(maxHeight: .infinity, alignment: .top)
                 }
-                    .offset(y: offset < 0 ? 0 : offset > height - minHeightBottomSheet ? height - minHeightBottomSheet : offset)
+                .offset(y: offset < 0 ? 0 : offset > height - minHeightBottomSheet ? height - minHeightBottomSheet : offset)
                 .gesture(DragGesture().updating($gestureOffset, body: { value, out, _ in
                     out = value.translation.height
                     onChange()

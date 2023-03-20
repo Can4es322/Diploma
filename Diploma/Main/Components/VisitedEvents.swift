@@ -4,7 +4,7 @@ struct VisitedEvents: View {
     let eventsInfo: CardEventInfo
     
     var body: some View {
-        HStack(spacing: 10) {
+        HStack(alignment: .center, spacing: 11) {
             CustomAsyncImage(url: eventsInfo.photos[0])
                 .frame(width: 98, height: 98)
                 .cornerRadius(10)
@@ -42,5 +42,6 @@ struct VisitedEvents: View {
                 }
             }
         }
+        .frame(maxWidth: .infinity, alignment: .leading)
     }
 }

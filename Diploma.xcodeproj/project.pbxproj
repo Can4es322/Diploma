@@ -40,6 +40,10 @@
 		99B3C56729C30E6300FC581D /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B3C56629C30E6300FC581D /* BottomSheetView.swift */; };
 		99B3C56929C319E400FC581D /* CustomCommonTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B3C56829C319E400FC581D /* CustomCommonTextField.swift */; };
 		99B3C56B29C3240100FC581D /* CustomDropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B3C56A29C3240100FC581D /* CustomDropDown.swift */; };
+		99B578DB29C839DE001B9E77 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B578DA29C839DE001B9E77 /* Map.swift */; };
+		99B578DD29C84683001B9E77 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B578DC29C84683001B9E77 /* MapViewModel.swift */; };
+		99B578DF29C84727001B9E77 /* MainMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B578DE29C84727001B9E77 /* MainMapView.swift */; };
+		99B578E129C85EF5001B9E77 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B578E029C85EF5001B9E77 /* Place.swift */; };
 		99C625D729C0CEDA005C5801 /* AuthorizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C625D629C0CEDA005C5801 /* AuthorizationView.swift */; };
 		99E2805E29C4A65600C85107 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E2805D29C4A65600C85107 /* ProfileView.swift */; };
 		99E2806029C4AC3C00C85107 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E2805F29C4AC3C00C85107 /* ProfileViewModel.swift */; };
@@ -100,6 +104,10 @@
 		99B3C56629C30E6300FC581D /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
 		99B3C56829C319E400FC581D /* CustomCommonTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCommonTextField.swift; sourceTree = "<group>"; };
 		99B3C56A29C3240100FC581D /* CustomDropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDropDown.swift; sourceTree = "<group>"; };
+		99B578DA29C839DE001B9E77 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
+		99B578DC29C84683001B9E77 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		99B578DE29C84727001B9E77 /* MainMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMapView.swift; sourceTree = "<group>"; };
+		99B578E029C85EF5001B9E77 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		99C625D029C0CDDF005C5801 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		99C625D629C0CEDA005C5801 /* AuthorizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationView.swift; sourceTree = "<group>"; };
 		99E2805D29C4A65600C85107 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -236,6 +244,41 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		99B578D629C8399F001B9E77 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				99B578D929C839D0001B9E77 /* Map */,
+				99B578D829C839C6001B9E77 /* Profile */,
+				99B578D729C839BB001B9E77 /* Events */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		99B578D729C839BB001B9E77 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				9963A10E29C0BE4D00D0B255 /* EventView.swift */,
+			);
+			path = Events;
+			sourceTree = "<group>";
+		};
+		99B578D829C839C6001B9E77 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				99E2805D29C4A65600C85107 /* ProfileView.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		99B578D929C839D0001B9E77 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				99B578DA29C839DE001B9E77 /* Map.swift */,
+				99B578DE29C84727001B9E77 /* MainMapView.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
 		99C625D129C0CE99005C5801 /* Authorization */ = {
 			isa = PBXGroup;
 			children = (
@@ -289,9 +332,8 @@
 		99C625D829C0CEEC005C5801 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				9963A10E29C0BE4D00D0B255 /* EventView.swift */,
+				99B578D629C8399F001B9E77 /* TabBar */,
 				99B1B3BC29C46CB800C70FD1 /* MainTabView.swift */,
-				99E2805D29C4A65600C85107 /* ProfileView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -301,6 +343,7 @@
 			children = (
 				99B1B3A829C35EB000C70FD1 /* MainViewModel.swift */,
 				99E2805F29C4AC3C00C85107 /* ProfileViewModel.swift */,
+				99B578DC29C84683001B9E77 /* MapViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -311,6 +354,7 @@
 				99B1B3B929C44CB600C70FD1 /* Services */,
 				99B1B3AE29C3739300C70FD1 /* CardEventInfo.swift */,
 				99B1B3B529C449CF00C70FD1 /* Mock.swift */,
+				99B578E029C85EF5001B9E77 /* Place.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -453,11 +497,14 @@
 				996154B129C2198D00A5095F /* CustomBackgroundTextField.swift in Sources */,
 				996154B529C21D0500A5095F /* CustomPasswordTextField.swift in Sources */,
 				99B1B3B429C4479000C70FD1 /* TagCard.swift in Sources */,
+				99B578DF29C84727001B9E77 /* MainMapView.swift in Sources */,
 				99B3C56929C319E400FC581D /* CustomCommonTextField.swift in Sources */,
 				996154B729C227FF00A5095F /* RegistrationViewModel.swift in Sources */,
 				99B1B3AF29C3739300C70FD1 /* CardEventInfo.swift in Sources */,
 				99C625D729C0CEDA005C5801 /* AuthorizationView.swift in Sources */,
 				99E2806329C4ACF000C85107 /* UserInfo.swift in Sources */,
+				99B578DD29C84683001B9E77 /* MapViewModel.swift in Sources */,
+				99B578E129C85EF5001B9E77 /* Place.swift in Sources */,
 				99B1B3BB29C44CD100C70FD1 /* ImageLoaderService.swift in Sources */,
 				99B1B3AB29C3613F00C70FD1 /* TagEvent.swift in Sources */,
 				9946718229C4885800DD1D49 /* TabButton.swift in Sources */,
@@ -470,6 +517,7 @@
 				99B1B3A929C35EB000C70FD1 /* MainViewModel.swift in Sources */,
 				996154B329C219F300A5095F /* LoginViewModel.swift in Sources */,
 				99B3C56729C30E6300FC581D /* BottomSheetView.swift in Sources */,
+				99B578DB29C839DE001B9E77 /* Map.swift in Sources */,
 				99E2806029C4AC3C00C85107 /* ProfileViewModel.swift in Sources */,
 				996154AB29C213CB00A5095F /* LoginView.swift in Sources */,
 				99A4B66C29C4B35D004F4BDB /* VisitedEvents.swift in Sources */,

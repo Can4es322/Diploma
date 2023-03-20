@@ -1,4 +1,5 @@
 import SwiftUI
+import MapKit
 
 struct MainTabView: View {
     @State var selectedTab = "Мероприятия"
@@ -14,7 +15,7 @@ struct MainTabView: View {
             }
            
             if selectedTab == "Карта" {
-                EmptyView()
+                MainMapView()
             }
             
             if selectedTab == "Профиль" {
