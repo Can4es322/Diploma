@@ -68,7 +68,7 @@ struct ProfileView: View {
             ScrollView(.vertical, showsIndicators: false) {
                 VStack {
                     ForEach(mockEvents) { element in
-                        
+                        VisitedEvents(eventsInfo: element)
                     }
                 }
             }

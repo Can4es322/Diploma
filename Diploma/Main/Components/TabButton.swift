@@ -9,7 +9,7 @@ struct TabButton: View {
     
     var body: some View {
         Button {
-            withAnimation(Animation.easeOut(duration: 0.5)) {
+            withAnimation(Animation.easeOut(duration: 0.2)) {
                 selectedTab = title
             }
         } label: {
