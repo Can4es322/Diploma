@@ -34,8 +34,8 @@ struct PhotoPicker: UIViewControllerRepresentable {
             parent.isPicker.toggle()
             for image in results {
                 if image .itemProvider.canLoadObject(ofClass: UIImage.self) {
-                    image.itemProvider.loadObject(ofClass: UIImage.self) {[weak self] image, error in
-                        guard let image = image as? UIImage, let self = self  else { return }
+                    image.itemProvider.loadObject(ofClass: UIImage.self) { image, error in
+                        guard let image = image as? UIImage else { return }
                         DispatchQueue.main.async {
                             self.parent.image = image
                         }
@@ -45,5 +45,19 @@ struct PhotoPicker: UIViewControllerRepresentable {
                 }
             }
         }
+    }
+}
+
+
+@available(iOS 13, *)
+struct ImagePicker: UIViewControllerRepresentable {
+    func makeUIViewController(context: Context) -> UIImagePickerController {
+        let controller = UIImagePickerController()
+        controller.sourceType = .photoLibrary
+        return controller
+    }
+    
+    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
+        
     }
 }
