@@ -89,7 +89,6 @@ struct RegistrationView: View {
             if viewModel.isBottomSheet {
                 BottomSheetView(isAuthUser: $isAuthUser)
                     .environmentObject(viewModel)
-                    
             }
         }
     }

@@ -47,6 +47,8 @@
 		99B578E329C87126001B9E77 /* ProfileEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B578E229C87126001B9E77 /* ProfileEditView.swift */; };
 		99B578E529C884D4001B9E77 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B578E429C884D4001B9E77 /* PhotoPicker.swift */; };
 		99C625D729C0CEDA005C5801 /* AuthorizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C625D629C0CEDA005C5801 /* AuthorizationView.swift */; };
+		99CAF3B329CB3B6F00322736 /* CustomCommonEditTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CAF3B229CB3B6F00322736 /* CustomCommonEditTextField.swift */; };
+		99CAF3B529CB475B00322736 /* ExtensionCloseKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CAF3B429CB475B00322736 /* ExtensionCloseKeyboard.swift */; };
 		99E2805E29C4A65600C85107 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E2805D29C4A65600C85107 /* ProfileView.swift */; };
 		99E2806029C4AC3C00C85107 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E2805F29C4AC3C00C85107 /* ProfileViewModel.swift */; };
 		99E2806329C4ACF000C85107 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E2806229C4ACF000C85107 /* UserInfo.swift */; };
@@ -114,6 +116,8 @@
 		99B578E429C884D4001B9E77 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		99C625D029C0CDDF005C5801 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		99C625D629C0CEDA005C5801 /* AuthorizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationView.swift; sourceTree = "<group>"; };
+		99CAF3B229CB3B6F00322736 /* CustomCommonEditTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCommonEditTextField.swift; sourceTree = "<group>"; };
+		99CAF3B429CB475B00322736 /* ExtensionCloseKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionCloseKeyboard.swift; sourceTree = "<group>"; };
 		99E2805D29C4A65600C85107 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		99E2805F29C4AC3C00C85107 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		99E2806229C4ACF000C85107 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
@@ -148,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				996154A329C207C100A5095F /* ExtensionSizeScreen.swift */,
+				99CAF3B429CB475B00322736 /* ExtensionCloseKeyboard.swift */,
 			);
 			path = Heplers;
 			sourceTree = "<group>";
@@ -236,6 +241,7 @@
 				99B1B3B729C44C6100C70FD1 /* CustomAsyncImage.swift */,
 				9946718129C4885800DD1D49 /* TabButton.swift */,
 				99A4B66B29C4B35D004F4BDB /* VisitedEvents.swift */,
+				99CAF3B229CB3B6F00322736 /* CustomCommonEditTextField.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -495,6 +501,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99CAF3B329CB3B6F00322736 /* CustomCommonEditTextField.swift in Sources */,
 				99B1B3AD29C372F900C70FD1 /* CardEvent.swift in Sources */,
 				996154A929C20F0300A5095F /* CustomBorderButton.swift in Sources */,
 				99E2805E29C4A65600C85107 /* ProfileView.swift in Sources */,
@@ -529,6 +536,7 @@
 				996154AB29C213CB00A5095F /* LoginView.swift in Sources */,
 				99B578E529C884D4001B9E77 /* PhotoPicker.swift in Sources */,
 				99A4B66C29C4B35D004F4BDB /* VisitedEvents.swift in Sources */,
+				99CAF3B529CB475B00322736 /* ExtensionCloseKeyboard.swift in Sources */,
 				99B1B3B829C44C6100C70FD1 /* CustomAsyncImage.swift in Sources */,
 				996154AF29C2140F00A5095F /* DismissButton.swift in Sources */,
 				996154A429C207C100A5095F /* ExtensionSizeScreen.swift in Sources */,

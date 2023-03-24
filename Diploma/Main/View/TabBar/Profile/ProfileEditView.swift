@@ -3,6 +3,7 @@ import SwiftUI
 struct ProfileEditView: View {
     @EnvironmentObject var viewModel: ProfileViewModel
     @Environment(\.mainWindowSize) var mainWindowSize
+    @Environment(\.presentationMode) var presentation
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
@@ -21,6 +22,7 @@ struct ProfileEditView: View {
                     }
                     
                     Button {
+                        UIApplication.shared.endEditing()
                         viewModel.isEditPhoto.toggle()
                     } label: {
                         Circle()
@@ -42,35 +44,35 @@ struct ProfileEditView: View {
                         .foregroundColor(.black)
                         .padding(.leading, 10)
                     
-                    CustomCommonTextField(placeholder: "", text: $viewModel.userInfo.email)
+                    CustomCommonEditTextField(placeholder: "", text: $viewModel.userInfo.email, isChangeColor: $viewModel.isChangeTextFields[0])
                     
                     Text("Имя")
                         .font(.system(size: 14, weight: .regular))
                         .foregroundColor(.black)
                         .padding(.leading, 10)
                     
-                    CustomCommonTextField(placeholder: "", text: $viewModel.userInfo.name)
+                    CustomCommonEditTextField(placeholder: "", text: $viewModel.userInfo.name, isChangeColor: $viewModel.isChangeTextFields[1])
                     
                     Text("Фамилия")
                         .font(.system(size: 14, weight: .regular))
                         .foregroundColor(.black)
                         .padding(.leading, 10)
                     
-                    CustomCommonTextField(placeholder: "", text: $viewModel.userInfo.lastName)
+                    CustomCommonEditTextField(placeholder: "", text: $viewModel.userInfo.lastName, isChangeColor: $viewModel.isChangeTextFields[2])
                     
                     Text("Отчество")
                         .font(.system(size: 14, weight: .regular))
                         .foregroundColor(.black)
                         .padding(.leading, 10)
                     
-                    CustomCommonTextField(placeholder: "", text: $viewModel.userInfo.middleName)
+                    CustomCommonEditTextField(placeholder: "", text: $viewModel.userInfo.middleName, isChangeColor: $viewModel.isChangeTextFields[3])
                     
                     Text("Кафедра")
                         .font(.system(size: 14, weight: .regular))
                         .foregroundColor(.black)
                         .padding(.leading, 10)
                     
-                    CustomCommonTextField(placeholder: "", text: $viewModel.userInfo.department)
+                    CustomCommonEditTextField(placeholder: "", text: $viewModel.userInfo.department, isChangeColor: $viewModel.isChangeTextFields[4])
                 }
                 .padding(.top, 20)
                 
@@ -80,17 +82,42 @@ struct ProfileEditView: View {
             .navigationBarBackButtonHidden(true)
             .navigationBarTitle("Персональные данные", displayMode: .inline)
             .navigationBarItems(
-                leading: DismissButton(),
-                trailing: Image("Checkmark.bubble")
+                leading: Button {
+                    UIApplication.shared.endEditing()
+                    viewModel.checkActiveAlert()
+                    if !viewModel.isActiveAlert {
+                        presentation.wrappedValue.dismiss()
+                    }
+                } label: {
+                     Image(systemName: "arrow.backward")
+                        .resizable()
+                        .font(.system(size: 20, weight: .bold))
+                        .foregroundColor(.black)
+                },
+                trailing: Button {
+                    // Запрос на сохранение данных
+                } label: {
+                    Image("Checkmark.bubble")
                     .renderingMode(.template)
                     .foregroundColor(.black)
-                    .opacity(viewModel.isEditTextField ? 1 : 0)
+                    .opacity(viewModel.checkChangeTextFields() ? 1 : 0)
+                }
             )
+            .alert(isPresented: $viewModel.isActiveAlert) {
+                Alert(
+                    title: Text("Вы точно хотите вернуться назад?"),
+                    message: Text("Данные не сохранятся"),
+                    primaryButton: .destructive(Text("Да"), action: {
+                        presentation.wrappedValue.dismiss()
+                    }),
+                    secondaryButton: .cancel(Text("Нет"))
+                )
+            }
             .sheet(isPresented: $viewModel.isEditPhoto) {
                 if #available(iOS 14, *) {
                     PhotoPicker(image: $viewModel.newImage, isPicker: $viewModel.isEditPhoto)
                 } else {
-//                    ImagePicker()
+                    ImagePicker()
                 }
             }
         }
