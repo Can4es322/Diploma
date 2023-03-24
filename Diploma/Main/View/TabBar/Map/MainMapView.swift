@@ -3,7 +3,7 @@ import MapKit
 import CoreLocation
 
 struct MainMapView: View {
-    @StateObject var viewModel = MapViewModel()
+    @EnvironmentObject var viewModel: MapViewModel
     @State var locationManager = CLLocationManager()
     
     var body: some View {

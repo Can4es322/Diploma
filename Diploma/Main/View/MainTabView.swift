@@ -2,6 +2,7 @@ import SwiftUI
 import MapKit
 
 struct MainTabView: View {
+    @StateObject var viewModel = MapViewModel()
     @State var selectedTab = "Мероприятия"
     var edges = UIApplication.shared.windows.first?.safeAreaInsets
     let tabsTitle = ["Мероприятия", "Карта", "Профиль"]
@@ -16,6 +17,7 @@ struct MainTabView: View {
            
             if selectedTab == "Карта" {
                 MainMapView()
+                    .environmentObject(viewModel)
             }
             
             if selectedTab == "Профиль" {
