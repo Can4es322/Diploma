@@ -12,8 +12,8 @@ struct ProfileEditView: View {
                     if viewModel.newImage != nil{
                         Image(uiImage: viewModel.newImage!)
                             .resizable()
+                            .scaledToFill()
                             .frame(width: 120, height: 120, alignment: .center)
-                            .scaledToFit()
                             .clipShape(Circle())
                     } else {
                         CustomAsyncImage(url: viewModel.userInfo.photo ?? "")

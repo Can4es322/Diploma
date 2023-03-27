@@ -5,7 +5,8 @@ struct TagEvent: View {
     let index: Int
     @State var active = false
     @Binding var activeTags: [Int]
-    let colorsTags: [Color] = [Color("Blue2"), Color("Purple"), Color("Blue3"), Color("Green"), Color("Yellow"), Color("Brown"), Color("Red2")]
+    
+    let colorsTags: [String: Color] = ["Наука": Color("Blue2"), "Мастер-класс": Color("Purple"), "Конференция": Color("Blue3"), "Театр": Color("Green"), "Спорт": Color("Yellow"), "Концерт": Color("Brown"), "Тренинг": Color("Red2")]
     
     var body: some View {
         Button {
@@ -17,26 +18,9 @@ struct TagEvent: View {
                     $0 != index
                 }
             }
-            print(activeTags)
         } label: {
-            if active {
-                Text(text)
-                    .padding()
-                    .frame(height: 30)
-                    .font(.system(size: 12, weight: .regular))
-                    .foregroundColor(Color("White"))
-                    .background(colorsTags[index])
-                    .cornerRadius(4)
-            } else {
-                Text(text)
-                    .padding()
-                    .frame(height: 30)
-                    .font(.system(size: 12, weight: .regular))
-                    .foregroundColor(Color("White"))
-                    .background(Color("Gray1"))
-                    .cornerRadius(4)
-            }
-
+            Text(text)
+                .customTag(colorBackground: active ? colorsTags[text]! : Color("Gray1"))
         }
     }
 }

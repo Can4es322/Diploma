@@ -35,7 +35,6 @@ struct EventView: View {
                 .frame(height: 40)
                 .padding(.top, 20)
                 
-                
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 8) {
                         ForEach(Array(zip(tags.indices, tags)), id: \.0) { index, element in
@@ -46,7 +45,7 @@ struct EventView: View {
                 }
                 
                 VStack(spacing: 10) {
-                    ForEach(mockEvents) { element in
+                    ForEach(viewModel.events) { element in
                         CardEvent(infoCard: element)
                     }
                 }

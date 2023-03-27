@@ -49,6 +49,12 @@
 		99C625D729C0CEDA005C5801 /* AuthorizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C625D629C0CEDA005C5801 /* AuthorizationView.swift */; };
 		99CAF3B329CB3B6F00322736 /* CustomCommonEditTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CAF3B229CB3B6F00322736 /* CustomCommonEditTextField.swift */; };
 		99CAF3B529CB475B00322736 /* ExtensionCloseKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CAF3B429CB475B00322736 /* ExtensionCloseKeyboard.swift */; };
+		99CAF3B829CD9A1100322736 /* EventPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CAF3B729CD9A1100322736 /* EventPostView.swift */; };
+		99CAF3BA29CD9CBB00322736 /* EventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CAF3B929CD9CBB00322736 /* EventViewModel.swift */; };
+		99CAF3BC29CD9EF400322736 /* MiniPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CAF3BB29CD9EF400322736 /* MiniPhoto.swift */; };
+		99CAF3BE29CDB6B700322736 /* WalkPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CAF3BD29CDB6B700322736 /* WalkPerson.swift */; };
+		99CAF3C029D17C8300322736 /* TagPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CAF3BF29D17C8300322736 /* TagPost.swift */; };
+		99CAF3C329D181C000322736 /* TagModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CAF3C229D181C000322736 /* TagModifier.swift */; };
 		99E2805E29C4A65600C85107 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E2805D29C4A65600C85107 /* ProfileView.swift */; };
 		99E2806029C4AC3C00C85107 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E2805F29C4AC3C00C85107 /* ProfileViewModel.swift */; };
 		99E2806329C4ACF000C85107 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E2806229C4ACF000C85107 /* UserInfo.swift */; };
@@ -118,6 +124,12 @@
 		99C625D629C0CEDA005C5801 /* AuthorizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationView.swift; sourceTree = "<group>"; };
 		99CAF3B229CB3B6F00322736 /* CustomCommonEditTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCommonEditTextField.swift; sourceTree = "<group>"; };
 		99CAF3B429CB475B00322736 /* ExtensionCloseKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionCloseKeyboard.swift; sourceTree = "<group>"; };
+		99CAF3B729CD9A1100322736 /* EventPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventPostView.swift; sourceTree = "<group>"; };
+		99CAF3B929CD9CBB00322736 /* EventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewModel.swift; sourceTree = "<group>"; };
+		99CAF3BB29CD9EF400322736 /* MiniPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniPhoto.swift; sourceTree = "<group>"; };
+		99CAF3BD29CDB6B700322736 /* WalkPerson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkPerson.swift; sourceTree = "<group>"; };
+		99CAF3BF29D17C8300322736 /* TagPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagPost.swift; sourceTree = "<group>"; };
+		99CAF3C229D181C000322736 /* TagModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagModifier.swift; sourceTree = "<group>"; };
 		99E2805D29C4A65600C85107 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		99E2805F29C4AC3C00C85107 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		99E2806229C4ACF000C85107 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
@@ -236,8 +248,6 @@
 			isa = PBXGroup;
 			children = (
 				99B1B3AA29C3613F00C70FD1 /* TagEvent.swift */,
-				99B1B3AC29C372F900C70FD1 /* CardEvent.swift */,
-				99B1B3B329C4479000C70FD1 /* TagCard.swift */,
 				99B1B3B729C44C6100C70FD1 /* CustomAsyncImage.swift */,
 				9946718129C4885800DD1D49 /* TabButton.swift */,
 				99A4B66B29C4B35D004F4BDB /* VisitedEvents.swift */,
@@ -267,7 +277,9 @@
 		99B578D729C839BB001B9E77 /* Events */ = {
 			isa = PBXGroup;
 			children = (
+				99CAF3B629CD98E100322736 /* Components */,
 				9963A10E29C0BE4D00D0B255 /* EventView.swift */,
+				99CAF3B729CD9A1100322736 /* EventPostView.swift */,
 			);
 			path = Events;
 			sourceTree = "<group>";
@@ -305,6 +317,7 @@
 		99C625D229C0CEA1005C5801 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				99CAF3C129D181AE00322736 /* Modifier */,
 				99B1B3A729C35E0600C70FD1 /* Components */,
 				99C625DA29C0CEF7005C5801 /* Model */,
 				99C625D929C0CEF1005C5801 /* ViewModel */,
@@ -356,6 +369,7 @@
 				99B1B3A829C35EB000C70FD1 /* MainViewModel.swift */,
 				99E2805F29C4AC3C00C85107 /* ProfileViewModel.swift */,
 				99B578DC29C84683001B9E77 /* MapViewModel.swift */,
+				99CAF3B929CD9CBB00322736 /* EventViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -369,6 +383,26 @@
 				99B578E029C85EF5001B9E77 /* Place.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		99CAF3B629CD98E100322736 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				99B1B3B329C4479000C70FD1 /* TagCard.swift */,
+				99B1B3AC29C372F900C70FD1 /* CardEvent.swift */,
+				99CAF3BB29CD9EF400322736 /* MiniPhoto.swift */,
+				99CAF3BD29CDB6B700322736 /* WalkPerson.swift */,
+				99CAF3BF29D17C8300322736 /* TagPost.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		99CAF3C129D181AE00322736 /* Modifier */ = {
+			isa = PBXGroup;
+			children = (
+				99CAF3C229D181C000322736 /* TagModifier.swift */,
+			);
+			path = Modifier;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -510,18 +544,22 @@
 				99487F2D29C3481E003ADBAA /* StartView.swift in Sources */,
 				996154B129C2198D00A5095F /* CustomBackgroundTextField.swift in Sources */,
 				996154B529C21D0500A5095F /* CustomPasswordTextField.swift in Sources */,
+				99CAF3BC29CD9EF400322736 /* MiniPhoto.swift in Sources */,
 				99B1B3B429C4479000C70FD1 /* TagCard.swift in Sources */,
 				99B578DF29C84727001B9E77 /* MainMapView.swift in Sources */,
 				99B3C56929C319E400FC581D /* CustomCommonTextField.swift in Sources */,
 				996154B729C227FF00A5095F /* RegistrationViewModel.swift in Sources */,
+				99CAF3C029D17C8300322736 /* TagPost.swift in Sources */,
 				99B1B3AF29C3739300C70FD1 /* CardEventInfo.swift in Sources */,
 				99C625D729C0CEDA005C5801 /* AuthorizationView.swift in Sources */,
 				99E2806329C4ACF000C85107 /* UserInfo.swift in Sources */,
 				99B578DD29C84683001B9E77 /* MapViewModel.swift in Sources */,
 				99B578E129C85EF5001B9E77 /* Place.swift in Sources */,
 				99B1B3BB29C44CD100C70FD1 /* ImageLoaderService.swift in Sources */,
+				99CAF3BA29CD9CBB00322736 /* EventViewModel.swift in Sources */,
 				99B1B3AB29C3613F00C70FD1 /* TagEvent.swift in Sources */,
 				9946718229C4885800DD1D49 /* TabButton.swift in Sources */,
+				99CAF3B829CD9A1100322736 /* EventPostView.swift in Sources */,
 				9963A0E729C0ADDA00D0B255 /* SplashScreen.swift in Sources */,
 				996154AD29C213D500A5095F /* RegistrationView.swift in Sources */,
 				99B3C56B29C3240100FC581D /* CustomDropDown.swift in Sources */,
@@ -535,6 +573,8 @@
 				99E2806029C4AC3C00C85107 /* ProfileViewModel.swift in Sources */,
 				996154AB29C213CB00A5095F /* LoginView.swift in Sources */,
 				99B578E529C884D4001B9E77 /* PhotoPicker.swift in Sources */,
+				99CAF3BE29CDB6B700322736 /* WalkPerson.swift in Sources */,
+				99CAF3C329D181C000322736 /* TagModifier.swift in Sources */,
 				99A4B66C29C4B35D004F4BDB /* VisitedEvents.swift in Sources */,
 				99CAF3B529CB475B00322736 /* ExtensionCloseKeyboard.swift in Sources */,
 				99B1B3B829C44C6100C70FD1 /* CustomAsyncImage.swift in Sources */,

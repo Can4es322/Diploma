@@ -9,5 +9,6 @@ struct CardEventInfo: Hashable, Identifiable {
     let countCurrentUser: Int
     let countMaxUser: Int
     let tags: [String]
+    let avatar: String
     let photos: [String]
 }

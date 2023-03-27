@@ -5,7 +5,6 @@ struct TabButton: View {
     let title: String
     @Binding var selectedTab: String
     @Environment(\.mainWindowSize) var mainWindowSize
-
     
     var body: some View {
         Button {
