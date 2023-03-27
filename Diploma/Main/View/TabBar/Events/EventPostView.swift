@@ -3,7 +3,7 @@ import SwiftUI
 struct EventPostView: View {
     let infoCard: CardEventInfo
     @Environment(\.mainWindowSize) var mainWindowSize
-    @StateObject var viewModel = EventViewModel()
+    @EnvironmentObject var viewModel: MainViewModel
     
     var body: some View {
         VStack {
@@ -15,16 +15,23 @@ struct EventPostView: View {
                 
                 HStack(spacing: 12) {
                     ForEach(Array(zip(infoCard.photos.indices, infoCard.photos)), id: \.0) { index, photo in
-                        if index == 3 {
-                            Text("+\(infoCard.photos.count - 3)")
-                                .font(.system(size: 16, weight: .medium))
-                                .frame(width: 54, height: 54)
-                                .background(Color("Blue2"))
-                                .foregroundColor(.white)
-                                .cornerRadius(12)
-                        }
-                        if index < 3 {
-                            MiniPhoto(photo: photo)
+                        Button {
+                            withAnimation(.easeInOut) {
+                                viewModel.isSelectedPhotos.toggle()
+                                viewModel.selectedImageId = infoCard.photos[index]
+                            }
+                        } label: {
+                            if index == 3 {
+                                Text("+\(infoCard.photos.count - 3)")
+                                    .font(.system(size: 16, weight: .medium))
+                                    .frame(width: 54, height: 54)
+                                    .background(Color("Blue2"))
+                                    .foregroundColor(.white)
+                                    .cornerRadius(12)
+                            }
+                            if index < 3 {
+                                MiniPhoto(photo: photo)
+                            }
                         }
                     }
                 }
@@ -64,6 +71,13 @@ struct EventPostView: View {
             
             Spacer()
         }
+        .overlay(
+            ZStack {
+                if viewModel.isSelectedPhotos {
+                    ImageView(photos: infoCard.photos)
+                }
+            }
+        )
         .edgesIgnoringSafeArea(.top)
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(

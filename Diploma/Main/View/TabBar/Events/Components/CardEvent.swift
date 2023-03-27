@@ -3,9 +3,10 @@ import SwiftUI
 struct CardEvent: View {
     let infoCard: CardEventInfo
     @Environment(\.mainWindowSize) var mainWindowSize
+    @EnvironmentObject var viewModel: MainViewModel
     
     var body: some View {
-        NavigationLink(destination: EventPostView(infoCard: infoCard)) {
+        NavigationLink(destination: EventPostView(infoCard: infoCard).environmentObject(viewModel)) {
             ZStack(alignment: .bottomLeading) {
                 CustomAsyncImage(url: infoCard.avatar)
                 
@@ -18,6 +19,7 @@ struct CardEvent: View {
                 VStack(alignment: .leading, spacing: 7) {
                     Text(infoCard.title)
                         .frame(maxWidth: 250, alignment: .leading)
+                        .multilineTextAlignment(.leading)
                         .font(.system(size: 18, weight: .medium))
                         .lineSpacing(5)
                         .foregroundColor(Color("White"))
@@ -42,9 +44,9 @@ struct CardEvent: View {
                 }
                 .padding(.leading, 11)
                 .padding(.bottom)
-                .frame(height: 180)
             }
-            .cornerRadius(15)
         }
+        .frame(height: 200)
+        .cornerRadius(15)
     }
 }

@@ -3,7 +3,6 @@ import SwiftUI
 struct EventView: View {
     @StateObject var viewModel = MainViewModel()
     @Environment(\.mainWindowSize) var mainWindowSize
-
     let tags = ["Наука", "Мастер-класс", "Конференция", "Театр", "Спорт", "Тренинг", "Концерт"]
     
     var body: some View {
@@ -47,6 +46,7 @@ struct EventView: View {
                 VStack(spacing: 10) {
                     ForEach(viewModel.events) { element in
                         CardEvent(infoCard: element)
+                            .environmentObject(viewModel)
                     }
                 }
                 .frame(maxWidth: .infinity)
