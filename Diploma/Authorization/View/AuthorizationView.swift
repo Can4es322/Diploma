@@ -1,9 +1,9 @@
 import SwiftUI
 
 struct AuthorizationView: View {
-    @Environment(\.mainWindowSize) var mainWindowSize
-    @State var isRegistrationView = false
-    @State var isLoginView = false
+    @Environment(\.mainWindowSize) private var mainWindowSize
+    @State private var isRegistrationView = false
+    @State private var isLoginView = false
     @Binding var isAuthUser: Bool
     
     var body: some View {

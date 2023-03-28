@@ -2,40 +2,16 @@ import SwiftUI
 
 struct ImageView: View {
     let photos: [String]
-    @EnvironmentObject var viewModel: MainViewModel
-    @Environment(\.mainWindowSize) var mainWindowSize
-    @GestureState var dragingOffset: CGSize = .zero
+    @EnvironmentObject private var viewModel: MainViewModel
+    @Environment(\.mainWindowSize) private var mainWindowSize
+    @GestureState private var dragingOffset: CGSize = .zero
     
     var body: some View {
         ZStack(alignment: .center) {
             Color.black
                 .opacity(viewModel.bgOpacity)
-                
-            if #available(iOS 14.0, *) {
-                TabView(selection: $viewModel.selectedImageId) {
-                    ForEach(photos, id: \.self) { photo in
-                        CustomAsyncImage(url: photo)
-                            .frame(width: mainWindowSize.width, height: mainWindowSize.height / 2)
-                            .clipped()
-                            .tag(photo)
-                            .offset(y: viewModel.imageViewerOffset.height)
-                            .scaleEffect(viewModel.selectedImageId == photo ? (viewModel.imageScale > 1 ? viewModel.imageScale : 1) : 1)
-                            .gesture(MagnificationGesture().onChanged({ value in
-                                viewModel.imageScale = value
-                            }).onEnded({ _ in
-                                withAnimation(.spring()) {
-                                    viewModel.imageScale = 1
-                                }
-                            })
-                                .simultaneously(with: TapGesture(count: 2).onEnded({ _ in
-                                    withAnimation {
-                                        viewModel.imageScale = viewModel.imageScale > 1 ? 1 : 4
-                                    }
-                                }))
-                            )
-                    }
-                }
-                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
+            
+            TabBarImages()
                 .overlay(
                     Button {
                         viewModel.isSelectedPhotos.toggle()
@@ -51,11 +27,8 @@ struct ImageView: View {
                         .padding(.top, 40)
                         .padding(.trailing, 10)
                     ,alignment: .topTrailing
-    
+                    
                 )
-            } else {
-                
-            }
         }
         .onAppear() {
             viewModel.imageViewerOffset = .zero
@@ -69,11 +42,45 @@ struct ImageView: View {
             .onEnded({ value in
                 Task {
                     await viewModel.onEnd(value: value)
-                 }
+                }
             })
         )
         .frame(maxWidth: mainWindowSize.width)
         .navigationBarHidden(true)
         .edgesIgnoringSafeArea(.all)
+    }
+}
+
+extension ImageView {
+    @ViewBuilder
+    func TabBarImages() -> some View {
+        if #available(iOS 14.0, *) {
+            TabView(selection: $viewModel.selectedImageId) {
+                ForEach(photos, id: \.self) { photo in
+                    CustomAsyncImage(url: photo)
+                        .frame(width: mainWindowSize.width, height: mainWindowSize.height / 2)
+                        .clipped()
+                        .tag(photo)
+                        .offset(y: viewModel.imageViewerOffset.height)
+                        .scaleEffect(viewModel.selectedImageId == photo ? (viewModel.imageScale > 1 ? viewModel.imageScale : 1) : 1)
+                        .gesture(MagnificationGesture().onChanged({ value in
+                            viewModel.imageScale = value
+                        }).onEnded({ _ in
+                            withAnimation(.spring()) {
+                                viewModel.imageScale = 1
+                            }
+                        })
+                            .simultaneously(with: TapGesture(count: 2).onEnded({ _ in
+                                withAnimation {
+                                    viewModel.imageScale = viewModel.imageScale > 1 ? 1 : 4
+                                }
+                            }))
+                        )
+                }
+            }
+            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
+        } else {
+            // Fallback on earlier versions
+        }
     }
 }

@@ -2,8 +2,8 @@ import SwiftUI
 
 struct EventPostView: View {
     let infoCard: CardEventInfo
-    @Environment(\.mainWindowSize) var mainWindowSize
-    @EnvironmentObject var viewModel: MainViewModel
+    @Environment(\.mainWindowSize) private var mainWindowSize
+    @EnvironmentObject private var viewModel: MainViewModel
     
     var body: some View {
         ZStack {

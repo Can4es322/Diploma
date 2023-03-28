@@ -2,26 +2,23 @@ import SwiftUI
 import MapKit
 
 struct MainTabView: View {
-    @StateObject var viewModel = MapViewModel()
-    @State var selectedTab = "Мероприятия"
-    var edges = UIApplication.shared.windows.first?.safeAreaInsets
-    let tabsTitle = ["Мероприятия", "Карта", "Профиль"]
-    let tabsImage = ["calendar", "map", "person"]
+    @StateObject private var viewModel = MapViewModel()
+    @State private var selectedTab = "Мероприятия"
+    private var edges = UIApplication.shared.windows.first?.safeAreaInsets
+    private let tabsTitle = ["Мероприятия", "Карта", "Профиль"]
+    private let tabsImage = ["calendar", "map", "person"]
     
     var body: some View {
         VStack(spacing: 0) {
             
-            if selectedTab == "Мероприятия" {
-                EventView()
-            }
-           
-            if selectedTab == "Карта" {
+            switch selectedTab {
+            case tabsTitle[1]:
                 MainMapView()
                     .environmentObject(viewModel)
-            }
-            
-            if selectedTab == "Профиль" {
+            case tabsTitle[2]:
                 ProfileView()
+            default:
+                EventView()
             }
             
             Spacer(minLength: 0)

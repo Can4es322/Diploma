@@ -1,9 +1,9 @@
 import SwiftUI
 
 struct SplashScreen: View {
-    @State var nextView = false
-    @State var endCircle: CGFloat = 0
-    @State var opacity: Double = 1
+    @State private var nextView = false
+    @State private var endCircle: CGFloat = 0
+    @State private var opacity: Double = 1
     
     var body: some View {
         if nextView {
@@ -15,7 +15,6 @@ struct SplashScreen: View {
                 Image("ufuCircle")
                     .resizable()
                     .scaledToFit()
-                    
                 
                 Circle()
                     .trim(from: 0, to: endCircle)
@@ -29,18 +28,17 @@ struct SplashScreen: View {
                     .scaledToFit()
             }
             .opacity(opacity)
-            .onAppear(perform: animationCircle)
-            .onAppear() {
+            .onAppear {
+                Task {
+                    try await Task.sleep(nanoseconds: 15_000_000_00)
+                    nextView = true
+                }
+            }
+            .onAppear {
                 opacity = 0
                 endCircle = 1
             }
             .animation(.linear(duration: 1.3))
-        }
-    }
-    
-    func animationCircle() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-            nextView = true
         }
     }
 }

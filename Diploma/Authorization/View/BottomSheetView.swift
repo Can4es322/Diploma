@@ -1,13 +1,9 @@
 import SwiftUI
 
 struct BottomSheetView: View {
-    @State var offset: CGFloat = 0
-    @State var lastOffset: CGFloat = 0
-    @GestureState var gestureOffset: CGFloat = 0
-    @EnvironmentObject var viewModel: RegistrationViewModel
+    @GestureState private var gestureOffset: CGFloat = 0
+    @EnvironmentObject private var viewModel: RegistrationViewModel
     @Binding var isAuthUser: Bool
-    let minHeightBottomSheet: CGFloat = 100
-    let defaultTransform: CGFloat = 20
     
     var body: some View {
         GeometryReader { proxy -> AnyView in
@@ -51,7 +47,7 @@ struct BottomSheetView: View {
                         .padding(.top, 30)
                         
                         Spacer()
-         
+                        
                         CustomBackgroundButton(text: "Продолжить") {
                             isAuthUser = viewModel.registrationUser()
                         }
@@ -63,33 +59,19 @@ struct BottomSheetView: View {
                     .padding(.horizontal, 30)
                     .frame(maxHeight: .infinity, alignment: .top)
                 }
-                .offset(y: offset < 0 ? 0 : offset > height - minHeightBottomSheet ? height - minHeightBottomSheet : offset)
-                .gesture(DragGesture().updating($gestureOffset, body: { value, out, _ in
-                    out = value.translation.height
-                    onChange()
-                }).onEnded({ value in
-                    
-                    withAnimation {
-                        if offset > defaultTransform && offset < height / 3 * 2 && lastOffset < height / 3 * 2{
-                            offset = height - minHeightBottomSheet
-                            lastOffset = offset
+                    .offset(y: viewModel.offset < 0 ? 0 : viewModel.offset > height - viewModel.minHeightBottomSheet ? height - viewModel.minHeightBottomSheet : viewModel.offset)
+                    .gesture(DragGesture().updating($gestureOffset, body: { value, out, _ in
+                        out = value.translation.height
+                        Task {
+                            await viewModel.onChange(value: gestureOffset)
                         }
-                        
-                        if offset < height - minHeightBottomSheet - defaultTransform {
-                            offset = 0
-                            lastOffset = offset
+                    }).onEnded({ value in
+                        Task {
+                            await viewModel.onEnd(value: value, height: height)
                         }
-                    }
-                }))
+                    }))
             )
         }
         .edgesIgnoringSafeArea(.bottom)
-    }
-    
-    func onChange() {
-        DispatchQueue.main.async {
-            print(self.offset)
-            self.offset = gestureOffset + lastOffset
-        }
     }
 }

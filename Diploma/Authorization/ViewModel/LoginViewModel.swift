@@ -1,6 +1,6 @@
 import SwiftUI
 
-class LoginViewModel: ObservableObject {
+final class LoginViewModel: ObservableObject {
     @Published var loginText = "@"
     @Published var isErrorLogin: Bool? = nil
     @Published var passwordText = "@"
@@ -8,20 +8,15 @@ class LoginViewModel: ObservableObject {
     func checkIsEmptyTextFields() -> Bool {
         return loginText.isEmpty || passwordText.isEmpty
     }
-    
-    func checkIsCorrectEmail(completion: @escaping ()->()) {
-         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {[weak self] in
-            self?.isErrorLogin = self?.loginText.contains("@")
-            completion()
-        }
-       
+
+    func checkIsCorrectEmail() {
+        self.isErrorLogin = self.loginText.contains("@")
     }
     
-    func registrationUser(completion: @escaping ()->()) {
-        checkIsCorrectEmail() {
-            DispatchQueue.main.async {
-               completion()
-            }
+    func registerUser() async {
+        try? await Task.sleep(nanoseconds: 1_000_000_000)
+        await MainActor.run {
+            checkIsCorrectEmail()
         }
     }
 }

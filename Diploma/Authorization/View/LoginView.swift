@@ -1,9 +1,9 @@
 import SwiftUI
 
 struct LoginView: View {
-    @StateObject var viewModel = LoginViewModel()
-    @Environment(\.mainWindowSize) var mainWindowSize
-    @Environment(\.presentationMode) var presentation
+    @StateObject private var viewModel = LoginViewModel()
+    @Environment(\.mainWindowSize) private var mainWindowSize
+    @Environment(\.presentationMode) private var presentation
     @Binding var isAuthUser: Bool
     
     var body: some View {
@@ -13,11 +13,9 @@ struct LoginView: View {
                     .padding(.top, mainWindowSize.height / 18)
                 
                 Text("Привет,\nС Возращением!")
-                    .fixedSize(horizontal: false, vertical: true)
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .font(.system(size: 24, weight: .bold))
-                    .foregroundColor(.black)
                     .padding(.top, mainWindowSize.height / 22)
+                    .customFontBold()
                 
                 CustomBackgroundTextField(placeholder: "Почта", text: $viewModel.loginText, isError: $viewModel.isErrorLogin)
                     .padding(.top, 20)
@@ -28,13 +26,13 @@ struct LoginView: View {
                 Text("Забыли Пароль?")
                     .underline()
                     .frame(maxWidth: .infinity, alignment: .trailing)
-                    .foregroundColor(.black)
-                    .font(.system(size: 11, weight: .medium))
                     .padding(.top, 18)
+                    .customFontMedium()
                 
                 CustomBackgroundButton(text: "Войти") {
-                    viewModel.registrationUser() {
-                        self.isAuthUser = self.viewModel.isErrorLogin ?? false
+                    Task {
+                        await viewModel.registerUser()
+                        isAuthUser = viewModel.isErrorLogin ?? false
                     }
                 }
                 .fixedSize(horizontal: false, vertical: true)
@@ -42,20 +40,9 @@ struct LoginView: View {
                 .opacity(viewModel.checkIsEmptyTextFields() ? 0.5 : 1)
                 .disabled(viewModel.checkIsEmptyTextFields())
                 
-                HStack(spacing: 1) {
-                    Text("Еще не имеете аккаунт? ")
-                        .foregroundColor(Color("Gray"))
-                    
-                    NavigationLink(destination: RegistrationView(isAuthUser: $isAuthUser), label: {
-                        Text("Регистрация")
-                            .foregroundColor(Color("Blue"))
-                            .underline()
-                    })
-                    
-                }
-                .font(.system(size: 11, weight: .medium))
-                .padding(.bottom)
-                .padding(.top, mainWindowSize.height / 14)
+                FooterContent()
+                    .padding(.bottom)
+                    .padding(.top, mainWindowSize.height / 14)
                 
                 Spacer()
             }
@@ -63,5 +50,23 @@ struct LoginView: View {
             .navigationBarBackButtonHidden(true)
             .navigationBarItems(leading: DismissButton())
         }
+    }
+}
+
+extension LoginView {
+    @ViewBuilder
+    func FooterContent() -> some View {
+        HStack(spacing: 1) {
+            Text("Еще не имеете аккаунт? ")
+                .foregroundColor(Color("Gray"))
+            
+            NavigationLink(destination: RegistrationView(isAuthUser: $isAuthUser), label: {
+                Text("Регистрация")
+                    .foregroundColor(Color("Blue"))
+                    .underline()
+            })
+            
+        }
+        .font(.system(size: 11, weight: .medium))
     }
 }

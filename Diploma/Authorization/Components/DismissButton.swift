@@ -9,8 +9,7 @@ struct DismissButton: View {
         } label: {
              Image(systemName: "arrow.backward")
                 .resizable()
-                .font(.system(size: 20, weight: .bold))
-                .foregroundColor(.black)
+                .customFontBoldMid()
         }
     }
 }
