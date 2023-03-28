@@ -9,7 +9,6 @@ struct EventView: View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(alignment: .center, spacing: 0) {
                 Header()
-                    .padding(.top, 20)
                 
                 EventTags()
                     .padding(.top, 12)
@@ -18,6 +17,7 @@ struct EventView: View {
                     .padding(.top, 11)
             }
             .padding(.horizontal, 20)
+            .padding(.top, mainWindowSize.height / 21)
         }
         .navigationBarHidden(true)
     }
@@ -29,7 +29,6 @@ extension EventView {
         Text("Мероприятия")
             .frame(maxWidth: .infinity, alignment: .leading)
             .customFontBold()
-            .padding(.top, mainWindowSize.height / 21)
         
         HStack {
             TextField("Поиск", text: $viewModel.inputSearch)
@@ -49,6 +48,7 @@ extension EventView {
         )
         .frame(maxWidth: .infinity)
         .frame(height: 40)
+        .padding(.top, 20)
     }
     
     @ViewBuilder

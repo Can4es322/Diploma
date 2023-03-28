@@ -2,7 +2,7 @@ import SwiftUI
 
 struct ImageView: View {
     let photos: [String]
-    @EnvironmentObject private var viewModel: MainViewModel
+    @EnvironmentObject var viewModel: MainViewModel
     @Environment(\.mainWindowSize) private var mainWindowSize
     @GestureState private var dragingOffset: CGSize = .zero
     

@@ -7,7 +7,6 @@ struct ProfileView: View {
     var body: some View {
         VStack(spacing: 0) {
             Header()
-                .padding(.top, mainWindowSize.height / 21)
             
             Avatar()
                 .padding(.top, mainWindowSize.height / 21)
@@ -22,6 +21,7 @@ struct ProfileView: View {
                 .padding(.top, mainWindowSize.height / 24)
         }
         .padding(.horizontal, 20)
+        .padding(.top, mainWindowSize.height / 21)
         .navigationBarHidden(true)
     }
 }
