@@ -22,7 +22,6 @@ struct EventView: View {
                         .frame(width: 20, height: 20)
                         .foregroundColor(Color("Gray"))
                 }
-                
                 .padding(.vertical, 9)
                 .padding(.leading, 13)
                 .padding(.trailing, 15)

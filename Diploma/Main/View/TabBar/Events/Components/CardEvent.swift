@@ -6,7 +6,9 @@ struct CardEvent: View {
     @EnvironmentObject var viewModel: MainViewModel
     
     var body: some View {
-        NavigationLink(destination: EventPostView(infoCard: infoCard).environmentObject(viewModel)) {
+        NavigationLink(destination: EventPostView(infoCard: infoCard)
+            .environmentObject(viewModel)
+            .edgesIgnoringSafeArea(.top)) {
             ZStack(alignment: .bottomLeading) {
                 CustomAsyncImage(url: infoCard.avatar)
                 
@@ -14,7 +16,8 @@ struct CardEvent: View {
                     .opacity(0.4)
                 
                 WalkPerson(countCurrent: infoCard.countCurrentUser, countMaxCount: infoCard.countMaxUser, color: Color("White"))
-                    .offset(x: mainWindowSize.width - 115, y: -180)
+                    .frame(maxHeight: .infinity, alignment: .top)
+                    .offset(x: mainWindowSize.width / 1.4, y: 14)
                 
                 VStack(alignment: .leading, spacing: 7) {
                     Text(infoCard.title)
@@ -30,7 +33,7 @@ struct CardEvent: View {
                             .font(.system(size: 12, weight: .regular))
                             .foregroundColor(Color("White"))
                     }
-
+                    
                     Text(infoCard.date)
                         .font(.system(size: 12, weight: .medium))
                         .foregroundColor(Color("White"))
@@ -45,6 +48,7 @@ struct CardEvent: View {
                 .padding(.leading, 11)
                 .padding(.bottom)
             }
+            
         }
         .frame(height: 200)
         .cornerRadius(15)

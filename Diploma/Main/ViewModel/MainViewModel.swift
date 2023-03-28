@@ -1,5 +1,4 @@
 import SwiftUI
-import Foundation
 
 class MainViewModel: ObservableObject {
     @Published var inputSearch = ""
@@ -22,21 +21,20 @@ class MainViewModel: ObservableObject {
                 self.bgOpacity = Double(1 - progress)
             }
         }
-
     }
     
     func onEnd(value: DragGesture.Value) async {
         await MainActor.run {
-            withAnimation(.easeInOut) {
+            withAnimation(.linear(duration: 0.6)) {
                 let translation = value.translation.height
-                
-                if translation < 250 {
+
+                if translation < 200 {
                     self.imageViewerOffset = .zero
                     self.bgOpacity = 1
                 } else {
                     self.bgOpacity = 1
                     self.isSelectedPhotos.toggle()
-                    self.imageViewerOffset = .zero
+                    self.imageViewerOffset.height = 500
                 }
             }
         }

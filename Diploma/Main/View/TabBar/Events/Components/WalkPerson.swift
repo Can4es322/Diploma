@@ -12,6 +12,7 @@ struct WalkPerson: View {
                 .foregroundColor(color)
             
             Text("\(countCurrent)/\(countMaxCount)")
+                .fixedSize(horizontal: true, vertical: false)
                 .font(.system(size: 12, weight: .bold))
                 .foregroundColor(color)
         }

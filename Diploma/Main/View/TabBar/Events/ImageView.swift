@@ -5,10 +5,9 @@ struct ImageView: View {
     @EnvironmentObject var viewModel: MainViewModel
     @Environment(\.mainWindowSize) var mainWindowSize
     @GestureState var dragingOffset: CGSize = .zero
-
     
     var body: some View {
-        ZStack {
+        ZStack(alignment: .center) {
             Color.black
                 .opacity(viewModel.bgOpacity)
                 
@@ -57,6 +56,9 @@ struct ImageView: View {
             } else {
                 
             }
+        }
+        .onAppear() {
+            viewModel.imageViewerOffset = .zero
         }
         .gesture(DragGesture().updating($dragingOffset, body: { value, outValue, _ in
             outValue = value.translation
