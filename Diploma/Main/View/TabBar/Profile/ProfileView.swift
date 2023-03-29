@@ -3,7 +3,7 @@ import SwiftUI
 struct ProfileView: View {
     @Environment(\.mainWindowSize) private var mainWindowSize
     @StateObject private var viewModel = ProfileViewModel()
-    
+
     var body: some View {
         VStack(spacing: 0) {
             Header()
