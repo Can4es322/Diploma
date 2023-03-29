@@ -4,7 +4,7 @@ struct LoginView: View {
     @StateObject private var viewModel = LoginViewModel()
     @Environment(\.mainWindowSize) private var mainWindowSize
     @Environment(\.presentationMode) private var presentation
-    @Binding var isAuthUser: Bool
+    @Binding var token: String
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
@@ -31,8 +31,7 @@ struct LoginView: View {
                 
                 CustomBackgroundButton(text: "Войти") {
                     Task {
-                        await viewModel.registerUser()
-                        isAuthUser = viewModel.isErrorLogin ?? false
+                       token = await viewModel.loginUser()
                     }
                 }
                 .fixedSize(horizontal: false, vertical: true)
@@ -60,7 +59,7 @@ extension LoginView {
             Text("Еще не имеете аккаунт? ")
                 .foregroundColor(Color("Gray"))
             
-            NavigationLink(destination: RegistrationView(isAuthUser: $isAuthUser), label: {
+            NavigationLink(destination: RegistrationView(token: $token), label: {
                 Text("Регистрация")
                     .foregroundColor(Color("Blue"))
                     .underline()

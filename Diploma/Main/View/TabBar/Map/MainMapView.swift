@@ -21,13 +21,6 @@ struct MainMapView: View {
             locationManager.delegate = viewModel
             locationManager.requestWhenInUseAuthorization()
         }
-        .alert(isPresented: $viewModel.permission) {
-            Alert(title: Text("Permission Denied"),
-                  message: Text("Pleas Enable Permission In App Settings"),
-                  dismissButton: .default(Text("Goto Settings")) {
-                UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
-            })
-        }
     }
 }
 

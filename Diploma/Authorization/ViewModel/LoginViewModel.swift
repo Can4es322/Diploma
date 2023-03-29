@@ -13,10 +13,17 @@ final class LoginViewModel: ObservableObject {
         self.isErrorLogin = self.loginText.contains("@")
     }
     
-    func registerUser() async {
+    func loginUser() async -> String {
         try? await Task.sleep(nanoseconds: 1_000_000_000)
         await MainActor.run {
             checkIsCorrectEmail()
         }
+        
+        
+        
+        if isErrorLogin == true {
+            return "token"
+        }
+        return ""
     }
 }

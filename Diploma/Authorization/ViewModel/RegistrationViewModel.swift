@@ -32,8 +32,8 @@ final class RegistrationViewModel: ObservableObject {
         return namePerson.isEmpty || lastnamePerson.isEmpty || middlenamePerson.isEmpty
     }
     
-    func registrationUser() -> Bool {
-        return true
+    func registrationUser() -> String {
+        return "token"
     }
     
     func onChange(value: CGFloat) async {

@@ -3,7 +3,7 @@ import SwiftUI
 struct BottomSheetView: View {
     @GestureState private var gestureOffset: CGFloat = 0
     @EnvironmentObject private var viewModel: RegistrationViewModel
-    @Binding var isAuthUser: Bool
+    @Binding var token: String
     
     var body: some View {
         GeometryReader { proxy -> AnyView in
@@ -49,7 +49,7 @@ struct BottomSheetView: View {
                         Spacer()
                         
                         CustomBackgroundButton(text: "Продолжить") {
-                            isAuthUser = viewModel.registrationUser()
+                            token = viewModel.registrationUser()
                         }
                         
                         .padding(.bottom, 40)

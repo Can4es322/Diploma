@@ -1,14 +1,20 @@
 import SwiftUI
 
+enum Role {
+    case admin
+    case person
+}
+
 struct StartView: View {
-    @State var isAuthUser = false
+    @State var token = ""
+    @State var role: Role = .admin
     
     var body: some View {
-        NavigationView{
-            if isAuthUser {
-                MainTabView()
+        NavigationView {
+            if !token.isEmpty {
+                MainTabView(token: token, role: role)
             } else {
-                AuthorizationView(isAuthUser: $isAuthUser)
+                AuthorizationView(token: $token)
             }
         }
     }

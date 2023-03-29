@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		23F9061829D483AD0034EAB3 /* StatisticView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F9061729D483AD0034EAB3 /* StatisticView.swift */; };
 		9946718229C4885800DD1D49 /* TabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9946718129C4885800DD1D49 /* TabButton.swift */; };
 		99487F2D29C3481E003ADBAA /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99487F2C29C3481E003ADBAA /* StartView.swift */; };
 		996154A429C207C100A5095F /* ExtensionSizeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996154A329C207C100A5095F /* ExtensionSizeScreen.swift */; };
@@ -81,6 +82,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		23F9061729D483AD0034EAB3 /* StatisticView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticView.swift; sourceTree = "<group>"; };
 		9946718129C4885800DD1D49 /* TabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabButton.swift; sourceTree = "<group>"; };
 		99487F2C29C3481E003ADBAA /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		996154A329C207C100A5095F /* ExtensionSizeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionSizeScreen.swift; sourceTree = "<group>"; };
@@ -166,6 +168,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		23F9061629D483700034EAB3 /* Statistic */ = {
+			isa = PBXGroup;
+			children = (
+				23F9061729D483AD0034EAB3 /* StatisticView.swift */,
+			);
+			path = Statistic;
+			sourceTree = "<group>";
+		};
 		996154A229C207A800A5095F /* Heplers */ = {
 			isa = PBXGroup;
 			children = (
@@ -213,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				99C625D029C0CDDF005C5801 /* Info.plist */,
+				99B1B3B929C44CB600C70FD1 /* Services */,
 				99E5233F29D3226300173299 /* FontModifier */,
 				996154A229C207A800A5095F /* Heplers */,
 				99C625D229C0CEA1005C5801 /* Main */,
@@ -274,6 +285,7 @@
 		99B578D629C8399F001B9E77 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
+				23F9061629D483700034EAB3 /* Statistic */,
 				99B578D929C839D0001B9E77 /* Map */,
 				99B578D829C839C6001B9E77 /* Profile */,
 				99B578D729C839BB001B9E77 /* Events */,
@@ -384,7 +396,6 @@
 		99C625DA29C0CEF7005C5801 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				99B1B3B929C44CB600C70FD1 /* Services */,
 				99B1B3AE29C3739300C70FD1 /* CardEventInfo.swift */,
 				99B1B3B529C449CF00C70FD1 /* Mock.swift */,
 				99B578E029C85EF5001B9E77 /* Place.swift */,
@@ -573,6 +584,7 @@
 				99E2806329C4ACF000C85107 /* UserInfo.swift in Sources */,
 				99B578DD29C84683001B9E77 /* MapViewModel.swift in Sources */,
 				99B578E129C85EF5001B9E77 /* Place.swift in Sources */,
+				23F9061829D483AD0034EAB3 /* StatisticView.swift in Sources */,
 				99B1B3BB29C44CD100C70FD1 /* ImageLoaderService.swift in Sources */,
 				99B1B3AB29C3613F00C70FD1 /* TagEvent.swift in Sources */,
 				9946718229C4885800DD1D49 /* TabButton.swift in Sources */,

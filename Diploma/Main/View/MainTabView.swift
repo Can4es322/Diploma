@@ -2,9 +2,11 @@ import SwiftUI
 import MapKit
 
 struct MainTabView: View {
+    let token: String
+    let role: Role
     @StateObject private var viewModel = MapViewModel()
     @State private var selectedTab = "Мероприятия"
-    private var edges = UIApplication.shared.windows.first?.safeAreaInsets
+    var edges = UIApplication.shared.windows.first?.safeAreaInsets
     private let tabsTitle = ["Мероприятия", "Карта", "Профиль"]
     private let tabsImage = ["calendar", "map", "person"]
     
@@ -16,7 +18,11 @@ struct MainTabView: View {
                 MainMapView()
                     .environmentObject(viewModel)
             case tabsTitle[2]:
-                ProfileView()
+                if role == .admin {
+                    StatisticView()
+                } else {
+                    ProfileView()
+                }
             default:
                 EventView()
             }
