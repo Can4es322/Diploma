@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		23E5A23A29D5788B003C96C8 /* StatisticViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E5A23929D5788B003C96C8 /* StatisticViewModel.swift */; };
 		23F9061829D483AD0034EAB3 /* StatisticView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F9061729D483AD0034EAB3 /* StatisticView.swift */; };
 		9946718229C4885800DD1D49 /* TabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9946718129C4885800DD1D49 /* TabButton.swift */; };
 		99487F2D29C3481E003ADBAA /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99487F2C29C3481E003ADBAA /* StartView.swift */; };
@@ -82,6 +83,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		23E5A23929D5788B003C96C8 /* StatisticViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticViewModel.swift; sourceTree = "<group>"; };
 		23F9061729D483AD0034EAB3 /* StatisticView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticView.swift; sourceTree = "<group>"; };
 		9946718129C4885800DD1D49 /* TabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabButton.swift; sourceTree = "<group>"; };
 		99487F2C29C3481E003ADBAA /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
@@ -389,6 +391,7 @@
 				99B1B3A829C35EB000C70FD1 /* MainViewModel.swift */,
 				99E2805F29C4AC3C00C85107 /* ProfileViewModel.swift */,
 				99B578DC29C84683001B9E77 /* MapViewModel.swift */,
+				23E5A23929D5788B003C96C8 /* StatisticViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -611,6 +614,7 @@
 				99B1B3B829C44C6100C70FD1 /* CustomAsyncImage.swift in Sources */,
 				996154AF29C2140F00A5095F /* DismissButton.swift in Sources */,
 				99E5233C29D308C800173299 /* BoldFontModifier.swift in Sources */,
+				23E5A23A29D5788B003C96C8 /* StatisticViewModel.swift in Sources */,
 				996154A429C207C100A5095F /* ExtensionSizeScreen.swift in Sources */,
 				99B1B3B629C449CF00C70FD1 /* Mock.swift in Sources */,
 			);

@@ -13,22 +13,18 @@ struct TabButton: View {
             }
         } label: {
             VStack(spacing: 6) {
-                    RoundedRectangle(cornerRadius: 1)
-                        .fill(Color("Blue4").opacity(selectedTab == title ? 1 : 0))
-                        .frame(width: 40, height: 5)
-                        .padding(.bottom, 6)
-
-                    
-                    Image(systemName: image)
-                        .renderingMode(.template)
-                        .resizable()
-                        .frame(width: 24, height: 24)
-                        .foregroundColor(selectedTab == title ? Color("Blue4") : Color("Gray3"))
-                    
-                    Text(title)
-                        .font(.system(size: 12, weight: .medium))
-                        .foregroundColor(selectedTab == title ? Color("Blue4") : Color("Gray3"))
+                RoundedRectangle(cornerRadius: 1)
+                    .fill(Color("Blue4").opacity(selectedTab == title ? 1 : 0))
+                    .frame(width: 40, height: 5)
+                    .padding(.bottom, 6)
                 
+                Image(systemName: image)
+                    .font(.system(size: 24, weight: .regular))
+                    .foregroundColor(selectedTab == title ? Color("Blue4") : Color("Gray3"))
+                
+                Text(title)
+                    .font(.system(size: 12, weight: .medium))
+                    .foregroundColor(selectedTab == title ? Color("Blue4") : Color("Gray3"))
             }
         }
     }

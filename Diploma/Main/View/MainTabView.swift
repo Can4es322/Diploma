@@ -4,11 +4,24 @@ import MapKit
 struct MainTabView: View {
     let token: String
     let role: Role
+    var edges = UIApplication.shared.windows.first?.safeAreaInsets
+    private var tabsTitle: [String] = []
+    private var tabsImage: [String] = []
+    
     @StateObject private var viewModel = MapViewModel()
     @State private var selectedTab = "Мероприятия"
-    var edges = UIApplication.shared.windows.first?.safeAreaInsets
-    private let tabsTitle = ["Мероприятия", "Карта", "Профиль"]
-    private let tabsImage = ["calendar", "map", "person"]
+    
+    init(token: String, role: Role) {
+        self.token = token
+        self.role = role
+        if role == .admin {
+            tabsTitle = ["Мероприятия", "Карта", "Статистика"]
+            tabsImage = ["calendar", "map", "doc.text"]
+        } else {
+            tabsTitle = ["Мероприятия", "Карта", "Профиль"]
+            tabsImage = ["calendar", "map", "person"]
+        }
+    }
     
     var body: some View {
         VStack(spacing: 0) {
