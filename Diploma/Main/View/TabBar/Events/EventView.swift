@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct EventView: View {
+    let role: Role
     @StateObject private var viewModel = MainViewModel()
     @Environment(\.mainWindowSize) private var mainWindowSize
     private let tags = ["Наука", "Мастер-класс", "Конференция", "Театр", "Спорт", "Тренинг", "Концерт"]
@@ -26,9 +27,23 @@ struct EventView: View {
 extension EventView {
     @ViewBuilder
     func Header() -> some View {
-        Text("Мероприятия")
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .customFontBold()
+        HStack {
+            Text("Мероприятия")
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .customFontBold()
+            
+            Spacer()
+            
+            if role == .admin {
+                Button {
+                    
+                } label: {
+                    Image(systemName: "plus")
+                        .font(.system(size: 20))
+                        .foregroundColor(.black)
+                }
+            }
+        }
         
         HStack {
             TextField("Поиск", text: $viewModel.inputSearch)

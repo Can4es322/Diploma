@@ -37,7 +37,7 @@ struct MainTabView: View {
                     ProfileView()
                 }
             default:
-                EventView()
+                EventView(role: role)
             }
             
             Spacer(minLength: 0)

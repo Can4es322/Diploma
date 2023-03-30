@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		23E5A23A29D5788B003C96C8 /* StatisticViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E5A23929D5788B003C96C8 /* StatisticViewModel.swift */; };
+		23E5A23D29D58707003C96C8 /* CircleDiagram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E5A23C29D58707003C96C8 /* CircleDiagram.swift */; };
+		23E5A23F29D5894D003C96C8 /* AddEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E5A23E29D5894D003C96C8 /* AddEventView.swift */; };
+		23E5A24129D58A64003C96C8 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E5A24029D58A64003C96C8 /* Event.swift */; };
+		23E5A24329D5A6B4003C96C8 /* AddTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E5A24229D5A6B4003C96C8 /* AddTag.swift */; };
+		23E5A24529D5CADD003C96C8 /* AddAddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E5A24429D5CADD003C96C8 /* AddAddressView.swift */; };
 		23F9061829D483AD0034EAB3 /* StatisticView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F9061729D483AD0034EAB3 /* StatisticView.swift */; };
 		9946718229C4885800DD1D49 /* TabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9946718129C4885800DD1D49 /* TabButton.swift */; };
 		99487F2D29C3481E003ADBAA /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99487F2C29C3481E003ADBAA /* StartView.swift */; };
@@ -84,6 +89,11 @@
 
 /* Begin PBXFileReference section */
 		23E5A23929D5788B003C96C8 /* StatisticViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticViewModel.swift; sourceTree = "<group>"; };
+		23E5A23C29D58707003C96C8 /* CircleDiagram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleDiagram.swift; sourceTree = "<group>"; };
+		23E5A23E29D5894D003C96C8 /* AddEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventView.swift; sourceTree = "<group>"; };
+		23E5A24029D58A64003C96C8 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		23E5A24229D5A6B4003C96C8 /* AddTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTag.swift; sourceTree = "<group>"; };
+		23E5A24429D5CADD003C96C8 /* AddAddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddressView.swift; sourceTree = "<group>"; };
 		23F9061729D483AD0034EAB3 /* StatisticView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticView.swift; sourceTree = "<group>"; };
 		9946718129C4885800DD1D49 /* TabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabButton.swift; sourceTree = "<group>"; };
 		99487F2C29C3481E003ADBAA /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
@@ -170,10 +180,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		23E5A23B29D586F8003C96C8 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				23E5A23C29D58707003C96C8 /* CircleDiagram.swift */,
+				23E5A24229D5A6B4003C96C8 /* AddTag.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		23F9061629D483700034EAB3 /* Statistic */ = {
 			isa = PBXGroup;
 			children = (
+				23E5A23B29D586F8003C96C8 /* Components */,
 				23F9061729D483AD0034EAB3 /* StatisticView.swift */,
+				23E5A23E29D5894D003C96C8 /* AddEventView.swift */,
+				23E5A24429D5CADD003C96C8 /* AddAddressView.swift */,
 			);
 			path = Statistic;
 			sourceTree = "<group>";
@@ -402,6 +424,7 @@
 				99B1B3AE29C3739300C70FD1 /* CardEventInfo.swift */,
 				99B1B3B529C449CF00C70FD1 /* Mock.swift */,
 				99B578E029C85EF5001B9E77 /* Place.swift */,
+				23E5A24029D58A64003C96C8 /* Event.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -571,14 +594,19 @@
 				996154A929C20F0300A5095F /* CustomBorderButton.swift in Sources */,
 				99E2805E29C4A65600C85107 /* ProfileView.swift in Sources */,
 				99B578E329C87126001B9E77 /* ProfileEditView.swift in Sources */,
+				23E5A23D29D58707003C96C8 /* CircleDiagram.swift in Sources */,
 				99B1B3BD29C46CB800C70FD1 /* MainTabView.swift in Sources */,
 				99487F2D29C3481E003ADBAA /* StartView.swift in Sources */,
 				996154B129C2198D00A5095F /* CustomBackgroundTextField.swift in Sources */,
+				23E5A24529D5CADD003C96C8 /* AddAddressView.swift in Sources */,
 				996154B529C21D0500A5095F /* CustomPasswordTextField.swift in Sources */,
+				23E5A24129D58A64003C96C8 /* Event.swift in Sources */,
 				99CAF3BC29CD9EF400322736 /* MiniPhoto.swift in Sources */,
 				99B1B3B429C4479000C70FD1 /* TagCard.swift in Sources */,
+				23E5A23F29D5894D003C96C8 /* AddEventView.swift in Sources */,
 				99B578DF29C84727001B9E77 /* MainMapView.swift in Sources */,
 				99CAF3C529D1950E00322736 /* ImageView.swift in Sources */,
+				23E5A24329D5A6B4003C96C8 /* AddTag.swift in Sources */,
 				99B3C56929C319E400FC581D /* CustomCommonTextField.swift in Sources */,
 				996154B729C227FF00A5095F /* RegistrationViewModel.swift in Sources */,
 				99CAF3C029D17C8300322736 /* TagPost.swift in Sources */,
