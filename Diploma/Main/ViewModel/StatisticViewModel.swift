@@ -2,10 +2,7 @@ import SwiftUI
 import Foundation
 
 class StatisticViewModel: ObservableObject {
-    @Published var eventInfo = Event(name: "", description: "", countPerson: "", date: Date(), tags: [], place: "", avatar: UIImage(), photos: [UIImage()])
-    @Published var isCategoryTap = false
-    @Published var isCategoryTaps = [false, false, false, false, false, false, false]
-    @Published var isNextView = false
+    @Published var isInfoTap = false
     
     let mounts: [Int: String] = [
         1: "Январь",
@@ -21,14 +18,6 @@ class StatisticViewModel: ObservableObject {
         11: "Ноябрь",
         12: "Декабрь",
     ]
-    
-    func checkIsEmptyAddEvent() -> Bool {
-        return eventInfo.name.isEmpty || eventInfo.description.isEmpty || eventInfo.countPerson.isEmpty || eventInfo.tags.isEmpty
-    }
-    
-    func checkIsLimitTags() -> Bool {
-        return eventInfo.tags.count > 3
-    }
     
     func getCurrentMounth() -> String {
         let currentDate = Date()

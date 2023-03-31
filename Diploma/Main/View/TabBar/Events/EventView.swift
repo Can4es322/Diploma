@@ -35,9 +35,7 @@ extension EventView {
             Spacer()
             
             if role == .admin {
-                Button {
-                    
-                } label: {
+                NavigationLink(destination: AddEventView().environmentObject(viewModel)) {
                     Image(systemName: "plus")
                         .font(.system(size: 20))
                         .foregroundColor(.black)

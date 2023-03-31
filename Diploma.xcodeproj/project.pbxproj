@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		23DA2F5F29D6C53A0098239F /* DrawShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DA2F5E29D6C53A0098239F /* DrawShape.swift */; };
+		23DA2F6129D6C59F0098239F /* ValueDiagram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DA2F6029D6C59F0098239F /* ValueDiagram.swift */; };
+		23DA2F6329D6C8C80098239F /* InfoTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DA2F6229D6C8C80098239F /* InfoTag.swift */; };
+		23DA2F6529D6DA7D0098239F /* AddEventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DA2F6429D6DA7D0098239F /* AddEventViewModel.swift */; };
+		23DA2F6729D6DDEA0098239F /* MiniDiagram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DA2F6629D6DDEA0098239F /* MiniDiagram.swift */; };
 		23E5A23A29D5788B003C96C8 /* StatisticViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E5A23929D5788B003C96C8 /* StatisticViewModel.swift */; };
-		23E5A23D29D58707003C96C8 /* CircleDiagram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E5A23C29D58707003C96C8 /* CircleDiagram.swift */; };
 		23E5A23F29D5894D003C96C8 /* AddEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E5A23E29D5894D003C96C8 /* AddEventView.swift */; };
 		23E5A24129D58A64003C96C8 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E5A24029D58A64003C96C8 /* Event.swift */; };
 		23E5A24329D5A6B4003C96C8 /* AddTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E5A24229D5A6B4003C96C8 /* AddTag.swift */; };
@@ -88,8 +92,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		23DA2F5E29D6C53A0098239F /* DrawShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawShape.swift; sourceTree = "<group>"; };
+		23DA2F6029D6C59F0098239F /* ValueDiagram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueDiagram.swift; sourceTree = "<group>"; };
+		23DA2F6229D6C8C80098239F /* InfoTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTag.swift; sourceTree = "<group>"; };
+		23DA2F6429D6DA7D0098239F /* AddEventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventViewModel.swift; sourceTree = "<group>"; };
+		23DA2F6629D6DDEA0098239F /* MiniDiagram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniDiagram.swift; sourceTree = "<group>"; };
 		23E5A23929D5788B003C96C8 /* StatisticViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticViewModel.swift; sourceTree = "<group>"; };
-		23E5A23C29D58707003C96C8 /* CircleDiagram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleDiagram.swift; sourceTree = "<group>"; };
 		23E5A23E29D5894D003C96C8 /* AddEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventView.swift; sourceTree = "<group>"; };
 		23E5A24029D58A64003C96C8 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		23E5A24229D5A6B4003C96C8 /* AddTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTag.swift; sourceTree = "<group>"; };
@@ -183,8 +191,10 @@
 		23E5A23B29D586F8003C96C8 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				23E5A23C29D58707003C96C8 /* CircleDiagram.swift */,
 				23E5A24229D5A6B4003C96C8 /* AddTag.swift */,
+				23DA2F5E29D6C53A0098239F /* DrawShape.swift */,
+				23DA2F6229D6C8C80098239F /* InfoTag.swift */,
+				23DA2F6629D6DDEA0098239F /* MiniDiagram.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -414,6 +424,7 @@
 				99E2805F29C4AC3C00C85107 /* ProfileViewModel.swift */,
 				99B578DC29C84683001B9E77 /* MapViewModel.swift */,
 				23E5A23929D5788B003C96C8 /* StatisticViewModel.swift */,
+				23DA2F6429D6DA7D0098239F /* AddEventViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -425,6 +436,7 @@
 				99B1B3B529C449CF00C70FD1 /* Mock.swift */,
 				99B578E029C85EF5001B9E77 /* Place.swift */,
 				23E5A24029D58A64003C96C8 /* Event.swift */,
+				23DA2F6029D6C59F0098239F /* ValueDiagram.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -594,7 +606,6 @@
 				996154A929C20F0300A5095F /* CustomBorderButton.swift in Sources */,
 				99E2805E29C4A65600C85107 /* ProfileView.swift in Sources */,
 				99B578E329C87126001B9E77 /* ProfileEditView.swift in Sources */,
-				23E5A23D29D58707003C96C8 /* CircleDiagram.swift in Sources */,
 				99B1B3BD29C46CB800C70FD1 /* MainTabView.swift in Sources */,
 				99487F2D29C3481E003ADBAA /* StartView.swift in Sources */,
 				996154B129C2198D00A5095F /* CustomBackgroundTextField.swift in Sources */,
@@ -604,9 +615,11 @@
 				99CAF3BC29CD9EF400322736 /* MiniPhoto.swift in Sources */,
 				99B1B3B429C4479000C70FD1 /* TagCard.swift in Sources */,
 				23E5A23F29D5894D003C96C8 /* AddEventView.swift in Sources */,
+				23DA2F5F29D6C53A0098239F /* DrawShape.swift in Sources */,
 				99B578DF29C84727001B9E77 /* MainMapView.swift in Sources */,
 				99CAF3C529D1950E00322736 /* ImageView.swift in Sources */,
 				23E5A24329D5A6B4003C96C8 /* AddTag.swift in Sources */,
+				23DA2F6729D6DDEA0098239F /* MiniDiagram.swift in Sources */,
 				99B3C56929C319E400FC581D /* CustomCommonTextField.swift in Sources */,
 				996154B729C227FF00A5095F /* RegistrationViewModel.swift in Sources */,
 				99CAF3C029D17C8300322736 /* TagPost.swift in Sources */,
@@ -621,6 +634,7 @@
 				9946718229C4885800DD1D49 /* TabButton.swift in Sources */,
 				99E5233E29D309FA00173299 /* MediumFontModifier.swift in Sources */,
 				99CAF3B829CD9A1100322736 /* EventPostView.swift in Sources */,
+				23DA2F6329D6C8C80098239F /* InfoTag.swift in Sources */,
 				9963A0E729C0ADDA00D0B255 /* SplashScreen.swift in Sources */,
 				996154AD29C213D500A5095F /* RegistrationView.swift in Sources */,
 				99B3C56B29C3240100FC581D /* CustomDropDown.swift in Sources */,
@@ -640,8 +654,10 @@
 				99A4B66C29C4B35D004F4BDB /* VisitedEvents.swift in Sources */,
 				99CAF3B529CB475B00322736 /* ExtensionCloseKeyboard.swift in Sources */,
 				99B1B3B829C44C6100C70FD1 /* CustomAsyncImage.swift in Sources */,
+				23DA2F6529D6DA7D0098239F /* AddEventViewModel.swift in Sources */,
 				996154AF29C2140F00A5095F /* DismissButton.swift in Sources */,
 				99E5233C29D308C800173299 /* BoldFontModifier.swift in Sources */,
+				23DA2F6129D6C59F0098239F /* ValueDiagram.swift in Sources */,
 				23E5A23A29D5788B003C96C8 /* StatisticViewModel.swift in Sources */,
 				996154A429C207C100A5095F /* ExtensionSizeScreen.swift in Sources */,
 				99B1B3B629C449CF00C70FD1 /* Mock.swift in Sources */,

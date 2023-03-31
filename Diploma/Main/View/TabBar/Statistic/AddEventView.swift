@@ -1,54 +1,47 @@
 import SwiftUI
 
 struct AddEventView: View {
-    @EnvironmentObject var viewModel: StatisticViewModel
+    @StateObject var viewModel = AddEventViewModel()
     @Environment(\.mainWindowSize) private var mainWindowSize
     private let tags = ["Наука", "Мастер-класс", "Конференция", "Театр", "Спорт", "Тренинг", "Концерт"]
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(alignment: .leading, spacing: 6) {
-                Group {
-                    Text("Название")
-                        .fixedSize(horizontal: false, vertical: true)
-                        .font(.system(size: 16, weight: .regular))
-                        .foregroundColor(.black)
-                    
-                    CustomCommonTextField(placeholder: "", text: $viewModel.eventInfo.name)
-                }
+                Text("Название")
+                    .fixedSize(horizontal: false, vertical: true)
+                    .font(.system(size: 16, weight: .regular))
+                    .foregroundColor(.black)
                 
-                Group {
-                    Text("Описание")
-                        .fixedSize(horizontal: false, vertical: true)
-                        .font(.system(size: 16, weight: .regular))
-                        .foregroundColor(.black)
-                        .padding(.top, 13)
-                    
-                    CustomCommonTextField(placeholder: "", text: $viewModel.eventInfo.description)
-                }
+                CustomCommonTextField(placeholder: "", text: $viewModel.eventInfo.name)
+
+                Text("Описание")
+                    .fixedSize(horizontal: false, vertical: true)
+                    .font(.system(size: 16, weight: .regular))
+                    .foregroundColor(.black)
+                    .padding(.top, 13)
                 
-                Group {
-                    Text("Количество")
-                        .fixedSize(horizontal: false, vertical: true)
-                        .font(.system(size: 16, weight: .regular))
-                        .foregroundColor(.black)
-                        .padding(.top, 13)
-                    
-                    CustomCommonTextField(placeholder: "", text: $viewModel.eventInfo.countPerson)
-                }
+                CustomCommonTextField(placeholder: "", text: $viewModel.eventInfo.description)
+                
+                Text("Количество")
+                    .fixedSize(horizontal: false, vertical: true)
+                    .font(.system(size: 16, weight: .regular))
+                    .foregroundColor(.black)
+                    .padding(.top, 13)
+                
+                CustomCommonTextField(placeholder: "", text: $viewModel.eventInfo.countPerson)
                 
                 DatePicker("Выбрать дату", selection: $viewModel.eventInfo.date, displayedComponents: [.date, .hourAndMinute])
                     .datePickerStyle(.automatic)
                     .font(.system(size: 16, weight: .regular))
                     .padding(.top, 26)
                 
-                Group {
-                    Text("Категории")
-                        .fixedSize(horizontal: false, vertical: true)
-                        .padding(.top, 13)
-                        .font(.system(size: 16, weight: .regular))
-                        .foregroundColor(.black)
-                }
+                
+                Text("Категории")
+                    .fixedSize(horizontal: false, vertical: true)
+                    .padding(.top, 13)
+                    .font(.system(size: 16, weight: .regular))
+                    .foregroundColor(.black)
                 
                 AddCategory()
                     .padding(.top, 13)
@@ -57,12 +50,10 @@ struct AddEventView: View {
                     CustomBackgroundButton(text: "Далее") {
                         viewModel.isNextView.toggle()
                     }
-                    .padding(.top, 20)
+                    .padding(.top, 40)
                 }
                 .disabled(viewModel.checkIsEmptyAddEvent())
                 .opacity(viewModel.checkIsEmptyAddEvent() ? 0.5 : 1)
-                
-                Spacer()
             }
             .padding(.horizontal, 20)
             .padding(.top, mainWindowSize.height / 23)
@@ -86,7 +77,7 @@ extension AddEventView {
                             viewModel.isCategoryTap.toggle()
                         }
                     } label: {
-                         Image(systemName: "plus")
+                        Image(systemName: "plus")
                             .font(.system(size: 16, weight: .bold))
                             .foregroundColor(.white)
                             .padding(.horizontal, 12)
