@@ -10,7 +10,6 @@ struct MiniDiagram: View {
     let countPerson: Int
     let diametr: Double = 70
     
-    
     var body: some View {
         HStack(alignment: .center) {
             ZStack {

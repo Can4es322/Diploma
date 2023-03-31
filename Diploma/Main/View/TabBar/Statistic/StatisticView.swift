@@ -28,15 +28,17 @@ struct StatisticView: View {
                 }
                 .padding(.horizontal, 20)
                 
-                VStack(spacing: 4) {
-                    IndividualDiagrams()
-                        .padding(.horizontal, 30)
-                        .padding(.bottom, 30)
+                ZStack {
+                    Color("BlackBlue")
+                        .cornerRadius(28, corners: [.topLeft, .topRight])
+                    
+                    VStack(spacing: 0) {
+                        IndividualDiagrams()
+                            .padding(.horizontal, 30)
+                            .padding(.bottom, 30)
+                    }
+                    .frame(maxWidth: .infinity)
                 }
-                .padding(.top, 12)
-                .frame(maxWidth: .infinity, alignment: .center)
-                .background(Color("BlackBlue"))
-                .cornerRadius(28)
             }
             .padding(.top, mainWindowSize.height / 21)
         }
@@ -92,8 +94,6 @@ extension StatisticView {
                                   data: value
                         )
                     }
-                    
-                    
                 } else {
                     // Fallback on earlier versions
                 }
@@ -130,8 +130,9 @@ extension StatisticView {
     
     @ViewBuilder
     func IndividualDiagrams() -> some View {
-        ForEach(0..<value.count, id: \.self) { i in
-            VStack(spacing: 20) {
+        VStack(spacing: 16) {
+            ForEach(0..<value.count, id: \.self) { i in
+                
                 MiniDiagram(index: i, color: value[i].color, data: value, text: value[i].name, countPerson: 20)
                 
                 if i < value.count - 1 {
@@ -141,6 +142,7 @@ extension StatisticView {
                 }
             }
         }
+        .padding(.top, 20)
     }
 }
 

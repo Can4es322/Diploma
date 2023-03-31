@@ -3,6 +3,8 @@ import Foundation
 
 class StatisticViewModel: ObservableObject {
     @Published var isInfoTap = false
+    @Published var offset: CGFloat = 0
+    @Published var lastOffset: CGFloat = 0
     
     let mounts: [Int: String] = [
         1: "Январь",
@@ -28,5 +30,11 @@ class StatisticViewModel: ObservableObject {
         let index = Calendar.current.component(.month, from: currentDate)
         
         return mounts[index] ?? ""
+    }
+    
+    func onChange(value: CGFloat) async {
+        await MainActor.run {
+            self.offset = value
+        }
     }
 }

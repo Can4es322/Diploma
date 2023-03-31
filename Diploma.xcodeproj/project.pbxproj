@@ -12,6 +12,7 @@
 		23DA2F6329D6C8C80098239F /* InfoTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DA2F6229D6C8C80098239F /* InfoTag.swift */; };
 		23DA2F6529D6DA7D0098239F /* AddEventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DA2F6429D6DA7D0098239F /* AddEventViewModel.swift */; };
 		23DA2F6729D6DDEA0098239F /* MiniDiagram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DA2F6629D6DDEA0098239F /* MiniDiagram.swift */; };
+		23DA2F6B29D721770098239F /* ExtensionRoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DA2F6A29D721770098239F /* ExtensionRoundedCorner.swift */; };
 		23E5A23A29D5788B003C96C8 /* StatisticViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E5A23929D5788B003C96C8 /* StatisticViewModel.swift */; };
 		23E5A23F29D5894D003C96C8 /* AddEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E5A23E29D5894D003C96C8 /* AddEventView.swift */; };
 		23E5A24129D58A64003C96C8 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E5A24029D58A64003C96C8 /* Event.swift */; };
@@ -97,6 +98,7 @@
 		23DA2F6229D6C8C80098239F /* InfoTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTag.swift; sourceTree = "<group>"; };
 		23DA2F6429D6DA7D0098239F /* AddEventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventViewModel.swift; sourceTree = "<group>"; };
 		23DA2F6629D6DDEA0098239F /* MiniDiagram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniDiagram.swift; sourceTree = "<group>"; };
+		23DA2F6A29D721770098239F /* ExtensionRoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionRoundedCorner.swift; sourceTree = "<group>"; };
 		23E5A23929D5788B003C96C8 /* StatisticViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticViewModel.swift; sourceTree = "<group>"; };
 		23E5A23E29D5894D003C96C8 /* AddEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventView.swift; sourceTree = "<group>"; };
 		23E5A24029D58A64003C96C8 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 			children = (
 				996154A329C207C100A5095F /* ExtensionSizeScreen.swift */,
 				99CAF3B429CB475B00322736 /* ExtensionCloseKeyboard.swift */,
+				23DA2F6A29D721770098239F /* ExtensionRoundedCorner.swift */,
 			);
 			path = Heplers;
 			sourceTree = "<group>";
@@ -649,6 +652,7 @@
 				99E5234129D3279F00173299 /* BoldMidFontModifier.swift in Sources */,
 				996154AB29C213CB00A5095F /* LoginView.swift in Sources */,
 				99B578E529C884D4001B9E77 /* PhotoPicker.swift in Sources */,
+				23DA2F6B29D721770098239F /* ExtensionRoundedCorner.swift in Sources */,
 				99CAF3BE29CDB6B700322736 /* WalkPerson.swift in Sources */,
 				99CAF3C329D181C000322736 /* TagModifier.swift in Sources */,
 				99A4B66C29C4B35D004F4BDB /* VisitedEvents.swift in Sources */,
