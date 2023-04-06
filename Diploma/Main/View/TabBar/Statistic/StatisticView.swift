@@ -42,6 +42,7 @@ struct StatisticView: View {
             }
             .padding(.top, mainWindowSize.height / 21)
         }
+        .navigationBarHidden(true)
     }
 }
 
@@ -55,7 +56,7 @@ extension StatisticView {
             Spacer()
             
             HStack(spacing: 16) {
-                NavigationLink(destination: EmptyView()) {
+                NavigationLink(destination: CalendarView().environmentObject(viewModel)) {
                     Image(systemName: "calendar.badge.plus")
                         .foregroundColor(.black)
                 }
@@ -76,7 +77,7 @@ extension StatisticView {
     
     @ViewBuilder
     func Diagram() -> some View {
-        Text("За \(viewModel.getCurrentMounth())")
+        Text("За \(viewModel.getMounthForText())")
             .font(.system(size: 16, weight: .medium))
             .foregroundColor(.black)
         

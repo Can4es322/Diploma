@@ -19,5 +19,4 @@ struct Map: UIViewRepresentable {
     func updateUIView(_ uiView: MKMapView, context: Context) {
         
     }
-
 }

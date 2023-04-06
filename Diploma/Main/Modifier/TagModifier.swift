@@ -8,7 +8,7 @@ struct TagModifier: ViewModifier {
             .fixedSize(horizontal: true, vertical: false)
             .padding(.vertical, 4)
             .padding(.horizontal, 10)
-            .frame(height: 30)
+            .frame(height: 36)
             .font(.system(size: 12, weight: .regular))
             .foregroundColor(Color("White"))
             .background(colorBackground)

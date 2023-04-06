@@ -18,6 +18,9 @@
 		23E5A24129D58A64003C96C8 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E5A24029D58A64003C96C8 /* Event.swift */; };
 		23E5A24329D5A6B4003C96C8 /* AddTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E5A24229D5A6B4003C96C8 /* AddTag.swift */; };
 		23E5A24529D5CADD003C96C8 /* AddAddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E5A24429D5CADD003C96C8 /* AddAddressView.swift */; };
+		23ECAB2329DEA244003AA006 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23ECAB2229DEA244003AA006 /* CalendarView.swift */; };
+		23ECAB2529DEAF79003AA006 /* DateValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23ECAB2429DEAF79003AA006 /* DateValue.swift */; };
+		23ECAB2729DEFB82003AA006 /* DayCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23ECAB2629DEFB82003AA006 /* DayCalendar.swift */; };
 		23F9061829D483AD0034EAB3 /* StatisticView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F9061729D483AD0034EAB3 /* StatisticView.swift */; };
 		9946718229C4885800DD1D49 /* TabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9946718129C4885800DD1D49 /* TabButton.swift */; };
 		99487F2D29C3481E003ADBAA /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99487F2C29C3481E003ADBAA /* StartView.swift */; };
@@ -104,6 +107,9 @@
 		23E5A24029D58A64003C96C8 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		23E5A24229D5A6B4003C96C8 /* AddTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTag.swift; sourceTree = "<group>"; };
 		23E5A24429D5CADD003C96C8 /* AddAddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddressView.swift; sourceTree = "<group>"; };
+		23ECAB2229DEA244003AA006 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		23ECAB2429DEAF79003AA006 /* DateValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateValue.swift; sourceTree = "<group>"; };
+		23ECAB2629DEFB82003AA006 /* DayCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCalendar.swift; sourceTree = "<group>"; };
 		23F9061729D483AD0034EAB3 /* StatisticView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticView.swift; sourceTree = "<group>"; };
 		9946718129C4885800DD1D49 /* TabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabButton.swift; sourceTree = "<group>"; };
 		99487F2C29C3481E003ADBAA /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
@@ -197,6 +203,7 @@
 				23DA2F5E29D6C53A0098239F /* DrawShape.swift */,
 				23DA2F6229D6C8C80098239F /* InfoTag.swift */,
 				23DA2F6629D6DDEA0098239F /* MiniDiagram.swift */,
+				23ECAB2629DEFB82003AA006 /* DayCalendar.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -208,6 +215,7 @@
 				23F9061729D483AD0034EAB3 /* StatisticView.swift */,
 				23E5A23E29D5894D003C96C8 /* AddEventView.swift */,
 				23E5A24429D5CADD003C96C8 /* AddAddressView.swift */,
+				23ECAB2229DEA244003AA006 /* CalendarView.swift */,
 			);
 			path = Statistic;
 			sourceTree = "<group>";
@@ -440,6 +448,7 @@
 				99B578E029C85EF5001B9E77 /* Place.swift */,
 				23E5A24029D58A64003C96C8 /* Event.swift */,
 				23DA2F6029D6C59F0098239F /* ValueDiagram.swift */,
+				23ECAB2429DEAF79003AA006 /* DateValue.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -616,6 +625,7 @@
 				996154B529C21D0500A5095F /* CustomPasswordTextField.swift in Sources */,
 				23E5A24129D58A64003C96C8 /* Event.swift in Sources */,
 				99CAF3BC29CD9EF400322736 /* MiniPhoto.swift in Sources */,
+				23ECAB2329DEA244003AA006 /* CalendarView.swift in Sources */,
 				99B1B3B429C4479000C70FD1 /* TagCard.swift in Sources */,
 				23E5A23F29D5894D003C96C8 /* AddEventView.swift in Sources */,
 				23DA2F5F29D6C53A0098239F /* DrawShape.swift in Sources */,
@@ -636,8 +646,10 @@
 				99B1B3AB29C3613F00C70FD1 /* TagEvent.swift in Sources */,
 				9946718229C4885800DD1D49 /* TabButton.swift in Sources */,
 				99E5233E29D309FA00173299 /* MediumFontModifier.swift in Sources */,
+				23ECAB2529DEAF79003AA006 /* DateValue.swift in Sources */,
 				99CAF3B829CD9A1100322736 /* EventPostView.swift in Sources */,
 				23DA2F6329D6C8C80098239F /* InfoTag.swift in Sources */,
+				23ECAB2729DEFB82003AA006 /* DayCalendar.swift in Sources */,
 				9963A0E729C0ADDA00D0B255 /* SplashScreen.swift in Sources */,
 				996154AD29C213D500A5095F /* RegistrationView.swift in Sources */,
 				99B3C56B29C3240100FC581D /* CustomDropDown.swift in Sources */,

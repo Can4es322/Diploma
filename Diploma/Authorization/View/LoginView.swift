@@ -64,7 +64,6 @@ extension LoginView {
                     .foregroundColor(Color("Blue"))
                     .underline()
             })
-            
         }
         .font(.system(size: 11, weight: .medium))
     }

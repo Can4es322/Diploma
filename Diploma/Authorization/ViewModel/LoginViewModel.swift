@@ -19,8 +19,6 @@ final class LoginViewModel: ObservableObject {
             checkIsCorrectEmail()
         }
         
-        
-        
         if isErrorLogin == true {
             return "token"
         }
