@@ -1,11 +1,16 @@
 import SwiftUI
 import Foundation
 
-class StatisticViewModel: ObservableObject {
+enum RangeDate: Int {
+    case start
+    case end
+    case none
+}
+
+final class StatisticViewModel: ObservableObject {
     @Published var isInfoTap = false
     @Published var offset: CGFloat = 0
     @Published var lastOffset: CGFloat = 0
-    
     @Published var currentDate = Date()
     @Published var currentMounth = 0
     @Published var dates: [DateValue] = []
@@ -38,6 +43,16 @@ class StatisticViewModel: ObservableObject {
         await MainActor.run {
             self.offset = value
         }
+    }
+    
+    func getSelectedDate(searchDate: RangeDate) -> String {
+        var needDate = "_"
+        for date in dates {
+            if date.range == searchDate {
+                needDate = String(date.day)
+            }
+        }
+        return String(needDate)
     }
     
     func minusMounth() {
@@ -80,15 +95,14 @@ class StatisticViewModel: ObservableObject {
             // От первого дня месяца уменьшаем на единицу
             let tempDate = calendar.date(byAdding: .day, value: -1, to: date)!
             let day = calendar.component(.day, from: tempDate)
-            return DateValue(day: day, date: date)
+            return DateValue(day: day, date: date, range: .none)
         })
     
         let tempDate = calendar.date(byAdding: .day, value: -2, to: mountDays.first?.date ?? Date())
         let firstWeekday = calendar.component(.weekday, from: tempDate!)
-        print(firstWeekday)
         
         for _ in 0..<firstWeekday - 1 {
-            mountDays.insert(DateValue(day: -1, date: Date()), at: 0)
+            mountDays.insert(DateValue(day: -1, date: Date(), range: .none), at: 0)
         }
         
         return mountDays

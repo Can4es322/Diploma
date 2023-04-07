@@ -21,6 +21,7 @@ struct CalendarView: View {
         }
         .onAppear {
             viewModel.dates = viewModel.extractDate()
+          
         }
         .padding(.horizontal, 20)
         .padding(.top, mainWindowSize.height / 21)
@@ -41,6 +42,12 @@ struct CalendarView: View {
         HStack {
             Text(viewModel.getMounthForText())
                 .customFontBold()
+            
+            Spacer()
+        
+            
+            Text("Начало \(viewModel.getSelectedDate(searchDate: .start)) - Конец \(viewModel.getSelectedDate(searchDate: .end))")
+                .customFontMedium()
             
             Spacer()
             
@@ -89,16 +96,15 @@ struct CalendarView: View {
                 ForEach(0..<7) { row in
                     if column * 7 + row < viewModel.dates.count {
                         if viewModel.dates[column * 7 + row].day != -1 {
-                            DayCalendar(text: String(viewModel.dates[column * 7 + row].day))
-                            
+                            DayCalendar(dates: $viewModel.dates, index: column * 7 + row)
                         } else {
                             Rectangle()
-                                .frame(width: 20, height: 20)
+                                .frame(width: mainWindowSize.width / 13, height: mainWindowSize.width / 13)
                                 .foregroundColor(.white)
                         }
                     } else {
                         Rectangle()
-                            .frame(width: 20, height: 20)
+                            .frame(width: mainWindowSize.width / 13, height: mainWindowSize.width / 13)
                             .foregroundColor(.white)
                     }
                     if row != 6 {
@@ -108,11 +114,5 @@ struct CalendarView: View {
                 .frame(maxWidth: .infinity, alignment: .center)
             }
         }
-    }
-}
-
-struct CalendarView_Previews: PreviewProvider {
-    static var previews: some View {
-        CalendarView()
     }
 }
