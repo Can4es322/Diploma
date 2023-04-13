@@ -21,6 +21,7 @@ struct StatisticView: View {
                     Header()
                     
                     Diagram()
+                        .padding(.top, 10)
                     
                     InfoDiagram()
                         .frame(maxWidth: .infinity, alignment: .trailing)
@@ -77,9 +78,25 @@ extension StatisticView {
     
     @ViewBuilder
     func Diagram() -> some View {
-        Text("За \(viewModel.getMounthForText())")
-            .font(.system(size: 16, weight: .medium))
-            .foregroundColor(.black)
+        if viewModel.selectedDate.rangeDate.startDate == nil && viewModel.selectedDate.rangeDate.endDate == nil {
+            Text("За \(viewModel.getMounthForText(date: viewModel.currentDate))")
+                .font(.system(size: 16, weight: .medium))
+                .foregroundColor(.black)
+        } else {
+            HStack(spacing: 2) {
+                Group {
+                    Text(viewModel.selectedDate.rangeString.startDate ?? "")
+
+                    Text("\(viewModel.selectedDate.rangeInt.startDate) - ")
+                    
+                    Text(viewModel.selectedDate.rangeString.endDate ?? "")
+                    
+                    Text("\(viewModel.selectedDate.rangeInt.endDate)")
+                }
+                .font(.system(size: 16, weight: .medium))
+                .foregroundColor(.black)
+            }
+        }
         
         Text("Посещаемость")
             .font(.system(size: 16, weight: .bold))

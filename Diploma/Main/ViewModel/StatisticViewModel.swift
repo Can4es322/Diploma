@@ -1,10 +1,10 @@
 import SwiftUI
 import Foundation
 
-enum RangeDate: Int {
-    case start
-    case end
-    case none
+struct SelectDate {
+    var rangeInt: (startDate: Int, endDate: Int)
+    var rangeString: (startDate: String?, endDate: String?)
+    var rangeDate: (startDate: Date?, endDate: Date?)
 }
 
 final class StatisticViewModel: ObservableObject {
@@ -14,6 +14,7 @@ final class StatisticViewModel: ObservableObject {
     @Published var currentDate = Date()
     @Published var currentMounth = 0
     @Published var dates: [DateValue] = []
+    @Published var selectedDate = SelectDate(rangeInt: (0, 0))
     
     let mounts: [Int: String] = [
         1: "Январь",
@@ -30,11 +31,46 @@ final class StatisticViewModel: ObservableObject {
         12: "Декабрь",
     ]
     
-    func getMounthForText() -> String {
+    func clearData() {
+        dates = []
+        selectedDate = SelectDate(rangeInt: (0, 0))
+        currentMounth = 0
+        currentDate = Date()
+    }
+    
+    func tapDate(index: Int) {
+        if selectedDate.rangeInt.startDate == 0 {
+            selectedDate.rangeInt.startDate = dates[index].day
+            selectedDate.rangeDate.startDate = dates[index].date
+            selectedDate.rangeString.startDate = getMounthForText(date: dates[index].date)
+            return
+        }
+        
+        if selectedDate.rangeInt.endDate == 0 && selectedDate.rangeInt.startDate != 0 && selectedDate.rangeDate.startDate ?? Date() < dates[index].date {
+            selectedDate.rangeInt.endDate = dates[index].day
+            selectedDate.rangeDate.endDate = dates[index].date
+            selectedDate.rangeString.endDate = getMounthForText(date: dates[index].date)
+            return
+        }
+        
+        if selectedDate.rangeDate.startDate == dates[index].date {
+            selectedDate = SelectDate(rangeInt: (0,0))
+            return
+        }
+        
+        if selectedDate.rangeDate.endDate == dates[index].date {
+            selectedDate.rangeInt.endDate = 0
+            selectedDate.rangeDate.endDate = Date()
+            selectedDate.rangeString.endDate = ""
+            return
+        }
+    }
+    
+    func getMounthForText(date: Date) -> String {
         let nameFormatter = DateFormatter()
         nameFormatter.dateFormat = "MMMM"
 
-        let index = Calendar.current.component(.month, from: currentDate)
+        let index = Calendar.current.component(.month, from: date)
         
         return mounts[index] ?? ""
     }
@@ -43,16 +79,6 @@ final class StatisticViewModel: ObservableObject {
         await MainActor.run {
             self.offset = value
         }
-    }
-    
-    func getSelectedDate(searchDate: RangeDate) -> String {
-        var needDate = "_"
-        for date in dates {
-            if date.range == searchDate {
-                needDate = String(date.day)
-            }
-        }
-        return String(needDate)
     }
     
     func minusMounth() {
@@ -95,14 +121,14 @@ final class StatisticViewModel: ObservableObject {
             // От первого дня месяца уменьшаем на единицу
             let tempDate = calendar.date(byAdding: .day, value: -1, to: date)!
             let day = calendar.component(.day, from: tempDate)
-            return DateValue(day: day, date: date, range: .none)
+            return DateValue(day: day, date: date)
         })
     
         let tempDate = calendar.date(byAdding: .day, value: -2, to: mountDays.first?.date ?? Date())
         let firstWeekday = calendar.component(.weekday, from: tempDate!)
         
         for _ in 0..<firstWeekday - 1 {
-            mountDays.insert(DateValue(day: -1, date: Date(), range: .none), at: 0)
+            mountDays.insert(DateValue(day: -1, date: Date()), at: 0)
         }
         
         return mountDays

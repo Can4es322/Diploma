@@ -3,8 +3,10 @@ import Combine
 
 struct CalendarView: View {
     @EnvironmentObject var viewModel: StatisticViewModel
+    @Environment(\.presentationMode) var presentation
     @Environment(\.mainWindowSize) private var mainWindowSize
     let days: [String] = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"]
+    @State var isTap = false
     
     var body: some View {
         VStack(alignment: .center, spacing: 14) {
@@ -17,11 +19,17 @@ struct CalendarView: View {
             Calendar()
                 .padding([.vertical, .top], 10)
             
+            CustomBackgroundButton(text: "Выбрать") {
+                presentation.wrappedValue.dismiss()
+            }
+            .padding(.top, 20)
+            .opacity(viewModel.selectedDate.rangeDate.startDate != nil && viewModel.selectedDate.rangeDate.endDate != nil ? 1 : 0.5)
+            .disabled(!(viewModel.selectedDate.rangeDate.startDate != nil && viewModel.selectedDate.rangeDate.endDate != nil))
+            
             Spacer()
         }
         .onAppear {
             viewModel.dates = viewModel.extractDate()
-          
         }
         .padding(.horizontal, 20)
         .padding(.top, mainWindowSize.height / 21)
@@ -30,6 +38,9 @@ struct CalendarView: View {
         .navigationBarItems(
             leading: DismissButton()
         )
+        .onDisappear() {
+//            viewModel.clearData()
+        }
     }
     
     @ViewBuilder
@@ -40,14 +51,29 @@ struct CalendarView: View {
             .foregroundColor(.black)
         
         HStack {
-            Text(viewModel.getMounthForText())
+            Text(viewModel.getMounthForText(date: viewModel.currentDate))
                 .customFontBold()
             
             Spacer()
         
-            
-            Text("Начало \(viewModel.getSelectedDate(searchDate: .start)) - Конец \(viewModel.getSelectedDate(searchDate: .end))")
-                .customFontMedium()
+            HStack(spacing: 2) {
+                if viewModel.selectedDate.rangeInt.startDate != 0 {
+                    Text(viewModel.selectedDate.rangeString.startDate ?? "")
+                        .customFontMedium()
+                    
+                    Text("\(viewModel.selectedDate.rangeInt.startDate) - ")
+                        .customFontMedium()
+                    
+                    if viewModel.selectedDate.rangeInt.endDate != 0  {
+                        Text(viewModel.selectedDate.rangeString.endDate ?? "")
+                            .customFontMedium()
+                        
+                         Text("\(viewModel.selectedDate.rangeInt.endDate)")
+                            .customFontMedium()
+                    }
+                }
+            }
+
             
             Spacer()
             
@@ -91,12 +117,27 @@ struct CalendarView: View {
     
     @ViewBuilder
     func Calendar() -> some View {
+
         ForEach(0..<5) { column in
             HStack {
                 ForEach(0..<7) { row in
-                    if column * 7 + row < viewModel.dates.count {
-                        if viewModel.dates[column * 7 + row].day != -1 {
-                            DayCalendar(dates: $viewModel.dates, index: column * 7 + row)
+                    let index = column * 7 + row
+                    
+                    if index < viewModel.dates.count {
+                        if viewModel.dates[index].day != -1 {
+                            Text("\(viewModel.dates[index].day)")
+                                .frame(width: 30, height: 30)
+                                .font(.system(size: 14, weight: .medium))
+                                .foregroundColor(.black)
+                                .background(
+                                    Circle()
+                                        .foregroundColor(viewModel.selectedDate.rangeDate.startDate == viewModel.dates[index].date ||
+                                                         viewModel.selectedDate.rangeDate.endDate == viewModel.dates[index].date
+                                                         ? Color("Blue") : .clear)
+                                )
+                                .onTapGesture {
+                                    viewModel.tapDate(index: index)
+                                }
                         } else {
                             Rectangle()
                                 .frame(width: mainWindowSize.width / 13, height: mainWindowSize.width / 13)
