@@ -43,25 +43,7 @@ extension EventView {
             }
         }
         
-        HStack {
-            TextField("Поиск", text: $viewModel.inputSearch)
-            
-            Image(systemName: "magnifyingglass")
-                .resizable()
-                .renderingMode(.template)
-                .frame(width: 20, height: 20)
-                .foregroundColor(Color("Gray"))
-        }
-        .padding(.vertical, 9)
-        .padding(.leading, 13)
-        .padding(.trailing, 15)
-        .overlay(
-            RoundedRectangle(cornerRadius: 6)
-                .strokeBorder(Color("Gray"), lineWidth: 2)
-        )
-        .frame(maxWidth: .infinity)
-        .frame(height: 40)
-        .padding(.top, 20)
+        SeacrhTextField(inputText: $viewModel.inputSearch, placeholderText: "Поиск")
     }
     
     @ViewBuilder

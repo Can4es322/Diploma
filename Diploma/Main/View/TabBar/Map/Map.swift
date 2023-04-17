@@ -8,7 +8,7 @@ struct Map: UIViewRepresentable {
     func makeUIView(context: Context) -> MKMapView {
         let view = viewModel.mapView
         view.showsUserLocation = true
-        
+
         let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 47.2362, longitude: 38.8969), latitudinalMeters: 10000, longitudinalMeters: 10000)
         view.region = region
         viewModel.setPlace()
@@ -16,7 +16,6 @@ struct Map: UIViewRepresentable {
         return view
     }
     
-    func updateUIView(_ uiView: MKMapView, context: Context) {
-        
-    }
+    func updateUIView(_ uiView: MKMapView, context: Context) {}
+    
 }

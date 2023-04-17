@@ -30,6 +30,7 @@ struct AddEventView: View {
                     .padding(.top, 13)
                 
                 CustomCommonTextField(placeholder: "", text: $viewModel.eventInfo.countPerson)
+                    .keyboardType(.numberPad)
                 
                 DatePicker("Выбрать дату", selection: $viewModel.eventInfo.date, displayedComponents: [.date, .hourAndMinute])
                     .datePickerStyle(.automatic)

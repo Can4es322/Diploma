@@ -1,7 +1,15 @@
 import CoreLocation
 
-struct Place: Identifiable {
+struct Place: Identifiable, Equatable {
+    
+    static func == (lhs: Place, rhs: Place) -> Bool {
+        return lhs.place == rhs.place
+    }
+    
+    static func != (lhs: Place, rhs: Place) -> Bool {
+        return lhs.place != rhs.place
+    }
+    
     let id: Int
-    let place: (Double, Double)
-    let name: String
+    var place: CLPlacemark?
 }

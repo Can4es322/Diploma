@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		231B16AD29E93B63000D2525 /* MapAddAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231B16AC29E93B63000D2525 /* MapAddAddress.swift */; };
+		231B16B329E94072000D2525 /* AddAddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231B16B229E94072000D2525 /* AddAddressViewModel.swift */; };
+		231B16B529E941D5000D2525 /* SearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231B16B429E941D5000D2525 /* SearchTextField.swift */; };
+		231B16B729E99AA8000D2525 /* CustomAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231B16B629E99AA8000D2525 /* CustomAnnotationView.swift */; };
 		23DA2F5F29D6C53A0098239F /* DrawShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DA2F5E29D6C53A0098239F /* DrawShape.swift */; };
 		23DA2F6129D6C59F0098239F /* ValueDiagram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DA2F6029D6C59F0098239F /* ValueDiagram.swift */; };
 		23DA2F6329D6C8C80098239F /* InfoTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DA2F6229D6C8C80098239F /* InfoTag.swift */; };
@@ -95,6 +99,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		231B16AC29E93B63000D2525 /* MapAddAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAddAddress.swift; sourceTree = "<group>"; };
+		231B16B229E94072000D2525 /* AddAddressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddressViewModel.swift; sourceTree = "<group>"; };
+		231B16B429E941D5000D2525 /* SearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextField.swift; sourceTree = "<group>"; };
+		231B16B629E99AA8000D2525 /* CustomAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotationView.swift; sourceTree = "<group>"; };
 		23DA2F5E29D6C53A0098239F /* DrawShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawShape.swift; sourceTree = "<group>"; };
 		23DA2F6029D6C59F0098239F /* ValueDiagram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueDiagram.swift; sourceTree = "<group>"; };
 		23DA2F6229D6C8C80098239F /* InfoTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTag.swift; sourceTree = "<group>"; };
@@ -213,6 +221,7 @@
 				23E5A23E29D5894D003C96C8 /* AddEventView.swift */,
 				23E5A24429D5CADD003C96C8 /* AddAddressView.swift */,
 				23ECAB2229DEA244003AA006 /* CalendarView.swift */,
+				231B16AC29E93B63000D2525 /* MapAddAddress.swift */,
 			);
 			path = Statistic;
 			sourceTree = "<group>";
@@ -312,6 +321,8 @@
 				9946718129C4885800DD1D49 /* TabButton.swift */,
 				99A4B66B29C4B35D004F4BDB /* VisitedEvents.swift */,
 				99CAF3B229CB3B6F00322736 /* CustomCommonEditTextField.swift */,
+				231B16B429E941D5000D2525 /* SearchTextField.swift */,
+				231B16B629E99AA8000D2525 /* CustomAnnotationView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -433,6 +444,7 @@
 				99B578DC29C84683001B9E77 /* MapViewModel.swift */,
 				23E5A23929D5788B003C96C8 /* StatisticViewModel.swift */,
 				23DA2F6429D6DA7D0098239F /* AddEventViewModel.swift */,
+				231B16B229E94072000D2525 /* AddAddressViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -622,6 +634,7 @@
 				996154B529C21D0500A5095F /* CustomPasswordTextField.swift in Sources */,
 				23E5A24129D58A64003C96C8 /* Event.swift in Sources */,
 				99CAF3BC29CD9EF400322736 /* MiniPhoto.swift in Sources */,
+				231B16B329E94072000D2525 /* AddAddressViewModel.swift in Sources */,
 				23ECAB2329DEA244003AA006 /* CalendarView.swift in Sources */,
 				99B1B3B429C4479000C70FD1 /* TagCard.swift in Sources */,
 				23E5A23F29D5894D003C96C8 /* AddEventView.swift in Sources */,
@@ -632,11 +645,13 @@
 				23DA2F6729D6DDEA0098239F /* MiniDiagram.swift in Sources */,
 				99B3C56929C319E400FC581D /* CustomCommonTextField.swift in Sources */,
 				996154B729C227FF00A5095F /* RegistrationViewModel.swift in Sources */,
+				231B16B529E941D5000D2525 /* SearchTextField.swift in Sources */,
 				99CAF3C029D17C8300322736 /* TagPost.swift in Sources */,
 				99B1B3AF29C3739300C70FD1 /* CardEventInfo.swift in Sources */,
 				99C625D729C0CEDA005C5801 /* AuthorizationView.swift in Sources */,
 				99E2806329C4ACF000C85107 /* UserInfo.swift in Sources */,
 				99B578DD29C84683001B9E77 /* MapViewModel.swift in Sources */,
+				231B16AD29E93B63000D2525 /* MapAddAddress.swift in Sources */,
 				99B578E129C85EF5001B9E77 /* Place.swift in Sources */,
 				23F9061829D483AD0034EAB3 /* StatisticView.swift in Sources */,
 				99B1B3BB29C44CD100C70FD1 /* ImageLoaderService.swift in Sources */,
@@ -665,6 +680,7 @@
 				99CAF3C329D181C000322736 /* TagModifier.swift in Sources */,
 				99A4B66C29C4B35D004F4BDB /* VisitedEvents.swift in Sources */,
 				99CAF3B529CB475B00322736 /* ExtensionCloseKeyboard.swift in Sources */,
+				231B16B729E99AA8000D2525 /* CustomAnnotationView.swift in Sources */,
 				99B1B3B829C44C6100C70FD1 /* CustomAsyncImage.swift in Sources */,
 				23DA2F6529D6DA7D0098239F /* AddEventViewModel.swift in Sources */,
 				996154AF29C2140F00A5095F /* DismissButton.swift in Sources */,
