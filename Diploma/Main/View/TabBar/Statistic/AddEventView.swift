@@ -47,7 +47,7 @@ struct AddEventView: View {
                 AddCategory()
                     .padding(.top, 13)
                 
-                NavigationLink(destination: AddAddressView(), isActive: $viewModel.isNextView) {
+                NavigationLink(destination: AddAddressView(newEvent: viewModel.eventInfo), isActive: $viewModel.isNextView) {
                     CustomBackgroundButton(text: "Далее") {
                         viewModel.isNextView.toggle()
                     }

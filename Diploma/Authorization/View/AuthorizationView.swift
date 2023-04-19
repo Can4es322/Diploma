@@ -4,7 +4,7 @@ struct AuthorizationView: View {
     @Environment(\.mainWindowSize) private var mainWindowSize
     @State private var isRegistrationView = false
     @State private var isLoginView = false
-    @Binding var token: String
+    @Binding var authData: AuthorizationData
     
     var body: some View {
         VStack(alignment: .center, spacing: 0) {
@@ -30,13 +30,13 @@ struct AuthorizationView: View {
             
             Spacer()
             
-            NavigationLink(destination: RegistrationView(token: $token), isActive: $isRegistrationView) {
+            NavigationLink(destination: RegistrationView(authData: $authData), isActive: $isRegistrationView) {
                 CustomBackgroundButton(text: "Регистрация") {
                     isRegistrationView.toggle()
                 }
             }
             
-            NavigationLink(destination: LoginView(token: $token) , isActive: $isLoginView) {
+            NavigationLink(destination: LoginView(authData: $authData) , isActive: $isLoginView) {
                 CustomBorderButton(text: "Войти") {
                     isLoginView.toggle()
                 }

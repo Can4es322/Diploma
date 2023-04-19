@@ -4,6 +4,7 @@ import Combine
 struct AddAddressView: View {
     @StateObject private var viewModel = AddAddressViewModel()
     @Environment(\.mainWindowSize) private var mainWindowSize
+    let newEvent: Event
     
     var body: some View {
         if #available(iOS 14.0, *) {
@@ -48,9 +49,7 @@ struct AddAddressView: View {
                     .padding(.horizontal, 20)
                     .multilineTextAlignment(.center)
                 
-                Button {
-                    
-                } label: {
+                NavigationLink(destination: AddImageView(place: viewModel.currentPlace, event: newEvent)) {
                     Text("Далее")
                         .font(.system(size: 15, weight: .medium))
                         .foregroundColor(.white)
@@ -59,10 +58,8 @@ struct AddAddressView: View {
                             Color("Gray1")
                         )
                         .cornerRadius(12)
-                    
                 }
                 .offset(x: mainWindowSize.width / 3 ,y: mainWindowSize.height / 1.2)
-                
             }
             .onChange(of: viewModel.inputSearch) { newValue in
                 Task {
@@ -82,7 +79,7 @@ struct AddAddressView: View {
                 leading: DismissButton()
             )
         } else {
-            // Fallback on earlier versions
+           
         }
     }
 }

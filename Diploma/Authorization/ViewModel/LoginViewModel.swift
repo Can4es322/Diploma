@@ -13,15 +13,20 @@ final class LoginViewModel: ObservableObject {
         self.isErrorLogin = self.loginText.contains("@")
     }
     
-    func loginUser() async -> String {
+    func loginUser() async -> AuthorizationData {
         try? await Task.sleep(nanoseconds: 1_000_000_000)
         await MainActor.run {
             checkIsCorrectEmail()
         }
         
         if isErrorLogin == true {
-            return "token"
+            if loginText == "Admin@" && passwordText == "admin" {
+                return AuthorizationData(token: "token", role: .admin)
+            } else {
+                return AuthorizationData(token: "token", role: .person)
+            }
         }
-        return ""
+        
+        return AuthorizationData(token: "", role: .none)
     }
 }

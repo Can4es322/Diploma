@@ -11,6 +11,10 @@
 		231B16B329E94072000D2525 /* AddAddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231B16B229E94072000D2525 /* AddAddressViewModel.swift */; };
 		231B16B529E941D5000D2525 /* SearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231B16B429E941D5000D2525 /* SearchTextField.swift */; };
 		231B16B729E99AA8000D2525 /* CustomAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231B16B629E99AA8000D2525 /* CustomAnnotationView.swift */; };
+		231B16B929ED84CE000D2525 /* AddImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231B16B829ED84CE000D2525 /* AddImageView.swift */; };
+		231B16BB29ED86C5000D2525 /* AddImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231B16BA29ED86C5000D2525 /* AddImageViewModel.swift */; };
+		231B16BD29ED8755000D2525 /* EventImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231B16BC29ED8755000D2525 /* EventImages.swift */; };
+		231B16BF29ED904C000D2525 /* PhotoPickerImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231B16BE29ED904C000D2525 /* PhotoPickerImages.swift */; };
 		23DA2F5F29D6C53A0098239F /* DrawShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DA2F5E29D6C53A0098239F /* DrawShape.swift */; };
 		23DA2F6129D6C59F0098239F /* ValueDiagram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DA2F6029D6C59F0098239F /* ValueDiagram.swift */; };
 		23DA2F6329D6C8C80098239F /* InfoTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DA2F6229D6C8C80098239F /* InfoTag.swift */; };
@@ -103,6 +107,10 @@
 		231B16B229E94072000D2525 /* AddAddressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddressViewModel.swift; sourceTree = "<group>"; };
 		231B16B429E941D5000D2525 /* SearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextField.swift; sourceTree = "<group>"; };
 		231B16B629E99AA8000D2525 /* CustomAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotationView.swift; sourceTree = "<group>"; };
+		231B16B829ED84CE000D2525 /* AddImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddImageView.swift; sourceTree = "<group>"; };
+		231B16BA29ED86C5000D2525 /* AddImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddImageViewModel.swift; sourceTree = "<group>"; };
+		231B16BC29ED8755000D2525 /* EventImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventImages.swift; sourceTree = "<group>"; };
+		231B16BE29ED904C000D2525 /* PhotoPickerImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerImages.swift; sourceTree = "<group>"; };
 		23DA2F5E29D6C53A0098239F /* DrawShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawShape.swift; sourceTree = "<group>"; };
 		23DA2F6029D6C59F0098239F /* ValueDiagram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueDiagram.swift; sourceTree = "<group>"; };
 		23DA2F6229D6C8C80098239F /* InfoTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTag.swift; sourceTree = "<group>"; };
@@ -209,6 +217,7 @@
 				23DA2F5E29D6C53A0098239F /* DrawShape.swift */,
 				23DA2F6229D6C8C80098239F /* InfoTag.swift */,
 				23DA2F6629D6DDEA0098239F /* MiniDiagram.swift */,
+				231B16BE29ED904C000D2525 /* PhotoPickerImages.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -222,6 +231,7 @@
 				23E5A24429D5CADD003C96C8 /* AddAddressView.swift */,
 				23ECAB2229DEA244003AA006 /* CalendarView.swift */,
 				231B16AC29E93B63000D2525 /* MapAddAddress.swift */,
+				231B16B829ED84CE000D2525 /* AddImageView.swift */,
 			);
 			path = Statistic;
 			sourceTree = "<group>";
@@ -445,6 +455,7 @@
 				23E5A23929D5788B003C96C8 /* StatisticViewModel.swift */,
 				23DA2F6429D6DA7D0098239F /* AddEventViewModel.swift */,
 				231B16B229E94072000D2525 /* AddAddressViewModel.swift */,
+				231B16BA29ED86C5000D2525 /* AddImageViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -458,6 +469,7 @@
 				23E5A24029D58A64003C96C8 /* Event.swift */,
 				23DA2F6029D6C59F0098239F /* ValueDiagram.swift */,
 				23ECAB2429DEAF79003AA006 /* DateValue.swift */,
+				231B16BC29ED8755000D2525 /* EventImages.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -639,12 +651,14 @@
 				99B1B3B429C4479000C70FD1 /* TagCard.swift in Sources */,
 				23E5A23F29D5894D003C96C8 /* AddEventView.swift in Sources */,
 				23DA2F5F29D6C53A0098239F /* DrawShape.swift in Sources */,
+				231B16BF29ED904C000D2525 /* PhotoPickerImages.swift in Sources */,
 				99B578DF29C84727001B9E77 /* MainMapView.swift in Sources */,
 				99CAF3C529D1950E00322736 /* ImageView.swift in Sources */,
 				23E5A24329D5A6B4003C96C8 /* AddTag.swift in Sources */,
 				23DA2F6729D6DDEA0098239F /* MiniDiagram.swift in Sources */,
 				99B3C56929C319E400FC581D /* CustomCommonTextField.swift in Sources */,
 				996154B729C227FF00A5095F /* RegistrationViewModel.swift in Sources */,
+				231B16BB29ED86C5000D2525 /* AddImageViewModel.swift in Sources */,
 				231B16B529E941D5000D2525 /* SearchTextField.swift in Sources */,
 				99CAF3C029D17C8300322736 /* TagPost.swift in Sources */,
 				99B1B3AF29C3739300C70FD1 /* CardEventInfo.swift in Sources */,
@@ -661,6 +675,7 @@
 				23ECAB2529DEAF79003AA006 /* DateValue.swift in Sources */,
 				99CAF3B829CD9A1100322736 /* EventPostView.swift in Sources */,
 				23DA2F6329D6C8C80098239F /* InfoTag.swift in Sources */,
+				231B16BD29ED8755000D2525 /* EventImages.swift in Sources */,
 				9963A0E729C0ADDA00D0B255 /* SplashScreen.swift in Sources */,
 				996154AD29C213D500A5095F /* RegistrationView.swift in Sources */,
 				99B3C56B29C3240100FC581D /* CustomDropDown.swift in Sources */,
@@ -686,6 +701,7 @@
 				996154AF29C2140F00A5095F /* DismissButton.swift in Sources */,
 				99E5233C29D308C800173299 /* BoldFontModifier.swift in Sources */,
 				23DA2F6129D6C59F0098239F /* ValueDiagram.swift in Sources */,
+				231B16B929ED84CE000D2525 /* AddImageView.swift in Sources */,
 				23E5A23A29D5788B003C96C8 /* StatisticViewModel.swift in Sources */,
 				996154A429C207C100A5095F /* ExtensionSizeScreen.swift in Sources */,
 				99B1B3B629C449CF00C70FD1 /* Mock.swift in Sources */,

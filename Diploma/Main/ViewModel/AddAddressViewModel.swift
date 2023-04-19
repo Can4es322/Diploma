@@ -4,7 +4,7 @@ import MapKit
 class AddAddressViewModel: ObservableObject {
     @Published var mapView = MKMapView()
     @Published var inputSearch = ""
-    @Published var currentPlace = Place(id: 1, place: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: 47.202477, longitude: 38.934977)))
+    @Published var currentPlace = Place(id: Int.random(in: Range(1...100)), place: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: 47.202477, longitude: 38.934977)))
     @Published var places: [Place] = []
     let defaultName = "Южный Федеральный Университет ИКТИБ"
     

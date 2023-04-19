@@ -7,7 +7,7 @@ struct Event {
     var countPerson: String
     var date: Date
     var tags: [String]
-    var place: String
-    var avatar: UIImage
-    var photos: [UIImage]
+    var place: String?
+    var avatar: UIImage?
+    var photos: [UIImage]?
 }
