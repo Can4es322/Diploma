@@ -16,6 +16,11 @@ final class StatisticViewModel: ObservableObject {
     @Published var dates: [DateValue] = []
     @Published var selectedDate = SelectDate(rangeInt: (0, 0))
     
+    
+    init() {
+        print("init")
+    }
+    
     let mounts: [Int: String] = [
         1: "Январь",
         2: "Февраль",

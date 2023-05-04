@@ -4,7 +4,7 @@ import Foundation
 struct StatisticView: View {
     @Environment(\.mainWindowSize) private var mainWindowSize
     @StateObject var viewModel = StatisticViewModel()
-    
+
     let value: [ValueDiagram] = [
         ValueDiagram(name: "MOP", color: .red, value: 0.35),
         ValueDiagram(name: "BIT", color: .blue, value: 0.15),

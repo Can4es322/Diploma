@@ -1,9 +1,15 @@
 import SwiftUI
 
 final class LoginViewModel: ObservableObject {
-    @Published var loginText = "@"
+    @Published var loginText = "can@gmail.com"
     @Published var isErrorLogin: Bool? = nil
-    @Published var passwordText = "@"
+    @Published var passwordText = "123"
+    var responseAuthorization: ResponseAuthorization?
+    let service: AuthorizationService
+   
+    init(service: AuthorizationService = AuthorizationService()) {
+        self.service = service
+    }
     
     func checkIsEmptyTextFields() -> Bool {
         return loginText.isEmpty || passwordText.isEmpty
@@ -13,20 +19,21 @@ final class LoginViewModel: ObservableObject {
         self.isErrorLogin = self.loginText.contains("@")
     }
     
-    func loginUser() async -> AuthorizationData {
-        try? await Task.sleep(nanoseconds: 1_000_000_000)
-        await MainActor.run {
-            checkIsCorrectEmail()
-        }
-        
-        if isErrorLogin == true {
-            if loginText == "Admin@" && passwordText == "admin" {
-                return AuthorizationData(token: "token", role: .admin)
-            } else {
-                return AuthorizationData(token: "token", role: .person)
+    func loginUser() async throws -> ResponseAuthorization {
+        do {
+            self.responseAuthorization = try await service.login(request: RequestLogin(email: self.loginText, password: self.passwordText))
+            if responseAuthorization != nil {
+                await MainActor.run(body: {
+                    self.isErrorLogin = true
+                })
             }
+            
+        } catch {
+            await MainActor.run(body: {
+                self.isErrorLogin = false
+            })
         }
         
-        return AuthorizationData(token: "", role: .none)
+        return responseAuthorization ?? ResponseAuthorization(token: "", role: "")
     }
 }

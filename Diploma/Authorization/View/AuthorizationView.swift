@@ -4,7 +4,7 @@ struct AuthorizationView: View {
     @Environment(\.mainWindowSize) private var mainWindowSize
     @State private var isRegistrationView = false
     @State private var isLoginView = false
-    @Binding var authData: AuthorizationData
+    @Binding var authData: ResponseAuthorization
     
     var body: some View {
         VStack(alignment: .center, spacing: 0) {

@@ -1,10 +1,10 @@
 import SwiftUI
 
 struct MiniPhoto: View {
-    let photo: String
+    let imageData: Data
     
     var body: some View {
-        CustomAsyncImage(url: photo)
+        CustomImageDate(imageData: imageData)
             .frame(width: 54, height: 54)
             .cornerRadius(12)
     }

@@ -2,8 +2,7 @@ import SwiftUI
 import MapKit
 
 struct MainTabView: View {
-    let token: String
-    let role: Role
+    let role: String
     var edges = UIApplication.shared.windows.first?.safeAreaInsets
     private var tabsTitle: [String] = []
     private var tabsImage: [String] = []
@@ -11,10 +10,9 @@ struct MainTabView: View {
     @StateObject private var viewModel = MapViewModel()
     @State private var selectedTab = "Мероприятия"
     
-    init(token: String, role: Role) {
-        self.token = token
+    init(role: String) {
         self.role = role
-        if role == .admin {
+        if role == "ADMIN" {
             tabsTitle = ["Мероприятия", "Карта", "Статистика"]
             tabsImage = ["calendar", "map", "doc.text"]
         } else {
@@ -31,7 +29,7 @@ struct MainTabView: View {
                 MainMapView()
                     .environmentObject(viewModel)
             case tabsTitle[2]:
-                if role == .admin {
+                if role == "ADMIN" {
                     StatisticView()
                 } else {
                     ProfileView()

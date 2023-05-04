@@ -1,11 +1,12 @@
 import SwiftUI
 
 struct VisitedEvents: View {
-    let eventsInfo: CardEventInfo
+    let eventsInfo: ResponseEvent
     
     var body: some View {
         HStack(alignment: .center, spacing: 11) {
-            CustomAsyncImage(url: eventsInfo.photos[0])
+            Image(uiImage: UIImage(data: eventsInfo.avatar)!)
+//            CustomAsyncImage(url: eventsInfo.photos[0])
                 .frame(width: 98, height: 98)
                 .cornerRadius(10)
             
@@ -15,7 +16,7 @@ struct VisitedEvents: View {
                     .font(.system(size: 16, weight: .bold))
                     .foregroundColor(.black)
                 
-                Text(eventsInfo.date)
+                Text(eventsInfo.date ?? "")
                     .fixedSize(horizontal: false, vertical: true)
                     .font(.system(size: 12, weight: .regular))
                     .foregroundColor(Color("Gray5"))
@@ -25,7 +26,7 @@ struct VisitedEvents: View {
                         .renderingMode(.template)
                         .foregroundColor(Color("Gray5"))
                                          
-                    Text(eventsInfo.place)
+                    Text(eventsInfo.place ?? "")
                         .font(.system(size: 12, weight: .regular))
                         .foregroundColor(Color("Gray5"))
                 }
@@ -35,7 +36,7 @@ struct VisitedEvents: View {
                         .renderingMode(.template)
                         .foregroundColor(Color("Gray5"))
                     
-                    Text("\(eventsInfo.countCurrentUser)/\(eventsInfo.countMaxUser)")
+                    Text("\(eventsInfo.countPeople)/\(eventsInfo.countPeopleMax)")
                         .fixedSize(horizontal: false, vertical: true)
                         .font(.system(size: 12, weight: .bold))
                         .foregroundColor(Color("Gray5"))

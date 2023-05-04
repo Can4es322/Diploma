@@ -6,6 +6,6 @@ struct TagPost: View {
     
     var body: some View {
         Text(text)
-            .customTag(colorBackground: colorsTags[text]!)
+            .customTag(colorBackground: colorsTags[text] ?? Color.clear)
     }
 }

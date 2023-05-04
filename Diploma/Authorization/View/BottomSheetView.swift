@@ -3,7 +3,7 @@ import SwiftUI
 struct BottomSheetView: View {
     @GestureState private var gestureOffset: CGFloat = 0
     @EnvironmentObject private var viewModel: RegistrationViewModel
-    @Binding var authData: AuthorizationData
+    @Binding var authData: ResponseAuthorization
     
     var body: some View {
         GeometryReader { proxy -> AnyView in
@@ -36,12 +36,19 @@ struct BottomSheetView: View {
                             CustomCommonTextField(placeholder: "Отчество", text: $viewModel.middlenamePerson)
                             
                             HStack(alignment: .top) {
-                                CustomDropDown(content: ["1 Курс", "2 Курс", "3 Курс", "4 Курс"])
+                                CustomDropDown(content: viewModel.courses, isIndex: $viewModel.courseIndex)
                                     .frame(maxWidth: 96)
                                 Spacer()
-                                CustomDropDown(content: ["МОП ЭВМ", "ВМ", "БИТ", "САПР", "ВТ", "ИМС", "ИАСБ", "ИБТС", "БИпЖ", "СПУ", "САИТ"])
+                                CustomDropDown(content: viewModel.departments, isIndex: $viewModel.departmentIndex)
                                     .frame(maxWidth: 130)
                             }
+                            
+                            if viewModel.isErrorRegistration == true {
+                                Text("Ошибка с сервером")
+                                    .foregroundColor(Color("Red"))
+                                    .customFontBold()
+                            }
+
                             Spacer()
                         }
                         .padding(.top, 30)
@@ -49,7 +56,9 @@ struct BottomSheetView: View {
                         Spacer()
                         
                         CustomBackgroundButton(text: "Продолжить") {
-                            authData = viewModel.registrationUser()
+                            Task {
+                                authData = try await viewModel.registrationUser()
+                            }
                         }
                         
                         .padding(.bottom, 40)

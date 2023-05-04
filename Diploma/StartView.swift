@@ -1,26 +1,31 @@
 import SwiftUI
-
-enum Role {
-    case admin
-    case person
-    case none
-}
-
-struct AuthorizationData {
-    var token: String
-    var role: Role
-}
+import Combine
+import KeychainSwift
 
 struct StartView: View {
-    @State var authData = AuthorizationData(token: "", role: .none)
+    @State var authData = ResponseAuthorization(token: "", role: "")
+    @State var nextView = false
     
     var body: some View {
         NavigationView {
-            if !authData.token.isEmpty && (authData.role == .person || authData.role == .admin) {
-                MainTabView(token: authData.token, role: authData.role)
+            if !authData.token.isEmpty && nextView{
+                MainTabView(role: authData.role)
             } else {
                 AuthorizationView(authData: $authData)
             }
+        }
+        .onReceive(Just(authData)) { newValue in
+            if !authData.token.isEmpty {
+                KeychainSwift().set(authData.token, forKey: "token")
+                UserDefaults.standard.set(authData.role, forKey: "role")
+                
+                Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { _ in
+                    nextView = true
+                }
+            }
+        }
+        .onAppear() {
+            
         }
     }
 }

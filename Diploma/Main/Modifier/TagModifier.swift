@@ -6,9 +6,8 @@ struct TagModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             .fixedSize(horizontal: true, vertical: false)
-            .padding(.vertical, 4)
-            .padding(.horizontal, 10)
-            .frame(height: 36)
+            .padding(.horizontal, 20)
+            .frame(height: 28)
             .font(.system(size: 12, weight: .regular))
             .foregroundColor(Color("White"))
             .background(colorBackground)

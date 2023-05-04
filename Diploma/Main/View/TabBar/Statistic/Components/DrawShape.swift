@@ -16,6 +16,7 @@ struct DrawShape: View {
         self.index = index
         self.data = data
         self.radius = diametr / 2
+
     }
     
     var body: some View {

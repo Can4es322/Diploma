@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ImageView: View {
-    let photos: [String]
+    let photos: [Images]
     @EnvironmentObject var viewModel: MainViewModel
     @Environment(\.mainWindowSize) private var mainWindowSize
     @GestureState private var dragingOffset: CGSize = .zero
@@ -56,13 +56,13 @@ extension ImageView {
     func TabBarImages() -> some View {
         if #available(iOS 14.0, *) {
             TabView(selection: $viewModel.selectedImageId) {
-                ForEach(photos, id: \.self) { photo in
-                    CustomAsyncImage(url: photo)
+                ForEach(photos) { photo in
+                    CustomImageDate(imageData: photo.imageData)
                         .frame(width: mainWindowSize.width, height: mainWindowSize.height / 2)
                         .clipped()
-                        .tag(photo)
+                        .tag(photo.imageData)
                         .offset(y: viewModel.imageViewerOffset.height)
-                        .scaleEffect(viewModel.selectedImageId == photo ? (viewModel.imageScale > 1 ? viewModel.imageScale : 1) : 1)
+                        .scaleEffect(viewModel.selectedImageId == photo.imageData ? (viewModel.imageScale > 1 ? viewModel.imageScale : 1) : 1)
                         .gesture(MagnificationGesture().onChanged({ value in
                             viewModel.imageScale = value
                         }).onEnded({ _ in

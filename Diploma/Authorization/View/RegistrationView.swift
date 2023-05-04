@@ -1,9 +1,11 @@
 import SwiftUI
+import Combine
 
 struct RegistrationView: View {
     @StateObject private var viewModel = RegistrationViewModel()
     @Environment(\.mainWindowSize) private var mainWindowSize
-    @Binding var authData: AuthorizationData
+    @Binding var authData: ResponseAuthorization
+    @State var isActiveBottomSheet = false
     
     var body: some View {
         ZStack {
@@ -19,7 +21,9 @@ struct RegistrationView: View {
                         .padding(.top, mainWindowSize.height / 18)
                     
                     CustomBackgroundButton(text: "Создать Аккаунт") {
-                        viewModel.checkIsCorrectEmail()
+                        Task {
+                            try await viewModel.checkIsCorrectEmail()
+                        }
                     }
                     .padding(.top, mainWindowSize.height / 14)
                     .opacity(viewModel.checkIsEmptyTextFields() ? 0.5 : 1)
@@ -36,10 +40,20 @@ struct RegistrationView: View {
                 .navigationBarItems(leading: DismissButton())
             }
             
-            if viewModel.isBottomSheet {
+            if isActiveBottomSheet {
                 BottomSheetView(authData: $authData)
                     .environmentObject(viewModel)
             }
+        }
+        .onReceive(Just(viewModel.isErrorLogin)) { newValue in
+            if viewModel.isErrorLogin == true && !isActiveBottomSheet {
+                Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { _ in
+                    isActiveBottomSheet = true
+                }
+            }
+        }
+        .onDisappear() {
+            isActiveBottomSheet = false
         }
     }
 }

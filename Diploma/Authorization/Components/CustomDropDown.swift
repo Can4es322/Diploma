@@ -2,11 +2,10 @@ import SwiftUI
 
 struct CustomDropDown: View {
     let content: Array<String>
+    @Binding var isIndex: Int
     @State var isTapped = false
-    @State var isIndex = 0
     
     var body: some View {
-        
         VStack(alignment: .leading) {
             HStack(spacing: 0) {
                 Text(content[isIndex])

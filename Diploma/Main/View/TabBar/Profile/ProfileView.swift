@@ -83,9 +83,9 @@ extension ProfileView {
     func VisitedEnets() -> some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack {
-                ForEach(mockEvents) { element in
-                    VisitedEvents(eventsInfo: element)
-                }
+//                ForEach(mockEvents) { element in
+//                    VisitedEvents(eventsInfo: element)
+//                }
             }
         }
     }

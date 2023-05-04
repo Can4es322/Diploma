@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct CardEvent: View {
-    let infoCard: CardEventInfo
+    let infoCard: ResponseEvent
     @Environment(\.mainWindowSize) var mainWindowSize
     @EnvironmentObject var viewModel: MainViewModel
     
@@ -10,14 +10,14 @@ struct CardEvent: View {
             .environmentObject(viewModel)
             .edgesIgnoringSafeArea(.top)) {
             ZStack(alignment: .bottomLeading) {
-                CustomAsyncImage(url: infoCard.avatar)
+                CustomImageDate(imageData: infoCard.avatar)
                 
                 Color.black
                     .opacity(0.4)
                 
-                WalkPerson(countCurrent: infoCard.countCurrentUser, countMaxCount: infoCard.countMaxUser, color: Color("White"))
-                    .frame(maxHeight: .infinity, alignment: .top)
-                    .offset(x: mainWindowSize.width / 1.4, y: 14)
+                WalkPerson(countCurrent: infoCard.countPeople, countMaxCount: infoCard.countPeopleMax, color: Color("White"))
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
+                    .padding([.top, .trailing])
                 
                 VStack(alignment: .leading, spacing: 7) {
                     Text(infoCard.title)
@@ -29,18 +29,18 @@ struct CardEvent: View {
                     
                     HStack(spacing: 7) {
                         Image("Place")
-                        Text(infoCard.place)
+                        Text(infoCard.place ?? "")
                             .font(.system(size: 12, weight: .regular))
                             .foregroundColor(Color("White"))
                     }
                     
-                    Text(infoCard.date)
+                    Text(infoCard.date ?? "")
                         .font(.system(size: 12, weight: .medium))
                         .foregroundColor(Color("White"))
                     
                     HStack(spacing: 8) {
-                        ForEach(infoCard.tags, id: \.self) { value in
-                            TagCard(text: value)
+                        ForEach(infoCard.tags) { value in
+                            TagCard(text: value.name)
                         }
                     }
                     .padding(.top, 4)

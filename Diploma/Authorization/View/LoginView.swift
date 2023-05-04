@@ -4,7 +4,7 @@ struct LoginView: View {
     @StateObject private var viewModel = LoginViewModel()
     @Environment(\.mainWindowSize) private var mainWindowSize
     @Environment(\.presentationMode) private var presentation
-    @Binding var authData: AuthorizationData
+    @Binding var authData: ResponseAuthorization
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
@@ -31,7 +31,7 @@ struct LoginView: View {
                 
                 CustomBackgroundButton(text: "Войти") {
                     Task {
-                        authData = await viewModel.loginUser()
+                        authData = try await viewModel.loginUser()
                     }
                 }
                 .fixedSize(horizontal: false, vertical: true)

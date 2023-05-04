@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct EventView: View {
-    let role: Role
+    let role: String
     @StateObject private var viewModel = MainViewModel()
     @Environment(\.mainWindowSize) private var mainWindowSize
     private let tags = ["Наука", "Мастер-класс", "Конференция", "Театр", "Спорт", "Тренинг", "Концерт"]
@@ -21,6 +21,13 @@ struct EventView: View {
             .padding(.top, mainWindowSize.height / 21)
         }
         .navigationBarHidden(true)
+        .onAppear() {
+            Task {
+                try await viewModel.getNews()
+                viewModel.addPlaceDate()
+                viewModel.convertTagsRu()
+            }
+        }
     }
 }
 
@@ -34,7 +41,7 @@ extension EventView {
             
             Spacer()
             
-            if role == .admin {
+            if role == "ADMIN" {
                 NavigationLink(destination: AddEventView().environmentObject(viewModel)) {
                     Image(systemName: "plus")
                         .font(.system(size: 20))

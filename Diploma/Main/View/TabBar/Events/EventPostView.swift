@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct EventPostView: View {
-    let infoCard: CardEventInfo
+    let infoCard: ResponseEvent
     @Environment(\.mainWindowSize) private var mainWindowSize
     @EnvironmentObject private var viewModel: MainViewModel
     
@@ -28,7 +28,7 @@ struct EventPostView: View {
             .coordinateSpace(name: "SCROLL")
             
             if viewModel.isSelectedPhotos {
-                ImageView(photos: infoCard.photos)
+                ImageView(photos: infoCard.images)
             }
         }
     }
@@ -40,7 +40,7 @@ struct EventPostView: View {
             let minY = proxy.frame(in: .named("SCROLL")).minY
             let progress = minY / mainWindowSize.height * 2.2
             
-            CustomAsyncImage(url: infoCard.avatar)
+            CustomImageDate(imageData: infoCard.avatar)
                 .frame(width: size.width, height: size.height + (minY > 0 ? minY : 0))
                 .clipped()
                 .overlay (
@@ -56,15 +56,15 @@ struct EventPostView: View {
                         
                         VStack {
                             HStack(spacing: 12) {
-                                ForEach(Array(zip(infoCard.photos.indices, infoCard.photos)), id: \.0) { index, photo in
+                                ForEach(Array(zip(infoCard.images.indices, infoCard.images)), id: \.0) { index, photo in
                                     Button {
                                         withAnimation(.easeInOut) {
                                             viewModel.isSelectedPhotos.toggle()
-                                            viewModel.selectedImageId = infoCard.photos[index]
+                                            viewModel.selectedImageId = infoCard.images[index].imageData
                                         }
                                     } label: {
                                         if index == 3 {
-                                            Text("+\(infoCard.photos.count - 3)")
+                                            Text("+\(infoCard.images.count - 3)")
                                                 .font(.system(size: 16, weight: .medium))
                                                 .frame(width: 54, height: 54)
                                                 .background(Color("Blue2"))
@@ -72,19 +72,19 @@ struct EventPostView: View {
                                                 .cornerRadius(12)
                                         }
                                         if index < 3 {
-                                            MiniPhoto(photo: photo)
+                                            MiniPhoto(imageData: photo.imageData)
                                         }
                                     }
                                 }
                             }
                             .frame(maxWidth: .infinity, alignment: .trailing)
-                            .padding(.bottom, 20)
+                            .padding([.bottom, .trailing], 20)
                             
                             HStack(spacing: 10) {
-                                WalkPerson(countCurrent: infoCard.countCurrentUser, countMaxCount: infoCard.countMaxUser, color: Color.black)
+                                WalkPerson(countCurrent: infoCard.countPeople, countMaxCount: infoCard.countPeopleMax, color: Color.black)
                                 
-                                ForEach(infoCard.tags, id: \.self) { value in
-                                    TagPost(text: value)
+                                ForEach(infoCard.tags) { value in
+                                    TagPost(text: value.name)
                                 }
                             }
                             .frame(maxWidth: .infinity, alignment: .leading)
@@ -109,7 +109,7 @@ struct EventPostView: View {
             .foregroundColor(.black)
             .fixedSize(horizontal: false, vertical: true)
         
-        Text(infoCard.date)
+        Text(infoCard.date ?? "")
             .font(.system(size: 16, weight: .regular))
             .foregroundColor(.black)
             .fixedSize(horizontal: false, vertical: true)
