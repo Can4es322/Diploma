@@ -1,32 +1,56 @@
 import SwiftUI
+import Combine
 
 struct EventView: View {
     let role: String
     @StateObject private var viewModel = MainViewModel()
     @Environment(\.mainWindowSize) private var mainWindowSize
-    private let tags = ["Наука", "Мастер-класс", "Конференция", "Театр", "Спорт", "Тренинг", "Концерт"]
     
     var body: some View {
-        ScrollView(.vertical, showsIndicators: false) {
-            VStack(alignment: .center, spacing: 0) {
-                Header()
-                
-                EventTags()
-                    .padding(.top, 12)
-                
-                EventCards()
-                    .padding(.top, 11)
+        if #available(iOS 14.0, *) {
+            ScrollView(.vertical, showsIndicators: false) {
+                VStack(alignment: .center, spacing: 0) {
+                    Header()
+                    
+                    EventTags()
+                        .padding(.top, 12)
+                    
+                    EventCards()
+                        .padding(.top, 11)
+                }
+                .padding(.horizontal, 20)
+                .padding(.top, mainWindowSize.height / 21)
             }
-            .padding(.horizontal, 20)
-            .padding(.top, mainWindowSize.height / 21)
-        }
-        .navigationBarHidden(true)
-        .onAppear() {
-            Task {
-                try await viewModel.getNews()
-                viewModel.addPlaceDate()
-                viewModel.convertTagsRu()
+            .navigationBarHidden(true)
+            .onAppear() {
+                Task {
+                    try await viewModel.getEvents()
+                }
             }
+            .onChange(of: viewModel.activeTags, perform: { newValue in
+                if viewModel.activeTags.isEmpty {
+                    Task {
+                        try await viewModel.getEvents()
+                    }
+                }
+            })
+            .onChange(of: viewModel.inputSearch, perform: { newValue in
+                if viewModel.inputSearch == "" {
+                    Task {
+                        try await viewModel.getEvents()
+                    }
+                } else {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        if viewModel.inputSearch == newValue {
+                            Task {
+                                try await viewModel.getSearchEvents()
+                            }
+                        }
+                    }
+                }
+            })
+        } else {
+            
         }
     }
 }
@@ -35,9 +59,28 @@ extension EventView {
     @ViewBuilder
     func Header() -> some View {
         HStack {
-            Text("Мероприятия")
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .customFontBold()
+            HStack {
+                Text("Мероприятия")
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .customFontBold()
+                Spacer()
+
+                Button {
+                    Task {
+                        try await viewModel.getSearchTagEvents()
+                    }
+                        
+                }label: {
+                    Text("Применить")
+                        .padding(.horizontal, 6)
+                        .frame(height: 30)
+                        .font(.system(size: 14, weight: .medium))
+                        .foregroundColor(viewModel.activeTags.isEmpty ? Color("Gray2") : .white)
+                        .background(viewModel.activeTags.isEmpty ? Color("Gray") : Color("Blue"))
+                        .cornerRadius(12)
+                }
+                .disabled(viewModel.activeTags.isEmpty)
+            }
             
             Spacer()
             
@@ -51,14 +94,15 @@ extension EventView {
         }
         
         SeacrhTextField(inputText: $viewModel.inputSearch, placeholderText: "Поиск")
+        
     }
     
     @ViewBuilder
     func EventTags() -> some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 8) {
-                ForEach(Array(zip(tags.indices, tags)), id: \.0) { index, element in
-                    TagEvent(text: element, index: index, activeTags: $viewModel.activeTags)
+                ForEach(Array(zip(viewModel.tags.indices, viewModel.tags)), id: \.0) { index, element in
+                    TagEvent(text: element, activeTags: $viewModel.activeTags)
                 }
             }
         }

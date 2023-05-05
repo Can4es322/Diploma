@@ -40,7 +40,7 @@ struct CardEvent: View {
                     
                     HStack(spacing: 8) {
                         ForEach(infoCard.tags) { value in
-                            TagCard(text: value.name)
+                            TagCard(text: value.ruName ?? "")
                         }
                     }
                     .padding(.top, 4)

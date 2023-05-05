@@ -20,6 +20,7 @@ struct ResponseEvent: Identifiable, Codable {
 struct Tag: Identifiable, Codable {
     let id: Int
     var name: String
+    var ruName: String?
 }
 
 struct Images: Identifiable, Codable, Hashable {

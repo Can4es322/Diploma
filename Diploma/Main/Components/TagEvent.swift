@@ -2,9 +2,8 @@ import SwiftUI
 
 struct TagEvent: View {
     let text: String
-    let index: Int
     @State var active = false
-    @Binding var activeTags: [Int]
+    @Binding var activeTags: [String]
     
     let colorsTags: [String: Color] = ["Наука": Color("Blue2"), "Мастер-класс": Color("Purple"), "Конференция": Color("Blue3"), "Театр": Color("Green"), "Спорт": Color("Yellow"), "Концерт": Color("Brown"), "Тренинг": Color("Red2")]
     
@@ -12,10 +11,10 @@ struct TagEvent: View {
         Button {
             active.toggle()
             if active {
-                activeTags.append(index)
+                activeTags.append(text)
             } else {
                 activeTags = activeTags.filter {
-                    $0 != index
+                    $0 != text
                 }
             }
         } label: {
