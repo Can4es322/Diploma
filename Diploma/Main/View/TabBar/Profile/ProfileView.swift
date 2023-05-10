@@ -5,25 +5,28 @@ struct ProfileView: View {
     @StateObject private var viewModel = ProfileViewModel()
     
     var body: some View {
-        VStack(spacing: 0) {
+        VStack(alignment: .center, spacing: 0) {
             Header()
-            
-            Avatar()
-                .padding(.top, mainWindowSize.height / 21)
-            
-            Text("Посещенные мероприятия")
-                .frame(maxWidth: .infinity, alignment: .center)
-                .font(.system(size: 20, weight: .medium))
-                .foregroundColor(.black)
-                .padding(.top, mainWindowSize.height / 21)
-            
-            VisitedEnets()
-                .padding(.top, mainWindowSize.height / 24)
+            Spacer(minLength: 10)
+            if viewModel.userInfo.email.isEmpty {
+                CustomProgressBar()
+                Spacer()
+            } else {
+                Avatar()
+                
+                Text("Посещенные мероприятия")
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    .font(.system(size: 20, weight: .medium))
+                    .foregroundColor(.black)
+                    .padding(.top, mainWindowSize.height / 21)
+                Spacer()
+                VisitedEnets()
+                    .padding(.top, mainWindowSize.height / 24)
+            }
         }
+        .navigationBarHidden(true)
         .padding(.horizontal, 20)
         .padding(.top, mainWindowSize.height / 21)
-        .navigationBarHidden(true)
-        
         .onAppear() {
             Task {
                 await viewModel.getUserData()

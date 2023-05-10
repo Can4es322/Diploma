@@ -24,6 +24,7 @@
 		231B16CC2A0291C3000D2525 /* ResponseEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231B16CB2A0291C3000D2525 /* ResponseEvent.swift */; };
 		232C3D1B2A09520F00556116 /* DateAndPlaceConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232C3D1A2A09520F00556116 /* DateAndPlaceConfigurator.swift */; };
 		232C3D1E2A09551200556116 /* UserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232C3D1D2A09551200556116 /* UserRequest.swift */; };
+		239643F82A0BF99B004D748B /* CustomProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239643F72A0BF99B004D748B /* CustomProgressBar.swift */; };
 		23DA2F5F29D6C53A0098239F /* DrawShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DA2F5E29D6C53A0098239F /* DrawShape.swift */; };
 		23DA2F6129D6C59F0098239F /* ValueDiagram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DA2F6029D6C59F0098239F /* ValueDiagram.swift */; };
 		23DA2F6329D6C8C80098239F /* InfoTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DA2F6229D6C8C80098239F /* InfoTag.swift */; };
@@ -133,6 +134,7 @@
 		231B16CB2A0291C3000D2525 /* ResponseEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseEvent.swift; sourceTree = "<group>"; };
 		232C3D1A2A09520F00556116 /* DateAndPlaceConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateAndPlaceConfigurator.swift; sourceTree = "<group>"; };
 		232C3D1D2A09551200556116 /* UserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRequest.swift; sourceTree = "<group>"; };
+		239643F72A0BF99B004D748B /* CustomProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressBar.swift; sourceTree = "<group>"; };
 		23DA2F5E29D6C53A0098239F /* DrawShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawShape.swift; sourceTree = "<group>"; };
 		23DA2F6029D6C59F0098239F /* ValueDiagram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueDiagram.swift; sourceTree = "<group>"; };
 		23DA2F6229D6C8C80098239F /* InfoTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTag.swift; sourceTree = "<group>"; };
@@ -438,6 +440,7 @@
 				231B16B429E941D5000D2525 /* SearchTextField.swift */,
 				231B16B629E99AA8000D2525 /* CustomAnnotationView.swift */,
 				23FA39EF2A03AFF600DEFB0C /* CustomImageData.swift */,
+				239643F72A0BF99B004D748B /* CustomProgressBar.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -930,6 +933,7 @@
 				231B16C12A0151A3000D2525 /* AuthorizationService.swift in Sources */,
 				23DA2F6529D6DA7D0098239F /* AddEventViewModel.swift in Sources */,
 				996154AF29C2140F00A5095F /* DismissButton.swift in Sources */,
+				239643F82A0BF99B004D748B /* CustomProgressBar.swift in Sources */,
 				99E5233C29D308C800173299 /* BoldFontModifier.swift in Sources */,
 				23DA2F6129D6C59F0098239F /* ValueDiagram.swift in Sources */,
 				231B16B929ED84CE000D2525 /* AddImageView.swift in Sources */,

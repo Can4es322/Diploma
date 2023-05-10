@@ -12,15 +12,22 @@ struct EventView: View {
                 VStack(alignment: .center, spacing: 0) {
                     Header()
                     
-                    EventTags()
-                        .padding(.top, 12)
-                    
-                    EventCards()
-                        .padding(.top, 11)
+                    if viewModel.events.isEmpty {
+                        Spacer(minLength: mainWindowSize.height / 2.5)
+                        CustomProgressBar()
+                        Spacer(minLength: mainWindowSize.height / 2.5)
+                    } else {
+                        EventTags()
+                            .padding(.top, 12)
+                        
+                        EventCards()
+                            .padding(.top, 11)
+                    }
                 }
                 .padding(.horizontal, 20)
                 .padding(.top, mainWindowSize.height / 21)
             }
+            .frame(maxHeight: .infinity)
             .navigationBarHidden(true)
             .onAppear() {
                 Task {
@@ -50,7 +57,7 @@ struct EventView: View {
                 }
             })
         } else {
-            
+            // Fallback on earlier versions
         }
     }
 }
@@ -64,12 +71,12 @@ extension EventView {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .customFontBold()
                 Spacer()
-
+                
                 Button {
                     Task {
                         try await viewModel.getSearchTagEvents()
                     }
-                        
+                    
                 }label: {
                     Text("Применить")
                         .padding(.horizontal, 6)
