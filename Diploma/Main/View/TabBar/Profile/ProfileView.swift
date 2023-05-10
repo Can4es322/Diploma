@@ -1,8 +1,10 @@
 import SwiftUI
+import KeychainSwift
 
 struct ProfileView: View {
     @Environment(\.mainWindowSize) private var mainWindowSize
     @StateObject private var viewModel = ProfileViewModel()
+    @Binding var isAuthorization: Bool
     
     var body: some View {
         VStack(alignment: .center, spacing: 0) {
@@ -51,7 +53,9 @@ extension ProfileView {
                 }
                 
                 Button {
-                    
+                    KeychainSwift().delete("token")
+                    isAuthorization = false
+                    UserDefaults.standard.set(isAuthorization, forKey: "auth")
                 } label: {
                     Image(systemName: "ipad.and.arrow.forward")
                         .foregroundColor(.black)

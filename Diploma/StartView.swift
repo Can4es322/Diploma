@@ -4,28 +4,29 @@ import KeychainSwift
 
 struct StartView: View {
     @State var authData = ResponseAuthorization(token: "", role: "")
-    @State var nextView = false
+    @State var isAuthorization = false
     
     var body: some View {
         NavigationView {
-            if !authData.token.isEmpty && nextView{
-                MainTabView(role: authData.role)
+            if isAuthorization {
+                MainTabView(role: authData.role, isAuthorization: $isAuthorization)
             } else {
                 AuthorizationView(authData: $authData)
             }
         }
+        .onAppear() {
+            isAuthorization = UserDefaults.standard.bool(forKey: "auth")
+        }
         .onReceive(Just(authData)) { newValue in
             if !authData.token.isEmpty {
-                KeychainSwift().set(authData.token, forKey: "token")
                 UserDefaults.standard.set(authData.role, forKey: "role")
-                
+                KeychainSwift().set(authData.token, forKey: "token")
+                authData.token = ""
                 Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { _ in
-                    nextView = true
+                    isAuthorization = true
+                    UserDefaults.standard.set(isAuthorization, forKey: "auth")
                 }
             }
-        }
-        .onAppear() {
-            
         }
     }
 }

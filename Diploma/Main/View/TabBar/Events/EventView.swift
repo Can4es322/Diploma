@@ -3,7 +3,7 @@ import Combine
 
 struct EventView: View {
     let role: String
-    @StateObject private var viewModel = MainViewModel()
+    @EnvironmentObject private var viewModel: MainViewModel
     @Environment(\.mainWindowSize) private var mainWindowSize
     
     var body: some View {
@@ -76,7 +76,6 @@ extension EventView {
                     Task {
                         try await viewModel.getSearchTagEvents()
                     }
-                    
                 }label: {
                     Text("Применить")
                         .padding(.horizontal, 6)

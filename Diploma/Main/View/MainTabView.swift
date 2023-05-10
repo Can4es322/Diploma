@@ -6,12 +6,14 @@ struct MainTabView: View {
     var edges = UIApplication.shared.windows.first?.safeAreaInsets
     private var tabsTitle: [String] = []
     private var tabsImage: [String] = []
-    
-    @StateObject private var viewModel = MapViewModel()
+    @StateObject private var mainViewModel = MainViewModel()
+    @StateObject private var mapViewModel = MapViewModel()
     @State private var selectedTab = "Мероприятия"
+    var isAuthorization: Binding<Bool>
     
-    init(role: String) {
+    init(role: String, isAuthorization: Binding<Bool>) {
         self.role = role
+        self.isAuthorization = isAuthorization
         if role == "ADMIN" {
             tabsTitle = ["Мероприятия", "Карта", "Статистика"]
             tabsImage = ["calendar", "map", "doc.text"]
@@ -27,15 +29,16 @@ struct MainTabView: View {
             switch selectedTab {
             case tabsTitle[1]:
                 MainMapView()
-                    .environmentObject(viewModel)
+                    .environmentObject(mapViewModel)
             case tabsTitle[2]:
                 if role == "ADMIN" {
                     StatisticView()
                 } else {
-                    ProfileView()
+                    ProfileView(isAuthorization: isAuthorization)
                 }
             default:
                 EventView(role: role)
+                    .environmentObject(mainViewModel)
             }
             
             Spacer(minLength: 0)
