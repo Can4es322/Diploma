@@ -34,7 +34,9 @@ struct ProfileEditView: View {
                         .customFontBoldMid()
                 },
                 trailing: Button {
-                    // Запрос на сохранение данных
+                    Task {
+                        try await viewModel.updateUser()
+                    }
                 } label: {
                     Image("Checkmark.bubble")
                         .renderingMode(.template)
@@ -74,7 +76,7 @@ extension ProfileEditView {
                     .frame(width: 120, height: 120, alignment: .center)
                     .clipShape(Circle())
             } else {
-                CustomAsyncImage(url: viewModel.userInfo.photo ?? "")
+                CustomImageDate(imageData: viewModel.userInfo.avatar ?? Data())
                     .frame(width: 120, height: 120, alignment: .center)
                     .clipShape(Circle())
             }
@@ -112,21 +114,21 @@ extension ProfileEditView {
                 .foregroundColor(.black)
                 .padding(.leading, 10)
             
-            CustomCommonEditTextField(placeholder: "", text: $viewModel.userInfo.name, isChangeColor: $viewModel.isChangeTextFields[1])
+            CustomCommonEditTextField(placeholder: "", text: $viewModel.userInfo.firstname, isChangeColor: $viewModel.isChangeTextFields[1])
             
             Text("Фамилия")
                 .font(.system(size: 14, weight: .regular))
                 .foregroundColor(.black)
                 .padding(.leading, 10)
             
-            CustomCommonEditTextField(placeholder: "", text: $viewModel.userInfo.lastName, isChangeColor: $viewModel.isChangeTextFields[2])
+            CustomCommonEditTextField(placeholder: "", text: $viewModel.userInfo.lastname, isChangeColor: $viewModel.isChangeTextFields[2])
             
             Text("Отчество")
                 .font(.system(size: 14, weight: .regular))
                 .foregroundColor(.black)
                 .padding(.leading, 10)
             
-            CustomCommonEditTextField(placeholder: "", text: $viewModel.userInfo.middleName, isChangeColor: $viewModel.isChangeTextFields[3])
+            CustomCommonEditTextField(placeholder: "", text: $viewModel.userInfo.middlename, isChangeColor: $viewModel.isChangeTextFields[3])
             
             Text("Кафедра")
                 .font(.system(size: 14, weight: .regular))

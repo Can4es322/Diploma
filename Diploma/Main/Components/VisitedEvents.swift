@@ -5,8 +5,7 @@ struct VisitedEvents: View {
     
     var body: some View {
         HStack(alignment: .center, spacing: 11) {
-            Image(uiImage: UIImage(data: eventsInfo.avatar)!)
-//            CustomAsyncImage(url: eventsInfo.photos[0])
+            CustomImageDate(imageData: eventsInfo.avatar)
                 .frame(width: 98, height: 98)
                 .cornerRadius(10)
             

@@ -3,7 +3,7 @@ import SwiftUI
 struct ProfileView: View {
     @Environment(\.mainWindowSize) private var mainWindowSize
     @StateObject private var viewModel = ProfileViewModel()
-
+    
     var body: some View {
         VStack(spacing: 0) {
             Header()
@@ -23,6 +23,12 @@ struct ProfileView: View {
         .padding(.horizontal, 20)
         .padding(.top, mainWindowSize.height / 21)
         .navigationBarHidden(true)
+        
+        .onAppear() {
+            Task {
+                await viewModel.getUserData()
+            }
+        }
     }
 }
 
@@ -58,17 +64,17 @@ extension ProfileView {
     @ViewBuilder
     func Avatar() -> some View {
         HStack(spacing: 20) {
-            CustomAsyncImage(url: viewModel.userInfo.photo ?? "")
+            CustomImageDate(imageData: viewModel.userInfo.avatar)
                 .frame(width: 100, height: 100, alignment: .center)
                 .clipShape(Circle())
             
             VStack(alignment: .leading, spacing: 8) {
                 Group {
-                    Text(viewModel.userInfo.lastName) +
+                    Text(viewModel.userInfo.lastname) +
                     Text(" ") +
-                    Text(viewModel.userInfo.name) +
+                    Text(viewModel.userInfo.firstname) +
                     Text(" ") +
-                    Text(viewModel.userInfo.middleName)
+                    Text(viewModel.userInfo.middlename)
                 }
                 .customFontBoldMid()
                 
@@ -83,9 +89,9 @@ extension ProfileView {
     func VisitedEnets() -> some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack {
-//                ForEach(mockEvents) { element in
-//                    VisitedEvents(eventsInfo: element)
-//                }
+                ForEach(viewModel.eventsAttend) { element in
+                    VisitedEvents(eventsInfo: element)
+                }
             }
         }
     }
