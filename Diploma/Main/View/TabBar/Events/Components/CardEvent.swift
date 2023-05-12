@@ -11,6 +11,7 @@ struct CardEvent: View {
             .edgesIgnoringSafeArea(.top)) {
             ZStack(alignment: .bottomLeading) {
                 CustomImageDate(imageData: infoCard.avatar)
+                    .frame(maxWidth: 400, maxHeight: 200)
                 
                 Color.black
                     .opacity(0.4)

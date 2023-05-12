@@ -5,6 +5,7 @@ struct ProfileView: View {
     @Environment(\.mainWindowSize) private var mainWindowSize
     @StateObject private var viewModel = ProfileViewModel()
     @Binding var isAuthorization: Bool
+    var role: String
     
     var body: some View {
         VStack(alignment: .center, spacing: 0) {
@@ -56,6 +57,7 @@ extension ProfileView {
                     KeychainSwift().delete("token")
                     isAuthorization = false
                     UserDefaults.standard.set(isAuthorization, forKey: "auth")
+                    UserDefaults.standard.removeObject(forKey: "role")
                 } label: {
                     Image(systemName: "ipad.and.arrow.forward")
                         .foregroundColor(.black)

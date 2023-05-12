@@ -1,17 +1,43 @@
 import SwiftUI
-import CoreLocation
 import MapKit
 
-class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate, MKMapViewDelegate {
+class MapViewModel: NSObject, ObservableObject, MKMapViewDelegate {
     @Published var mapView = MKMapView()
     @Published var region: MKCoordinateRegion!
     @Published var mapType: MKMapType = .standard
-    @Published var places = [Place(id: 0, place: nil), Place(id: 1, place: nil), Place(id: 2, place: nil)]
+    @Published var places: [ResponseEvent] = []
+    @Published var selectPlace: ResponseEvent?
+    
+    let service = MapService()
+    let dateAndPlaceconfig = DateAndPlaceConfigurator()
     
     override init() {
         super.init()
         mapView.delegate = self
-        
+    }
+
+    func getCoodinate() async throws {
+        do {
+            guard let response = try await service.getCoordinateEvents() else { return }
+            
+            await MainActor.run {
+                places = response
+                setPlace()
+                addPlaceDate()
+            }
+        } catch {
+            print(error)
+        }
+    }
+    
+    func addPlaceDate() {
+        for (index, event) in places.enumerated() {
+            dateAndPlaceconfig.getLocationName(latitude: event.latitude, longitude: event.longitude) {[weak self] name in
+                self?.places[index].place = name
+            }
+
+            places[index].date = dateAndPlaceconfig.getDate(startDate: event.startDateTime, endDate: event.endDateTime)
+        }
     }
     
     func updateMapType() {
@@ -33,34 +59,9 @@ class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate, MKMap
     func setPlace() {
         places.forEach { place in
             let pointAnnotation = MKPointAnnotation()
-            pointAnnotation.coordinate = place.place?.location?.coordinate ?? CLLocationCoordinate2D(latitude: 47.202477, longitude: 38.934977)
-            pointAnnotation.title = place.place?.name ?? ""
+            pointAnnotation.coordinate = CLLocationCoordinate2D(latitude: place.latitude, longitude: place.longitude)
+            pointAnnotation.title = ""
             mapView.addAnnotation(pointAnnotation)
         }
-    }
-    
-    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        if #available(iOS 14.0, *) {
-            switch manager.authorizationStatus {
-            case .notDetermined:
-                manager.requestWhenInUseAuthorization()
-            case .authorizedWhenInUse:
-                manager.requestLocation()
-            default:
-                ()
-            }
-        } else {
-            // Fallback on earlier versions
-        }
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.last else { return }
-        self.region = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
-        self.mapView.setRegion(self.region, animated: false)
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print(error.localizedDescription)
     }
 }

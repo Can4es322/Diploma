@@ -9,7 +9,7 @@ struct StartView: View {
     var body: some View {
         NavigationView {
             if isAuthorization {
-                MainTabView(role: authData.role, isAuthorization: $isAuthorization)
+                MainTabView(isAuthorization: $isAuthorization, role: UserDefaults.standard.string(forKey: "role") ?? "")
             } else {
                 AuthorizationView(authData: $authData)
             }

@@ -38,6 +38,8 @@ final class MainViewModel: ObservableObject {
         }
     }
     
+
+    
     func getSearchEvents() async throws {
         do {
             let response = try await service.getSearchEvents(title: inputSearch)

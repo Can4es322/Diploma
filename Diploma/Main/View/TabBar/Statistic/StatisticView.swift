@@ -1,10 +1,13 @@
 import SwiftUI
 import Foundation
+import KeychainSwift
 
 struct StatisticView: View {
     @Environment(\.mainWindowSize) private var mainWindowSize
     @StateObject var viewModel = StatisticViewModel()
-
+    @Binding var isAuthorization: Bool
+    var role: String
+    
     let value: [ValueDiagram] = [
         ValueDiagram(name: "MOP", color: .red, value: 0.35),
         ValueDiagram(name: "BIT", color: .blue, value: 0.15),
@@ -63,7 +66,10 @@ extension StatisticView {
                 }
                 
                 Button {
-                    
+                    KeychainSwift().delete("token")
+                    isAuthorization = false
+                    UserDefaults.standard.set(isAuthorization, forKey: "auth")
+                    UserDefaults.standard.removeObject(forKey: "role")
                 } label: {
                     Image(systemName: "ipad.and.arrow.forward")
                         .foregroundColor(.black)

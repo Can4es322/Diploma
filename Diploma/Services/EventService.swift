@@ -85,6 +85,5 @@ final class EventService: EventServiceProtocol {
             .serializingDecodable([ResponseEvent].self)
         
         return try await data.value
-        
     }
 }

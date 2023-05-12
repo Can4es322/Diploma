@@ -2,7 +2,6 @@ import SwiftUI
 import MapKit
 
 struct MainTabView: View {
-    let role: String
     var edges = UIApplication.shared.windows.first?.safeAreaInsets
     private var tabsTitle: [String] = []
     private var tabsImage: [String] = []
@@ -10,8 +9,9 @@ struct MainTabView: View {
     @StateObject private var mapViewModel = MapViewModel()
     @State private var selectedTab = "Мероприятия"
     var isAuthorization: Binding<Bool>
-    
-    init(role: String, isAuthorization: Binding<Bool>) {
+    var role:String
+   
+    init(isAuthorization: Binding<Bool>,  role: String) {
         self.role = role
         self.isAuthorization = isAuthorization
         if role == "ADMIN" {
@@ -30,11 +30,12 @@ struct MainTabView: View {
             case tabsTitle[1]:
                 MainMapView()
                     .environmentObject(mapViewModel)
+                    .environmentObject(mainViewModel)
             case tabsTitle[2]:
                 if role == "ADMIN" {
-                    StatisticView()
+                    StatisticView(isAuthorization: isAuthorization, role: role)
                 } else {
-                    ProfileView(isAuthorization: isAuthorization)
+                    ProfileView(isAuthorization: isAuthorization, role: role)
                 }
             default:
                 EventView(role: role)
@@ -54,6 +55,11 @@ struct MainTabView: View {
             }
             .padding(.horizontal, 30)
             .padding(.bottom, edges?.bottom == 0 ? 15 : edges?.bottom)
+        }
+        .onAppear() {
+            Task {
+                try await mainViewModel.getEvents()
+            }
         }
         .edgesIgnoringSafeArea(.bottom)
     }

@@ -1,25 +1,25 @@
 import SwiftUI
 import MapKit
-import CoreLocation
 
 struct MainMapView: View {
     @EnvironmentObject private var viewModel: MapViewModel
-    @State private var locationManager = CLLocationManager()
+    @EnvironmentObject private var mainViewModel: MainViewModel
     
     var body: some View {
-        ZStack {
+        ZStack(alignment: .bottom) {
             MainContent()
             
-            VStack {
+            if let select = viewModel.selectPlace {
                 Spacer()
-                AdditinalContent()
-                    .padding(.trailing, 10)
-                    .padding(.bottom, 30)
+                AdditinalContent(select: select)
+                    .padding([.horizontal, .bottom], 20)
+                    .frame(maxWidth: .infinity)
             }
         }
         .onAppear() {
-            locationManager.delegate = viewModel
-            locationManager.requestWhenInUseAuthorization()
+            Task {
+                try await viewModel.getCoodinate()
+            }
         }
     }
 }
@@ -27,36 +27,54 @@ struct MainMapView: View {
 extension MainMapView {
     @ViewBuilder
     func MainContent() -> some View {
-        Map(points: [CLLocationCoordinate2D(latitude: 47.23, longitude: 38.89)])
+        Map()
             .environmentObject(viewModel)
             .edgesIgnoringSafeArea(.top)
     }
     
     @ViewBuilder
-    func AdditinalContent() -> some View {
-        VStack {
-            Button {
-                viewModel.focusLocation()
-            }label: {
-                Image(systemName: "location.fill")
-                    .renderingMode(.template)
-                    .frame(width: 17, height: 17)
-                    .padding(10)
-                    .background(Color("Blue5"))
-                    .clipShape(Circle())
+    func AdditinalContent(select: ResponseEvent) -> some View {
+        HStack(alignment: .bottom) {
+            VStack(alignment: .leading) {
+                ZStack {
+                    CustomImageDate(imageData: viewModel.selectPlace?.avatar ?? Data())
+                        .frame(width: 100, height: 100)
+                        .cornerRadius(10)
+                }
+                .padding(6)
+                .background(Color.white)
+                .cornerRadius(10)
+
+                VStack(alignment: .leading) {
+                    Text(viewModel.selectPlace?.title ?? "")
+                        .customFontBold()
+                    
+                    Text(viewModel.selectPlace?.place ?? "")
+                        .customFontMedium()
+                }
             }
+            .padding(.leading, 10)
             
-            Button {
-                viewModel.updateMapType()
-            }label: {
-                Image(systemName: viewModel.mapType == .standard ? "network" : "map")
-                    .renderingMode(.template)
-                    .frame(width: 17, height: 17)
-                    .padding(10)
-                    .background(Color("Blue5"))
-                    .clipShape(Circle())
+            Spacer()
+            
+            NavigationLink(destination: EventPostView(infoCard: select).environmentObject(mainViewModel).edgesIgnoringSafeArea(.top)) {
+                Text("Подробнее")
+                    .font(.system(size: 14, weight: .bold))
+                    .foregroundColor(.white)
+                    .padding(.horizontal, 6)
+                    .frame(height: 44)
+                    .background(Color("Blue"))
+                    .frame(alignment: .bottom)
+                    .cornerRadius(10)
+                    .padding(.trailing, 10)
             }
         }
-        .frame(maxWidth: .infinity, alignment: .trailing)
+        .padding(.bottom, 20)
+        .background(
+            RoundedRectangle(cornerRadius: 14)
+                .fill(Color.white.opacity(0.6))
+                .offset(y: 40)
+        )
+        .cornerRadius(14)
     }
 }
