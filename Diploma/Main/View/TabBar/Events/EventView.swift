@@ -5,6 +5,7 @@ struct EventView: View {
     let role: String
     @EnvironmentObject private var viewModel: MainViewModel
     @Environment(\.mainWindowSize) private var mainWindowSize
+    @State var isActive = false
     
     var body: some View {
         if #available(iOS 14.0, *) {
@@ -91,11 +92,12 @@ extension EventView {
             Spacer()
             
             if role == "ADMIN" {
-                NavigationLink(destination: AddEventView().environmentObject(viewModel)) {
+                NavigationLink(destination: AddEventView(rootIsActive: $isActive).environmentObject(viewModel), isActive: $isActive) {
                     Image(systemName: "plus")
                         .font(.system(size: 20))
                         .foregroundColor(.black)
                 }
+                .isDetailLink(false)
             }
         }
         

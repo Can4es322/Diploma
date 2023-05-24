@@ -2,9 +2,9 @@ import SwiftUI
 import Combine
 
 struct AddAddressView: View {
-    @StateObject private var viewModel = AddAddressViewModel()
+    @EnvironmentObject private var viewModel: AddEventViewModel
     @Environment(\.mainWindowSize) private var mainWindowSize
-    let newEvent: Event
+    @Binding var rootIsActive: Bool
     
     var body: some View {
         if #available(iOS 14.0, *) {
@@ -49,7 +49,7 @@ struct AddAddressView: View {
                     .padding(.horizontal, 20)
                     .multilineTextAlignment(.center)
                 
-                NavigationLink(destination: AddImageView(place: viewModel.currentPlace, event: newEvent)) {
+                NavigationLink(destination: AddImageView(rootIsActive: $rootIsActive).environmentObject(viewModel)) {
                     Text("Далее")
                         .font(.system(size: 15, weight: .medium))
                         .foregroundColor(.white)
@@ -59,6 +59,7 @@ struct AddAddressView: View {
                         )
                         .cornerRadius(12)
                 }
+                .isDetailLink(false)
                 .offset(x: mainWindowSize.width / 3 ,y: mainWindowSize.height / 1.2)
             }
             .onChange(of: viewModel.inputSearch) { newValue in

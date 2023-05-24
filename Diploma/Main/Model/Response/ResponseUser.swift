@@ -6,7 +6,7 @@ struct ResponseUser: Codable {
     var middlename: String
     var course: Int
     var department: String
-    var avatar: Data? = Data()
+    var avatar: Data?
     var email: String
     var password: String
     var role: String

@@ -6,7 +6,7 @@ protocol MapServiceProtocol {
     func getCoordinateEvents() async throws -> [ResponseEvent]?
 }
 
-class MapService: MapServiceProtocol {
+final class MapService: MapServiceProtocol {
     private var baseUrl = "http://localhost:8080/api/v1/event"
     
     func getCoordinateEvents() async throws -> [ResponseEvent]? {

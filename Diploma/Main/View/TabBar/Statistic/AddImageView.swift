@@ -1,17 +1,14 @@
 import SwiftUI
 
 struct AddImageView: View {
-    let place: Place
-    let event: Event
-    @State var isPhotoPickerSheet = false
-    @State var imageData = EventImage(images: [], avatar: nil)
-    
+    @EnvironmentObject private var viewModel: AddEventViewModel
+    @Binding var rootIsActive: Bool
     
     var body: some View {
         VStack(alignment: .center) {
             Spacer()
             
-            if let avatar = imageData.avatar {
+            if let avatar = viewModel.imageData.avatar {
                 Image(uiImage: avatar)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
@@ -20,7 +17,7 @@ struct AddImageView: View {
                    
                 
                 HStack(spacing: 10) {
-                    ForEach(imageData.images, id: \.self) { image in
+                    ForEach(viewModel.imageData.images, id: \.self) { image in
                         Image(uiImage: image)
                             .resizable()
                             .aspectRatio(contentMode: .fill)
@@ -32,7 +29,10 @@ struct AddImageView: View {
                 .padding(.top, 20)
                 
                 CustomBackgroundButton(text: "Зарегестрировать") {
-                    
+                    Task {
+                        try await viewModel.addEvent()
+                        rootIsActive = false
+                    }
                 }
                 .padding(.top, 10)
                 
@@ -55,16 +55,16 @@ struct AddImageView: View {
         .navigationBarItems(
             leading: DismissButton(),
             trailing: Button {
-                isPhotoPickerSheet.toggle()
+                viewModel.isPhotoPickerSheet.toggle()
             } label: {
                 Image(systemName: "plus")
                     .font(.system(size: 20))
                     .foregroundColor(.black)
             }
         )
-        .sheet(isPresented: $isPhotoPickerSheet) {
+        .sheet(isPresented: $viewModel.isPhotoPickerSheet) {
             if #available(iOS 14, *) {
-                PhotoPickerImages(imagesData: $imageData, isPresented: $isPhotoPickerSheet)
+                PhotoPickerImages(imagesData: $viewModel.imageData, isPresented: $viewModel.isPhotoPickerSheet)
             } else {
                 ImagePicker()
             }

@@ -8,43 +8,44 @@ struct StatisticView: View {
     @Binding var isAuthorization: Bool
     var role: String
     
-    let value: [ValueDiagram] = [
-        ValueDiagram(name: "MOP", color: .red, value: 0.35),
-        ValueDiagram(name: "BIT", color: .blue, value: 0.15),
-        ValueDiagram(name: "VM", color: .green, value: 0.30),
-        ValueDiagram(name: "SAPR", color: .orange, value: 0.15),
-        ValueDiagram(name: "VT", color: .gray, value: 0.02),
-        ValueDiagram(name: "SCP", color: .yellow, value: 0.03),
-    ]
-    
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
-            VStack(alignment: .center) {
+            VStack {
                 VStack(alignment: .leading, spacing: 0) {
                     Header()
                     
                     Diagram()
                         .padding(.top, 10)
                     
-                    InfoDiagram()
-                        .frame(maxWidth: .infinity, alignment: .trailing)
-                        .padding(.top)
+                    if !viewModel.valueStatistic.isEmpty {
+                        InfoDiagram()
+                            .frame(maxWidth: .infinity, alignment: .trailing)
+                            .padding(.top)
+                    }
                 }
                 .padding(.horizontal, 20)
                 
-                ZStack {
-                    Color("BlackBlue")
-                        .cornerRadius(28, corners: [.topLeft, .topRight])
-                    
-                    VStack(spacing: 0) {
-                        IndividualDiagrams()
-                            .padding(.horizontal, 30)
-                            .padding(.bottom, 30)
+                if !viewModel.valueStatistic.isEmpty {
+                    ZStack {
+                        Color("BlackBlue")
+                            .cornerRadius(28, corners: [.topLeft, .topRight])
+                        
+                        VStack(spacing: 0) {
+                            IndividualDiagrams()
+                                .padding(.horizontal, 30)
+                                .padding(.bottom, 30)
+                        }
+                        .frame(maxWidth: .infinity)
                     }
-                    .frame(maxWidth: .infinity)
                 }
             }
+            .frame(maxHeight: .infinity)
             .padding(.top, mainWindowSize.height / 21)
+        }
+        .onAppear() {
+            Task {
+                try await viewModel.getStatistic()
+            }
         }
         .navigationBarHidden(true)
     }
@@ -92,7 +93,7 @@ extension StatisticView {
             HStack(spacing: 2) {
                 Group {
                     Text(viewModel.selectedDate.rangeString.startDate ?? "")
-
+                    
                     Text("\(viewModel.selectedDate.rangeInt.startDate) - ")
                     
                     Text(viewModel.selectedDate.rangeString.endDate ?? "")
@@ -109,20 +110,24 @@ extension StatisticView {
             .foregroundColor(.black)
             .padding(.top, 14)
         
-        VStack {
-            GeometryReader { g in
-                if #available(iOS 15.0, *) {
-                    ForEach(0..<value.count, id: \.self) { i in
+        if !viewModel.valueStatistic.isEmpty {
+            VStack {
+                GeometryReader { g in
+                    ForEach(0..<viewModel.valueStatistic.count, id: \.self) { i in
                         DrawShape(center: CGPoint(x: (g.size.width / 2), y: (g.size.height / 2 )),
                                   index: i,
-                                  data: value
+                                  data: viewModel.valueStatistic
                         )
                     }
-                } else {
-                    // Fallback on earlier versions
                 }
+                .frame(height: 330)
             }
-            .frame(height: 330)
+        } else {
+            Text("По заданным датам не было посещений!")
+                .frame(maxWidth: .infinity, alignment: .center)
+                .multilineTextAlignment(.center)
+                .padding(.top, mainWindowSize.height / 3)
+                .customFontBoldMid()
         }
     }
     
@@ -139,11 +144,11 @@ extension StatisticView {
         }
         
         if viewModel.isInfoTap {
-            ForEach(0..<Int((Double(value.count) / 4.0).rounded(.up)), id: \.self) { col in
+            ForEach(0..<Int((Double(viewModel.valueStatistic.count) / 4.0).rounded(.up)), id: \.self) { col in
                 HStack(alignment: .center, spacing: 30) {
                     ForEach(0..<4, id: \.self) { row in
-                        if (col * 4 + row) < value.count  {
-                            InfoTag(color: value[col * 4 + row].color, text: value[col * 4 + row].name)
+                        if (col * 4 + row) < viewModel.valueStatistic.count  {
+                            InfoTag(color: viewModel.valueStatistic[col * 4 + row].color, text: viewModel.valueStatistic[col * 4 + row].name)
                         }
                     }
                 }
@@ -155,11 +160,11 @@ extension StatisticView {
     @ViewBuilder
     func IndividualDiagrams() -> some View {
         VStack(spacing: 16) {
-            ForEach(0..<value.count, id: \.self) { i in
+            ForEach(0..<viewModel.valueStatistic.count, id: \.self) { i in
                 
-                MiniDiagram(index: i, color: value[i].color, data: value, text: value[i].name, countPerson: 20)
+                MiniDiagram(index: i, color: viewModel.valueStatistic[i].color, data: viewModel.valueStatistic, text: viewModel.valueStatistic[i].name, countPerson: viewModel.valueStatistic[i].countPeople)
                 
-                if i < value.count - 1 {
+                if i < viewModel.valueStatistic.count - 1 {
                     Divider()
                         .frame(height: 1)
                         .background(Color("Gray5"))
@@ -169,18 +174,3 @@ extension StatisticView {
         .padding(.top, 20)
     }
 }
-
-
-//                    let value: [ValueDiagram] = [
-//                        ValueDiagram(name: "MOP", color: .red, value: 0.09),
-//                        ValueDiagram(name: "BIT", color: .blue, value: 0.09),
-//                        ValueDiagram(name: "VM", color: .green, value: 0.09),
-//                        ValueDiagram(name: "SAPR", color: .orange, value: 0.09),
-//                        ValueDiagram(name: "VT", color: .gray, value: 0.09),
-//                        ValueDiagram(name: "IMS", color: .yellow, value: 0.09),
-//                        ValueDiagram(name: "IASB", color: .indigo, value: 0.09),
-//                        ValueDiagram(name: "IBTS", color: .mint, value: 0.09),
-//                        ValueDiagram(name: "BIPZ", color: .pink, value: 0.09),
-//                        ValueDiagram(name: "SCP", color: .yellow, value: 0.09),
-//                        ValueDiagram(name: "SAIT", color: .teal, value: 0.1),
-//                    ]

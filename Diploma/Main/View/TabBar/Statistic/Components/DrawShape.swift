@@ -16,7 +16,6 @@ struct DrawShape: View {
         self.index = index
         self.data = data
         self.radius = diametr / 2
-
     }
     
     var body: some View {
@@ -27,7 +26,6 @@ struct DrawShape: View {
             .trim(from: trimValueFrom, to: trimValueTo)
             .stroke(lineWidth: 60)
             .foregroundColor(data[index].color)
-
             
             Path { path in
                 path.move(to: center)
@@ -37,13 +35,12 @@ struct DrawShape: View {
             .stroke(.black, lineWidth: 1)
 
             
-            Text("\(String(format: "%.2f", data[index].value))%")
+            Text("\(String(format: "%.0f", data[index].value * 100))%")
                 .font(.system(size: 14, weight: .bold))
                 .padding(1)
                 .background(Color.white)
                 .position(centerArc())
         }
-
         .onAppear() {
             from()
             to()

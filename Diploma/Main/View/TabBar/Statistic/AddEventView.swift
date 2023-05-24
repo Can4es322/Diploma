@@ -4,57 +4,66 @@ struct AddEventView: View {
     @StateObject var viewModel = AddEventViewModel()
     @Environment(\.mainWindowSize) private var mainWindowSize
     private let tags = ["Наука", "Мастер-класс", "Конференция", "Театр", "Спорт", "Тренинг", "Концерт"]
-    
+    @Binding var rootIsActive: Bool
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(alignment: .leading, spacing: 6) {
-                Text("Название")
-                    .fixedSize(horizontal: false, vertical: true)
-                    .font(.system(size: 16, weight: .regular))
-                    .foregroundColor(.black)
+                Group {
+                    Text("Название")
+                        .fixedSize(horizontal: false, vertical: true)
+                        .font(.system(size: 16, weight: .regular))
+                        .foregroundColor(.black)
+                    
+                    CustomCommonTextField(placeholder: "", text: $viewModel.eventInfo.name)
+                    
+                    Text("Описание")
+                        .fixedSize(horizontal: false, vertical: true)
+                        .font(.system(size: 16, weight: .regular))
+                        .foregroundColor(.black)
+                        .padding(.top, 13)
+                    
+                    CustomCommonTextField(placeholder: "", text: $viewModel.eventInfo.description)
+                    
+                    Text("Количество")
+                        .fixedSize(horizontal: false, vertical: true)
+                        .font(.system(size: 16, weight: .regular))
+                        .foregroundColor(.black)
+                        .padding(.top, 13)
+                    
+                    CustomCommonTextField(placeholder: "", text: $viewModel.eventInfo.countPerson)
+                        .keyboardType(.numberPad)
+                    
+                    DatePicker("Выбрать дату начала", selection: $viewModel.eventInfo.startDate, displayedComponents: [.date, .hourAndMinute])
+                        .datePickerStyle(.automatic)
+                        .font(.system(size: 16, weight: .regular))
+                        .padding(.top, 26)
+                    
+                    DatePicker("Выберите дату конца", selection: $viewModel.eventInfo.endDate, displayedComponents: [.date, .hourAndMinute])
+                        .datePickerStyle(.automatic)
+                        .font(.system(size: 16, weight: .regular))
+                        .padding(.top, 26)
+                    
+                    
+                    Text("Категории")
+                        .fixedSize(horizontal: false, vertical: true)
+                        .padding(.top, 13)
+                        .font(.system(size: 16, weight: .regular))
+                        .foregroundColor(.black)
+                    
+                    AddCategory()
+                        .padding(.top, 13)
+                }
                 
-                CustomCommonTextField(placeholder: "", text: $viewModel.eventInfo.name)
-
-                Text("Описание")
-                    .fixedSize(horizontal: false, vertical: true)
-                    .font(.system(size: 16, weight: .regular))
-                    .foregroundColor(.black)
-                    .padding(.top, 13)
-                
-                CustomCommonTextField(placeholder: "", text: $viewModel.eventInfo.description)
-                
-                Text("Количество")
-                    .fixedSize(horizontal: false, vertical: true)
-                    .font(.system(size: 16, weight: .regular))
-                    .foregroundColor(.black)
-                    .padding(.top, 13)
-                
-                CustomCommonTextField(placeholder: "", text: $viewModel.eventInfo.countPerson)
-                    .keyboardType(.numberPad)
-                
-                DatePicker("Выбрать дату", selection: $viewModel.eventInfo.date, displayedComponents: [.date, .hourAndMinute])
-                    .datePickerStyle(.automatic)
-                    .font(.system(size: 16, weight: .regular))
-                    .padding(.top, 26)
-                
-                
-                Text("Категории")
-                    .fixedSize(horizontal: false, vertical: true)
-                    .padding(.top, 13)
-                    .font(.system(size: 16, weight: .regular))
-                    .foregroundColor(.black)
-                
-                AddCategory()
-                    .padding(.top, 13)
-                
-                NavigationLink(destination: AddAddressView(newEvent: viewModel.eventInfo), isActive: $viewModel.isNextView) {
+                NavigationLink(destination: AddAddressView(rootIsActive: $rootIsActive).environmentObject(viewModel), isActive: $viewModel.isNextView) {
                     CustomBackgroundButton(text: "Далее") {
                         viewModel.isNextView.toggle()
                     }
                     .padding(.top, 40)
                 }
+                .isDetailLink(false)
                 .disabled(viewModel.checkIsEmptyAddEvent())
                 .opacity(viewModel.checkIsEmptyAddEvent() ? 0.5 : 1)
+
             }
             .padding(.horizontal, 20)
             .padding(.top, mainWindowSize.height / 23)

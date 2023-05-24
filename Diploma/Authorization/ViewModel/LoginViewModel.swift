@@ -14,10 +14,6 @@ final class LoginViewModel: ObservableObject {
     func checkIsEmptyTextFields() -> Bool {
         return loginText.isEmpty || passwordText.isEmpty
     }
-
-    func checkIsCorrectEmail() {
-        self.isErrorLogin = self.loginText.contains("@")
-    }
     
     func loginUser() async throws -> ResponseAuthorization {
         do {

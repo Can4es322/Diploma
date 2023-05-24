@@ -2,7 +2,7 @@ import SwiftUI
 import CoreLocation
 
 final class ProfileViewModel: ObservableObject {
-    @Published var userInfo = ResponseUser(firstname: "", lastname: "", middlename: "", course: 0, department: "", avatar: Data(), email: "", password: "", role: "")
+    @Published var userInfo = ResponseUser(firstname: "", lastname: "", middlename: "", course: 0, department: "", avatar: nil, email: "", password: "", role: "")
     @Published var eventsAttend: [ResponseEvent] = []
     @Published var isEditPhoto = false
     @Published var newImage: UIImage?
@@ -16,17 +16,38 @@ final class ProfileViewModel: ObservableObject {
         self.service = service
     }
     
-    func getUserData() async {
-        if let data = try? await service.initializerUser() {
-            guard let userData = data.0 else { return }
-            guard let userAvatar = data.1 else { return }
-            guard let userEvents = data.2 else { return }
-            
-            await MainActor.run {
-                self.userInfo = userData
-                self.userInfo.avatar = userAvatar.imageData
-                self.eventsAttend = userEvents
+    func getUserData() async throws {
+        do {
+            if let (data1, data2, data3) = try? await service.initializerUser() {
+                if let userData = data1 {
+                    await MainActor.run {
+                        self.userInfo = userData
+                    }
+                }
+                if let userAvatar = data2 {
+                    await MainActor.run {
+                        self.userInfo.avatar = userAvatar.imageData
+                    }
+                }
+                if let userEvents = data3 {
+                    await MainActor.run {
+                        self.eventsAttend = userEvents
+                        addPlaceDate()
+                    }
+                }
             }
+        } catch {
+            print(error)
+        }
+    }
+    
+    func addPlaceDate() {
+        for (index, event) in eventsAttend.enumerated() {
+            dateAndPlaceconfig.getLocationName(latitude: event.latitude, longitude: event.longitude) {[weak self] name in
+                self?.eventsAttend[index].place = name
+            }
+
+            eventsAttend[index].date = dateAndPlaceconfig.getDate(startDate: event.startDateTime, endDate: event.endDateTime)
         }
     }
     
@@ -50,6 +71,10 @@ final class ProfileViewModel: ObservableObject {
                 return
             }
         }
+        if newImage != nil {
+            isActiveAlert = true
+            return
+        }
         isActiveAlert = false
     }
     
@@ -60,15 +85,5 @@ final class ProfileViewModel: ObservableObject {
             }
         }
         return false
-    }
-    
-    func addPlaceDate() {
-        for (index, event) in eventsAttend.enumerated() {
-            dateAndPlaceconfig.getLocationName(latitude: event.latitude, longitude: event.longitude) {[weak self] name in
-                self?.eventsAttend[index].place = name
-            }
-
-            eventsAttend[index].date = dateAndPlaceconfig.getDate(startDate: event.startDateTime, endDate: event.endDateTime)
-        }
     }
 }

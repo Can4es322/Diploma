@@ -1,6 +1,5 @@
 import CoreLocation
 
-
 class DateAndPlaceConfigurator {
     private enum DayOfWeek: String, CaseIterable {
         case Sunday = "Вс"

@@ -29,15 +29,14 @@ final class RegistrationViewModel: ObservableObject {
     @Published var passwordText = "123"
     @Published var confirmPassword = "123"
     @Published var isPolitical = true
-    @Published var namePerson = "can4es"
-    @Published var lastnamePerson = "kurys"
-    @Published var middlenamePerson = "abobus"
+    @Published var namePerson = "Александр"
+    @Published var lastnamePerson = "Курыс"
+    @Published var middlenamePerson = "Евгеньевич"
     @Published var courseIndex = 0
     @Published var departmentIndex = 0
     
     @Published var isErrorRegistration: Bool? = nil
     @Published var isErrorLogin: Bool? = nil
-    @Published var isBottomSheet = false
     @Published var offset: CGFloat = 0
     @Published var lastOffset: CGFloat = 0
     let minHeightBottomSheet: CGFloat = 100
@@ -57,14 +56,12 @@ final class RegistrationViewModel: ObservableObject {
         return loginText.isEmpty || passwordText.isEmpty || confirmPassword.isEmpty || !isPolitical
     }
     
-    
     func checkIsCorrectEmail() async throws {
         if loginText.contains("@") {
             let result = try await service.checkEmail(email: loginText)
             
             await MainActor.run {
                 isErrorLogin = !(result ?? false)
-                isBottomSheet = true
             }
  
         } else {
@@ -107,7 +104,7 @@ final class RegistrationViewModel: ObservableObject {
     func onEnd(value: DragGesture.Value, height: CGFloat) async {
         await MainActor.run {
             withAnimation {
-                if self.offset > self.defaultTransform && self.offset < height / 3 * 2 && self.lastOffset < height / 3 * 2{
+                if self.offset > self.defaultTransform && self.offset < height / 3 * 2 && self.lastOffset < height / 3 * 2 {
                     self.offset = height - self.minHeightBottomSheet
                     self.lastOffset = self.offset
                 }

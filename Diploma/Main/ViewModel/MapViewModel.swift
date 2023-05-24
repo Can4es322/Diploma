@@ -40,22 +40,6 @@ class MapViewModel: NSObject, ObservableObject, MKMapViewDelegate {
         }
     }
     
-    func updateMapType() {
-        if mapType == .standard {
-            mapType = .hybrid
-            mapView.mapType = mapType
-        } else {
-            mapType = .standard
-            mapView.mapType = mapType
-        }
-    }
-    
-    func focusLocation() {
-        guard let _ = region else { return }
-        mapView.setRegion(region, animated: true)
-        mapView.setVisibleMapRect(mapView.visibleMapRect, animated: true)
-    }
-    
     func setPlace() {
         places.forEach { place in
             let pointAnnotation = MKPointAnnotation()

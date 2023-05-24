@@ -34,7 +34,7 @@ struct MiniDiagram: View {
                     .font(.system(size: 16, weight: .medium))
                     .foregroundColor(.white)
                 
-                Text("\(Int(data[index].value * 100))%")
+                Text("\(String(format: "%.0f", data[index].value * 100))%")
                     .font(.system(size: 16, weight: .medium))
                     .foregroundColor(.white)
             }

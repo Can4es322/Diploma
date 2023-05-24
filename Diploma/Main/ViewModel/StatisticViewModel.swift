@@ -15,10 +15,11 @@ final class StatisticViewModel: ObservableObject {
     @Published var currentMounth = 0
     @Published var dates: [DateValue] = []
     @Published var selectedDate = SelectDate(rangeInt: (0, 0))
+    @Published var valueStatistic: [ValueDiagram] = []
+    let service: StatisticServiceProtocol
     
-    
-    init() {
-        print("init")
+    init(service: StatisticServiceProtocol = StatisticService()) {
+        self.service = service
     }
     
     let mounts: [Int: String] = [
@@ -35,12 +36,32 @@ final class StatisticViewModel: ObservableObject {
         11: "Ноябрь",
         12: "Декабрь",
     ]
-    
-    func clearData() {
-        dates = []
-        selectedDate = SelectDate(rangeInt: (0, 0))
-        currentMounth = 0
-        currentDate = Date()
+
+    func getStatistic() async throws {
+        do {
+            var response: ResponseStatistic?
+            
+            if let start = selectedDate.rangeDate.startDate, let end = selectedDate.rangeDate.endDate  {
+                response = try await service.getStatistic(startDate: start, endDate: end)
+            } else {
+                let date = Calendar.current.date(from: Calendar.current.dateComponents([.year, .month], from: Date()))
+                response = try await service.getStatistic(startDate: date, endDate: nil)
+            }
+            
+            if let data = response {
+                await MainActor.run(body: {
+                    let colors: [Color] = [.orange, .blue, .green, .yellow, .pink, .purple, .red, .gray, .black, .primary, .white]
+                    var index = -1;
+   
+                    valueStatistic = data.departmentStatistics.map { department -> ValueDiagram in
+                        index += 1
+                        return ValueDiagram(name: department.name, color: colors[index], value: Double(department.countPeople) / Double(data.totalPeopleCount), countPeople: department.countPeople)
+                    }
+                })
+            }
+        } catch {
+            print(error)
+        }
     }
     
     func tapDate(index: Int) {
@@ -78,12 +99,6 @@ final class StatisticViewModel: ObservableObject {
         let index = Calendar.current.component(.month, from: date)
         
         return mounts[index] ?? ""
-    }
-    
-    func onChange(value: CGFloat) async {
-        await MainActor.run {
-            self.offset = value
-        }
     }
     
     func minusMounth() {

@@ -32,7 +32,7 @@ struct ProfileView: View {
         .padding(.top, mainWindowSize.height / 21)
         .onAppear() {
             Task {
-                await viewModel.getUserData()
+                try await viewModel.getUserData()
             }
         }
     }
@@ -73,9 +73,18 @@ extension ProfileView {
     @ViewBuilder
     func Avatar() -> some View {
         HStack(spacing: 20) {
-            CustomImageDate(imageData: viewModel.userInfo.avatar)
-                .frame(width: 100, height: 100, alignment: .center)
-                .clipShape(Circle())
+            if viewModel.userInfo.avatar == nil {
+                Image(systemName: "person.fill")
+                    .resizable()
+                    .frame(width: 30, height: 35, alignment: .center)
+                    .padding(30)
+                    .background(Color("Gray4"))
+                    .clipShape(Circle())
+            } else {
+                CustomImageDate(imageData: viewModel.userInfo.avatar)
+                    .frame(width: 100, height: 100, alignment: .center)
+                    .clipShape(Circle())
+            }
             
             VStack(alignment: .leading, spacing: 8) {
                 Group {

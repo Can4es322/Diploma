@@ -2,7 +2,7 @@ import SwiftUI
 import MapKit
 
 struct MapAddAddress: UIViewRepresentable {
-    @ObservedObject var viewModel: AddAddressViewModel
+    @ObservedObject var viewModel: AddEventViewModel
     let coordinate = CLLocationCoordinate2D(latitude: 47.202477, longitude: 38.934977)
     
     func makeUIView(context: Context) -> MKMapView {

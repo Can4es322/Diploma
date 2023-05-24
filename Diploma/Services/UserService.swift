@@ -3,7 +3,7 @@ import Alamofire
 import KeychainSwift
 
 struct ResponseImage: Codable {
-    var imageData: Data
+    var imageData: Data?
 }
 
 protocol UserServiceProtocol {
@@ -23,10 +23,13 @@ final class UserService: UserServiceProtocol {
         async let getUser = try await getUser()
         async let getAvatar = try await getAvatar()
         async let getEvents = try await getUserEventsAttend()
-         
-        let (data1, data2, data3) = try await (getUser, getAvatar, getEvents)
-        
-        return (data1, data2, data3)
+        do {
+            let (data1, data2, data3) = try await (getUser, getAvatar, getEvents)
+            return (data1, data2, data3)
+        } catch {
+            print(error)
+        }
+        return (nil, nil, nil)
     }
     
     func getUser() async throws -> ResponseUser? {
@@ -108,7 +111,6 @@ final class UserService: UserServiceProtocol {
                               method: .get,
                               headers: headers)
             .serializingDecodable(ResponseImage.self)
-        
         return try await data.value
     }
 }

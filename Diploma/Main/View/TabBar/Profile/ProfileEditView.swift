@@ -25,7 +25,8 @@ struct ProfileEditView: View {
                 leading: Button {
                     UIApplication.shared.endEditing()
                     viewModel.checkActiveAlert()
-                    if !viewModel.isActiveAlert {
+                    
+                    if !viewModel.isActiveAlert && viewModel.newImage == nil {
                         presentation.wrappedValue.dismiss()
                     }
                 } label: {
@@ -36,6 +37,7 @@ struct ProfileEditView: View {
                 trailing: Button {
                     Task {
                         try await viewModel.updateUser()
+                        presentation.wrappedValue.dismiss()
                     }
                 } label: {
                     Image("Checkmark.bubble")
@@ -61,6 +63,9 @@ struct ProfileEditView: View {
                     ImagePicker()
                 }
             }
+            .onDisappear() {
+                viewModel.newImage = nil
+            }
         }
     }
 }
@@ -74,6 +79,13 @@ extension ProfileEditView {
                     .resizable()
                     .scaledToFill()
                     .frame(width: 120, height: 120, alignment: .center)
+                    .clipShape(Circle())
+            } else if viewModel.userInfo.avatar == nil {
+                Image(systemName: "person.fill")
+                    .resizable()
+                    .frame(width: 30, height: 35, alignment: .center)
+                    .padding(30)
+                    .background(Color("Gray4"))
                     .clipShape(Circle())
             } else {
                 CustomImageDate(imageData: viewModel.userInfo.avatar ?? Data())

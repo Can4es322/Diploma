@@ -20,7 +20,11 @@ struct CalendarView: View {
                 .padding([.vertical, .top], 10)
             
             CustomBackgroundButton(text: "Выбрать") {
-                presentation.wrappedValue.dismiss()
+                Task {
+                    try await viewModel.getStatistic()
+                    presentation.wrappedValue.dismiss()
+                }
+                
             }
             .padding(.top, 20)
             .opacity(viewModel.selectedDate.rangeDate.startDate != nil && viewModel.selectedDate.rangeDate.endDate != nil ? 1 : 0.5)
@@ -38,9 +42,6 @@ struct CalendarView: View {
         .navigationBarItems(
             leading: DismissButton()
         )
-        .onDisappear() {
-//            viewModel.clearData()
-        }
     }
     
     @ViewBuilder
@@ -73,7 +74,6 @@ struct CalendarView: View {
                     }
                 }
             }
-
             
             Spacer()
             

@@ -11,9 +11,10 @@ struct EventPostView: View {
                 VStack(spacing: 0){
                     ArtWork()
                     
-                    VStack(alignment: .leading, spacing: 12) {
+                    VStack(spacing: 12) {
                         PostInformation()
                     }
+                    .frame(maxWidth: .infinity, alignment: .leading)
                     .padding([.horizontal, .top], 20)
                     
                     Spacer()
@@ -104,21 +105,39 @@ struct EventPostView: View {
     
     @ViewBuilder
     func PostInformation() -> some View {
-        Text(infoCard.title)
-            .font(.system(size: 24, weight: .bold))
-            .foregroundColor(.black)
-            .fixedSize(horizontal: false, vertical: true)
+        Group {
+            Text(infoCard.title)
+                .font(.system(size: 24, weight: .bold))
+                .foregroundColor(.black)
+                .fixedSize(horizontal: false, vertical: true)
+            
+            Text(infoCard.date ?? "")
+                .font(.system(size: 16, weight: .regular))
+                .foregroundColor(.black)
+                .fixedSize(horizontal: false, vertical: true)
+            
+            Text(infoCard.description)
+                .padding(.top, 8)
+                .font(.system(size: 16, weight: .regular))
+                .foregroundColor(.black)
+                .fixedSize(horizontal: false, vertical: true)
         
-        Text(infoCard.date ?? "")
-            .font(.system(size: 16, weight: .regular))
-            .foregroundColor(.black)
-            .fixedSize(horizontal: false, vertical: true)
-        
-        Text(infoCard.description)
-            .padding(.top, 8)
-            .font(.system(size: 16, weight: .regular))
-            .foregroundColor(.black)
-            .fixedSize(horizontal: false, vertical: true)
+            if UserDefaults.standard.string(forKey: "role") != "ADMIN" {
+                Spacer()
+                if viewModel.isSignUpEvent {
+                    CustomBorderButton(text: "Отписаться") {
+                        
+                    }
+                } else {
+                    CustomBackgroundButton(text: "Записаться") {
+                        Task {
+                            try await viewModel.signUpEvent()
+                        }
+                    }
+                }
+            }
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
     }
     
     @ViewBuilder
