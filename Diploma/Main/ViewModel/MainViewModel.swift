@@ -21,8 +21,26 @@ final class MainViewModel: ObservableObject {
         self.service = service
     }
     
-    func signUpEvent() async throws {
-        
+    func signUpEvent(eventId: Int) async throws {
+        do {
+            guard let response = try await service.signUpEvent(eventId: eventId) else { return }
+            await MainActor.run(body: {
+                isSignUpEvent = response
+            })
+        }catch {
+            print(error)
+        }
+    }
+    
+    func unsubscribeEvent(eventId: Int) async throws {
+        do {
+            guard let response = try await service.unsubscribeEvent(eventId: eventId) else { return }
+            await MainActor.run(body: {
+                isSignUpEvent = response
+            })
+        }catch {
+            print(error)
+        }
     }
     
     func getEvents() async throws {

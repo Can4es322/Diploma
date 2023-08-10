@@ -25,13 +25,13 @@ enum Department: String, CaseIterable {
 }
 
 final class RegistrationViewModel: ObservableObject {
-    @Published var loginText = "can@gmail.com"
-    @Published var passwordText = "123"
-    @Published var confirmPassword = "123"
-    @Published var isPolitical = true
-    @Published var namePerson = "Александр"
-    @Published var lastnamePerson = "Курыс"
-    @Published var middlenamePerson = "Евгеньевич"
+    @Published var loginText = ""
+    @Published var passwordText = ""
+    @Published var confirmPassword = ""
+    @Published var isPolitical = false
+    @Published var namePerson = ""
+    @Published var lastnamePerson = ""
+    @Published var middlenamePerson = ""
     @Published var courseIndex = 0
     @Published var departmentIndex = 0
     

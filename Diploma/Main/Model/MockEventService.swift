@@ -11,6 +11,14 @@ enum EventError: Error {
 }
 
 class MockEventService: EventServiceProtocol {
+    func unsubscribeEvent(eventId: Int) async throws -> Bool? {
+        return nil
+    }
+    
+    func signUpEvent(eventId: Int) async throws -> Bool? {
+        return nil
+    }
+    
     private let wordsAndNumbers = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
     
     private func randomString() -> String {

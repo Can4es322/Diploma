@@ -5,6 +5,7 @@ struct AddEventView: View {
     @Environment(\.mainWindowSize) private var mainWindowSize
     private let tags = ["Наука", "Мастер-класс", "Конференция", "Театр", "Спорт", "Тренинг", "Концерт"]
     @Binding var rootIsActive: Bool
+    
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(alignment: .leading, spacing: 6) {

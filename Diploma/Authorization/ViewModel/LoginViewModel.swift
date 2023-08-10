@@ -1,9 +1,9 @@
 import SwiftUI
 
 final class LoginViewModel: ObservableObject {
-    @Published var loginText = "can@gmail.com"
+    @Published var loginText = ""
     @Published var isErrorLogin: Bool? = nil
-    @Published var passwordText = "123"
+    @Published var passwordText = ""
     var responseAuthorization: ResponseAuthorization?
     let service: AuthorizationService
    

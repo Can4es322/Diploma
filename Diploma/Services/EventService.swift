@@ -8,6 +8,8 @@ protocol EventServiceProtocol {
     func getSearchTagEvents(tags: [String]) async throws -> [ResponseEvent]?
     func addEvent(request: EventRequest) async throws -> Int?
     func updateEvent(request: EventRequest, id: Int) async throws -> Bool?
+    func signUpEvent(eventId: Int) async throws -> Bool?
+    func unsubscribeEvent(eventId: Int) async throws -> Bool?
 }
 
 final class EventService: EventServiceProtocol {
@@ -119,6 +121,38 @@ final class EventService: EventServiceProtocol {
                               method: .put,
                               parameters: request,
                               encoder: JSONParameterEncoder.default,
+                              headers: headers)
+            .serializingDecodable(Bool.self)
+        
+        return try await data.value
+    }
+    
+    func signUpEvent(eventId: Int) async throws -> Bool? {
+        guard let url = URL(string: self.baseUrl + "/signUpEvent?eventId=\(eventId)") else { return nil }
+        guard let token = KeychainSwift().get("token") else { return nil }
+        
+        let headers: HTTPHeaders = [
+            .authorization(bearerToken: token)
+        ]
+        
+        let data = AF.request(url,
+                              method: .post,
+                              headers: headers)
+            .serializingDecodable(Bool.self)
+        
+        return try await data.value
+    }
+    
+    func unsubscribeEvent(eventId: Int) async throws -> Bool? {
+        guard let url = URL(string: self.baseUrl + "/unsubscribeEvent?eventId=\(eventId)") else { return nil }
+        guard let token = KeychainSwift().get("token") else { return nil }
+        
+        let headers: HTTPHeaders = [
+            .authorization(bearerToken: token)
+        ]
+        
+        let data = AF.request(url,
+                              method: .post,
                               headers: headers)
             .serializingDecodable(Bool.self)
         

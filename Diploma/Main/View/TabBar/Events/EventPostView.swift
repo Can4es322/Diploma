@@ -8,7 +8,7 @@ struct EventPostView: View {
     var body: some View {
         ZStack {
             ScrollView(.vertical, showsIndicators: false) {
-                VStack(spacing: 0){
+                VStack(spacing: 0) {
                     ArtWork()
                     
                     VStack(spacing: 12) {
@@ -126,12 +126,14 @@ struct EventPostView: View {
                 Spacer()
                 if viewModel.isSignUpEvent {
                     CustomBorderButton(text: "Отписаться") {
-                        
+                        Task {
+                            try await viewModel.unsubscribeEvent(eventId: infoCard.id)
+                        }
                     }
                 } else {
                     CustomBackgroundButton(text: "Записаться") {
                         Task {
-                            try await viewModel.signUpEvent()
+                            try await viewModel.signUpEvent(eventId: infoCard.id)
                         }
                     }
                 }
